@@ -1,0 +1,61 @@
+running program t7_merge-C
+~STARTING AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~    ./t7_merge-C <N> <NUM_TRIALS>
+~EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~    ./t7_merge-C 9999 100000
+~here we go...
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::merge_with COMPLETE test Suite (C) - 6.667 pts
+~
+~   FYI... one clock 'tick' = 3 units
+~~   FYI... Numtrials for runtime tests: 10000
+~
+~~##################################################
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     1 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 3.333 points
+~       FUNCTION CALL: "cksum_and_eq2array(lsts[0], a, 5, cksum_before)"
+~       DESCRIPTION  : Test merge [] & [5 7 7 10 12] (including 'no-new-nodes' rule
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 1 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     2 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 3.333 points
+~       FUNCTION CALL: "lsts[1]->is_empty()"
+~       DESCRIPTION  : test case - 2nd list should be empty after merge
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 2 #######
+~
+~~[0m~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::merge_with COMPLETE test Suite (C) - 6.667 pts
+~~  RESULTS:
+~~       AUTO__SCORED:      6.667 / 6.667
+~
+~##################################################
+~~[0m~
+~YOU JUST RAN THIS AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~IF YOU RECEIVED A ~~[0;91m~WARNING ~~[0m~ ABOUT UNRELIABLE RUNTIME MEASUREMENTS
+~AND INCREASING NUMBER OF TRIALS / PROBLEM SIZE
+~HERE IS HOW YOU DO IT:
+~  USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~~[0;96m~    ./t7_merge-C <N> <NUM_TRIALS>
+~~[0m~  EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~~[0;96m~    ./t7_merge-C 9999 100000
+~~[0m

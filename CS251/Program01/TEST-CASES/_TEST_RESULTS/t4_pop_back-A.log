@@ -1,0 +1,61 @@
+running program t4_pop_back-A
+~STARTING AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~    ./t4_pop_back-A <N> <NUM_TRIALS>
+~EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~    ./t4_pop_back-A 9999 100000
+~here we go...
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::pop_back test Suite (A) (10 pts)
+~
+~   FYI... one clock 'tick' = 17 units
+~~   FYI... Numtrials for runtime tests: 10000
+~
+~~##################################################
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     1 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 5.000 points
+~       FUNCTION CALL: "testA()"
+~       DESCRIPTION  : simple pop_back
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 1 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     2 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 5.000 points
+~       FUNCTION CALL: "eq2array(lsts[0], arrs[0], 4)"
+~       DESCRIPTION  : test list after pop_back([1 2 3 4 5])
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 2 #######
+~
+~~[0m~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::pop_back test Suite (A) (10 pts)
+~~  RESULTS:
+~~       AUTO__SCORED:      10.000 / 10.000
+~
+~##################################################
+~~[0m~
+~YOU JUST RAN THIS AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~IF YOU RECEIVED A ~~[0;91m~WARNING ~~[0m~ ABOUT UNRELIABLE RUNTIEM MEASUREMENTS
+~AND INCREASING NUMBER OF TRIALS / PROBLEM SIZE
+~HERE IS HOW YOU DO IT:
+~  USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~~[0;96m~    ./t4_pop_back-A <N> <NUM_TRIALS>
+~~[0m~  EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~~[0;96m~    ./t4_pop_back-A 9999 100000
+~~[0m

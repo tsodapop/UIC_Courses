@@ -1,0 +1,83 @@
+running program t14_compare-A
+~STARTING AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~    ./t14_compare-A <N> <NUM_TRIALS>
+~EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~    ./t14_compare-A 9999 100000
+~here we go...
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::compare_with test Suite (A) - 7.5 pts
+~
+~   FYI... one clock 'tick' = 2 units
+~~   FYI... Numtrials for runtime tests: 10000
+~
+~~##################################################
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     1 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 1.875 points
+~       FUNCTION CALL: "lsts[0]->compare_with(*lsts[3])"
+~       DESCRIPTION  : empty lst vs empty list!
+~       RESULTS: 
+~         Returned Value       : 0
+~         Expected Return Value: 0
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 1 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     2 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 1.875 points
+~       FUNCTION CALL: "lsts[1]->compare_with(*lsts[2])"
+~       DESCRIPTION  : identical singletons
+~       RESULTS: 
+~         Returned Value       : 0
+~         Expected Return Value: 0
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 2 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     3 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 1.875 points
+~       FUNCTION CALL: "lsts[0]->compare_with(*lsts[1])"
+~       DESCRIPTION  : empty-list first!
+~       RESULTS: 
+~         Returned Value       : -1
+~         Expected Return Value: -1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 3 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     4 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 1.875 points
+~       FUNCTION CALL: "lsts[1]->compare_with(*lsts[0])"
+~       DESCRIPTION  : empty-list first! (args flipped)
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 4 #######
+~
+~~[0m~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::compare_with test Suite (A) - 7.5 pts
+~~  RESULTS:
+~~       AUTO__SCORED:      7.500 / 7.500
+~
+~##################################################
+~~[0m~
+~YOU JUST RAN THIS AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~IF YOU RECEIVED A ~~[0;91m~WARNING ~~[0m~ ABOUT UNRELIABLE RUNTIME MEASUREMENTS
+~AND INCREASING NUMBER OF TRIALS / PROBLEM SIZE
+~HERE IS HOW YOU DO IT:
+~  USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~~[0;96m~    ./t14_compare-A <N> <NUM_TRIALS>
+~~[0m~  EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~~[0;96m~    ./t14_compare-A 9999 100000
+~~[0m

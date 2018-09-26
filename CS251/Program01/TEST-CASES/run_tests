@@ -1,0 +1,150 @@
+
+#!/bin/bash
+
+  TDIR="_TEST_RESULTS"
+
+  rm -r -f $TDIR
+
+  mkdir $TDIR
+
+  # script -a $TDIR/make.log ./compile
+
+  echo "STARTING COMPILATION"
+  make clean
+  if [[ $1 == "-quick" ]]; then
+      make DEFINES=-DSMALL_TRIALS >> $TDIR/make.log
+  else
+      make  >> $TDIR/make.log
+  fi
+
+  echo "COMPILATION COMPLETE"
+  echo "   log stored in $TDIR/make.log"
+
+  # tests t1*  through t9*
+  for test in `ls t[0-9]_*[!p][!p]`
+  do
+        echo "running program $test" > $TDIR/$test.log
+        echo "running program $test" 
+        ./$test | grep ^~ >> $TDIR/$test.log
+        sleep .03
+  done
+  
+  # tests t10*, t11*, t12*, t14*, t15*
+  for test in `ls t[1-9][012456]_*[!p][!p]`
+  do
+        echo "running program $test" > $TDIR/$test.log
+        echo "running program $test" 
+        ./$test | grep ^~ >> $TDIR/$test.log
+        sleep .03
+  done
+  # print_rev test -- do not want to use grep filter above
+  # because it depends on function output
+  for test in `ls t13_*[!p][!p]`
+  do
+        echo "running program $test" > $TDIR/$test.log
+        echo "running program $test" 
+        ./$test >> $TDIR/$test.log
+  done
+
+  # now do some tabulation of results
+  cd $TDIR
+
+  echo "TESTS LISTED BELOW MAY HAVE CRASHED" 
+  echo ""  
+  echo "   TA INVESTIGATION MAY BE REQUIRED" 
+  grep -L "END TEST SUITE" t*.log 
+
+  echo "TESTS LISTED BELOW MAY HAVE CRASHED" > crashes
+  echo ""  > crashes
+  echo "   TA INVESTIGATION MAY BE REQUIRED" > crashes
+  grep -L "END TEST SUITE" t*.log > crashes
+
+  # Collect subtotals
+  for tnum in `seq 1 15`
+  do
+        prefix="t"$tnum"_"
+      
+        first=`ls $prefix*-A.log`
+        testName=${first%-A.log}
+        summary=$testName.SUBTOTAL
+
+        grep "__SCORE" $prefix*.log >> $summary
+        echo >> $summary
+        awk  'BEGIN{s=0; p=0;}{s=s+$3 ; p=p+$5;}END{print "\n~~  __SUBTOTAL:  "  s " / "  p }' < $summary >> $summary
+  done
+          
+      
+  grep "__SUBTOTAL" t*.SUBTOTAL > score_summary
+
+  awk 'BEGIN{s=0; p=0;}{s=s+$3 ; p=p+$5;}END{print "\n AUTO-SCORE TOTAL:  "  s " / "  p; print "\n  MISSING POINTS (CRASHES?):  " 240 - p}' < score_summary >> score_summary
+
+  echo "  (EXPECTED MAX AUTO-SCORE: 225)" >> score_summary
+  echo "=====================================================================">> score_summary
+  echo "FINAL TABULATION" >> score_summary
+  echo "  (NOTE:  POINTS FOR print_rev NOT INCLUDED ABOVE)" >> score_summary
+  echo >> score_summary
+  echo "  SCORE FOR print_rev (out of 15):  _____"  >> score_summary
+  echo >> score_summary
+  echo "  DEDUCTIONS FOR UNALLOWED MEMORY ALLOCATION NOT INCLUDED:" >> score_summary
+  echo "     (25% reduction if violated)" >> score_summary
+  echo >> score_summary
+  echo "       prefix     :  ______" >> score_summary
+  echo "       merge_with :  ______" >> score_summary
+  echo "       filter_leq :  ______" >> score_summary
+  echo "       concat     :  ______" >> score_summary
+  echo >> score_summary
+  echo "FINAL SCORE: _____  / 240" >> score_summary
+  echo >> score_summary
+  echo "=====================================================================" >> score_summary
+  echo >> score_summary
+  echo "=====================================================================" >> score_summary
+  echo "DIAGNOSTICS:  RUNTIME RATIO TEST RESULTS (LOOK FOR POSSIBLE FALSE NEGATIVES!)" >> score_summary
+  echo >> score_summary
+  grep "OBSERVED" *.log >> score_summary
+  echo "=====================================================================">> score_summary
+  echo "MORE DIAGNOSTICS:  POSSIBLE ISSUES WITH CLOCK RESOLUTION ">>score_summary
+  echo "     (MAY NEED TO INCREASE NUMBER OF TRIALS\n\n" >> score_summary
+  grep "TIME_RATIO WARNING" *.log >> score_summary
+  echo "=====================================================================">> score_summary
+  echo "NOTES ON THIS RUN:\n" >> score_summary
+  host=`hostname`
+  echo "   MACHINE USED FOR TESTS:  $host" >> score_summary
+  if [ $1 = "quick" ]; then
+    echo "   BASELINE NUM_TRIALS ~ 1000 (OK FOR MACs?)" >> score_summary
+  else
+    echo "   BASELINE NUM_TRIALS ~ 10000 (NECESSARY FOR linux TIMING?)" >> score_summary
+  fi
+  echo
+  echo "====================================================================="
+  echo
+  echo "TESTS COMPLETE!"
+  echo
+  echo "SEE _TEST_RESULTS/score_summary FOR AUTO-SCORED RESULTS"
+  echo
+  echo "   TA INSTRUCTIONS:"
+  echo
+  echo "      - MAKE SURE TESTS COMPLETED AS EXPECTED:"
+  echo "          o LOOK FOR CRASHES (file crashes might tell you"
+  echo
+  echo "      - LOOK FOR FALSE NEGATIVES IN RUNTIME TESTS:"
+  echo
+  echo "            TESTS WITH RUNTIME EVAL:  t1_*, t2*, t3*, t8*, t9*, t15*"
+  echo
+  echo "      - INSPECT t13*log TO MANUALLY SCORE print_rev"
+  echo
+  echo "      - INSPECT List.h:  prefix, merge_with, filter_leq, concat"
+  echo "                for unallowed memory allocation"
+  echo "                deduct 25% from each functions score if violated"
+  echo
+  echo "      - ENTER RESULTS OF ABOVE IN THE score_summary FILE"
+  echo
+  echo "      - THEN ENTER FINAL SCORE (out of 240) IN score_summary FILE"
+  echo
+  echo "====================================================================="
+  echo "score_summary (also in _TEST_RESULTS/score_summary):"
+  echo 
+  cat score_summary
+
+
+
+

@@ -1,0 +1,60 @@
+running program t6_filter-B
+~STARTING AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~    ./t6_filter-B <N> <NUM_TRIALS>
+~EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~    ./t6_filter-B 9999 100000
+~here we go...
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::filter_leq COMPLTE test Suite (B) - 4 pts
+~
+~   FYI... one clock 'tick' = 1 units
+~~   FYI... Numtrials for runtime tests: 10000
+~
+~~##################################################
+~
+~~[0m~  ###  TEST 1:   2.000 points
+~          DESC: test case where everything is LEQ: given list empty?
+~     Returned Value      : 1
+~     Correct Return Value: 1
+~     PASSED
+~  ###  END TEST 1
+~
+~     Score So Far For This Test Suite: 2.000 / 2.000
+~~[0;95m~  ###  BEGIN TEST     2 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 2.000 points
+~       FUNCTION CALL: "eq2arrayP(lsts[1], arrs[0], 5)"
+~       DESCRIPTION  : test case where everything is LEQ: returned list correct?
+~      Expected Contents:  ~~[ ~ 1 ~ 2 ~ 3 ~ 4 ~ 5 ~]
+~~      Your List        :  [ 1 2 3 4 5 ]
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 2 #######
+~
+~~[0m~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::filter_leq COMPLTE test Suite (B) - 4 pts
+~~  RESULTS:
+~~       AUTO__SCORED:      4.000 / 4.000
+~
+~##################################################
+~~[0m~
+~YOU JUST RAN THIS AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~IF YOU RECEIVED A ~~[0;91m~WARNING ~~[0m~ ABOUT UNRELIABLE RUNTIME MEASUREMENTS
+~AND INCREASING NUMBER OF TRIALS / PROBLEM SIZE
+~HERE IS HOW YOU DO IT:
+~  USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~~[0;96m~    ./t6_filter-B <N> <NUM_TRIALS>
+~~[0m~  EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~~[0;96m~    ./t6_filter-B 9999 100000
+~~[0m

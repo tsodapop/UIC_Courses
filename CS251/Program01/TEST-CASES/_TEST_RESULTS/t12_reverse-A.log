@@ -1,0 +1,72 @@
+running program t12_reverse-A
+~STARTING AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~    ./t12_reverse-A <N> <NUM_TRIALS>
+~EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~    ./t12_reverse-A 9999 100000
+~here we go...
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::reverse test Suite (A) - 10 pts
+~
+~   FYI... one clock 'tick' = 3 units
+~~   FYI... Numtrials for runtime tests: 10000
+~
+~~##################################################
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     1 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 2.000 points
+~       FUNCTION CALL: "eq2array(lsts[0], arrs[1], 5)"
+~       DESCRIPTION  : rev([1,2,3,4,5]) test
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 1 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     2 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 5.000 points
+~       FUNCTION CALL: "cksum_and_eq2array(lsts[0], arrs[1], 5, cksum)"
+~       DESCRIPTION  : rev([1,2,3,4,5]) with 'no-new-nodes' rule test
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 2 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     3 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 3.000 points
+~       FUNCTION CALL: "eq2array(lsts[0], arrs[0], 5)"
+~       DESCRIPTION  : double-reverse test
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 3 #######
+~
+~~[0m~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::reverse test Suite (A) - 10 pts
+~~  RESULTS:
+~~       AUTO__SCORED:      10.000 / 10.000
+~
+~##################################################
+~~[0m~
+~YOU JUST RAN THIS AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~IF YOU RECEIVED A ~~[0;91m~WARNING ~~[0m~ ABOUT UNRELIABLE RUNTIME MEASUREMENTS
+~AND INCREASING NUMBER OF TRIALS / PROBLEM SIZE
+~HERE IS HOW YOU DO IT:
+~  USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~~[0;96m~    ./t12_reverse-A <N> <NUM_TRIALS>
+~~[0m~  EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~~[0;96m~    ./t12_reverse-A 9999 100000
+~~[0m

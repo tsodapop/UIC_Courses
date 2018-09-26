@@ -1,0 +1,61 @@
+running program t8_rem_all-A
+~STARTING AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~    ./t8_rem_all-A <N> <NUM_TRIALS>
+~EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~    ./t8_rem_all-A 9999 100000
+~here we go...
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::fast_remove_all test Suite (A) - 5 pts
+~
+~   FYI... one clock 'tick' = 3 units
+~~   FYI... Numtrials for runtime tests: 10000
+~
+~~##################################################
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     1 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 2.500 points
+~       FUNCTION CALL: "lsts[0]->fast_remove_all( 0)"
+~       DESCRIPTION  : Ten 1's followed by 10 0's (return val test)
+~       RESULTS: 
+~         Returned Value       : 10
+~         Expected Return Value: 10
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 1 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     2 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 2.500 points
+~       FUNCTION CALL: "n_ones(lsts[0], 10)"
+~       DESCRIPTION  : after deleting 0's, list should be exactly 10 1's
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 2 #######
+~
+~~[0m~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::fast_remove_all test Suite (A) - 5 pts
+~~  RESULTS:
+~~       AUTO__SCORED:      5.000 / 5.000
+~
+~##################################################
+~~[0m~
+~YOU JUST RAN THIS AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~IF YOU RECEIVED A ~~[0;91m~WARNING ~~[0m~ ABOUT UNRELIABLE RUNTIME MEASUREMENTS
+~AND INCREASING NUMBER OF TRIALS / PROBLEM SIZE
+~HERE IS HOW YOU DO IT:
+~  USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~~[0;96m~    ./t8_rem_all-A <N> <NUM_TRIALS>
+~~[0m~  EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~~[0;96m~    ./t8_rem_all-A 9999 100000
+~~[0m

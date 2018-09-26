@@ -1,0 +1,92 @@
+running program t1_eq_to-C
+~STARTING AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~    ./t1_eq_to-C <N> <NUM_TRIALS>
+~EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~    ./t1_eq_to-C 9999 100000
+~here we go...
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::equal_to TESTS (C) - 4 points
+~
+~   FYI... one clock 'tick' = 3 units
+~~   FYI... Numtrials for runtime tests: 10000
+~
+~~##################################################
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     1 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 1.000 points
+~       FUNCTION CALL: "lsts[5]->equal_to(*lsts[6])"
+~       DESCRIPTION  : eq test - two empty lists
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 1 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST 2 (TIMED) #######
+~~[0;96m~       POINTS:    1.500
+~       FUNCTION-CALL-A:    "lsts[7]->equal_to(*lsts[8])"
+~       FUNCTION-CALL-B:    "lsts[7]->equal_to(*lsts[9])"
+~       GENERAL DESCRIPTION: this is a timed test.
+~            FUNCTION-CALL-A and FUNCTION-CALL-B are both called
+~            NUM_TRIALS times
+~            THE RATIO (TIME-FOR-CALL-B)/(TIME-FOR-CALL-A)
+~            IS TESTED VS MAX-ALLOWED
+~            COMMON USAGE: CALL-B is on a problem instance
+~              twice of that used in CALL-A
+~            NOTE: must pass both correctness & runtime
+~                  (zero points for getting the wrong answer fast!)
+~       SPECIFIC DESCRIPTION: runtime test (O(1)) (singleton vs long list)
+~
+~~[0m~    RESULTS OF THIS TEST:
+~~[1;32m~   PASSED!!:  correctness & runtime criteria satisfied
+~   MAX RATIO T(2N)/T(N): 1.25 ;~ OBSERVED RATIO T(2N)/T(N): 0.98
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 2 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST 3 (TIMED) #######
+~~[0;96m~       POINTS:    1.500
+~       FUNCTION-CALL-A:    "lsts[10]->equal_to(*lsts[11])"
+~       FUNCTION-CALL-B:    "lsts[12]->equal_to(*lsts[13])"
+~       GENERAL DESCRIPTION: this is a timed test.
+~            FUNCTION-CALL-A and FUNCTION-CALL-B are both called
+~            NUM_TRIALS times
+~            THE RATIO (TIME-FOR-CALL-B)/(TIME-FOR-CALL-A)
+~            IS TESTED VS MAX-ALLOWED
+~            COMMON USAGE: CALL-B is on a problem instance
+~              twice of that used in CALL-A
+~            NOTE: must pass both correctness & runtime
+~                  (zero points for getting the wrong answer fast!)
+~       SPECIFIC DESCRIPTION: runtime test (THETA(n)) (1..n; vs 1..n+1)
+~
+~~[0m~    RESULTS OF THIS TEST:
+~~[1;32m~   PASSED!!:  correctness & runtime criteria satisfied
+~   MAX RATIO T(2N)/T(N): 2.25 ;~ OBSERVED RATIO T(2N)/T(N): 0.86
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 3 #######
+~
+~~[0m~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::equal_to TESTS (C) - 4 points
+~~  RESULTS:
+~~       AUTO__SCORED:      4.000 / 4.000
+~
+~##################################################
+~~[0m~
+~YOU JUST RAN THIS AUTO-TEST WITH: 
+~    N (Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~IF YOU RECEIVED A ~~[0;91m~WARNING ~~[0m~ ABOUT UNRELIABLE RUNTIEM MEASUREMENTS
+~AND INCREASING NUMBER OF TRIALS / PROBLEM SIZE
+~HERE IS HOW YOU DO IT:
+~  USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~~[0;96m~    ./t1_eq_to-C <N> <NUM_TRIALS>
+~~[0m~  EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~~[0;96m~    ./t1_eq_to-C 9999 100000
+~~[0m

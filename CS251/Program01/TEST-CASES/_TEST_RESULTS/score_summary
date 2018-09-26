@@ -1,0 +1,58 @@
+t10_insert_sorted.SUBTOTAL:~~  __SUBTOTAL:  15 / 15
+t11_clone.SUBTOTAL:~~  __SUBTOTAL:  15.001 / 15.001
+t12_reverse.SUBTOTAL:~~  __SUBTOTAL:  20 / 20
+t13_print_rev.SUBTOTAL:~~  __SUBTOTAL:  0 / 15
+t14_compare.SUBTOTAL:~~  __SUBTOTAL:  15 / 15
+t15_suff_maxes.SUBTOTAL:~~  __SUBTOTAL:  15 / 15
+t1_eq_to.SUBTOTAL:~~  __SUBTOTAL:  10 / 10
+t2_count.SUBTOTAL:~~  __SUBTOTAL:  10 / 10
+t3_len.SUBTOTAL:~~  __SUBTOTAL:  15 / 15
+t4_pop_back.SUBTOTAL:~~  __SUBTOTAL:  15 / 15
+t5_prefix.SUBTOTAL:~~  __SUBTOTAL:  20 / 20
+t6_filter.SUBTOTAL:~~  __SUBTOTAL:  20 / 20
+t7_merge.SUBTOTAL:~~  __SUBTOTAL:  20.001 / 20.001
+t8_rem_all.SUBTOTAL:~~  __SUBTOTAL:  20 / 20
+t9_concat.SUBTOTAL:~~  __SUBTOTAL:  15 / 15
+
+ AUTO-SCORE TOTAL:  225.002 / 240.002
+
+  MISSING POINTS (CRASHES?):  -0.002
+  (EXPECTED MAX AUTO-SCORE: 225)
+=====================================================================
+FINAL TABULATION
+  (NOTE:  POINTS FOR print_rev NOT INCLUDED ABOVE)
+
+  SCORE FOR print_rev (out of 15):  _____
+
+  DEDUCTIONS FOR UNALLOWED MEMORY ALLOCATION NOT INCLUDED:
+     (25% reduction if violated)
+
+       prefix     :  ______
+       merge_with :  ______
+       filter_leq :  ______
+       concat     :  ______
+
+FINAL SCORE: _____  / 240
+
+=====================================================================
+
+=====================================================================
+DIAGNOSTICS:  RUNTIME RATIO TEST RESULTS (LOOK FOR POSSIBLE FALSE NEGATIVES!)
+
+t15_suff_maxes-C.log:~   MAX RATIO T(2N)/T(N): 2.50 ;~ OBSERVED RATIO T(2N)/T(N): 2.04
+t1_eq_to-C.log:~   MAX RATIO T(2N)/T(N): 1.25 ;~ OBSERVED RATIO T(2N)/T(N): 0.98
+t1_eq_to-C.log:~   MAX RATIO T(2N)/T(N): 2.25 ;~ OBSERVED RATIO T(2N)/T(N): 0.86
+t2_count-B.log:~   MAX RATIO T(2N)/T(N): 2.25 ;~ OBSERVED RATIO T(2N)/T(N): 1.98
+t3_len-A.log:~   MAX RATIO T(2N)/T(N): 1.25 ;~ OBSERVED RATIO T(2N)/T(N): 0.86
+t3_len-B.log:~   MAX RATIO T(2N)/T(N): 1.25 ;~ OBSERVED RATIO T(2N)/T(N): 1.08
+t3_len-C.log:~   MAX RATIO T(2N)/T(N): 1.25 ;~ OBSERVED RATIO T(2N)/T(N): 0.95
+t8_rem_all-C.log:~   MAX RATIO T(2N)/T(N): 2.25 ;~ OBSERVED RATIO T(2N)/T(N): 1.94
+t8_rem_all-C.log:~   MAX RATIO T(2N)/T(N): 2.25 ;~ OBSERVED RATIO T(2N)/T(N): 2.01
+t9_concat-D.log:~   MAX RATIO T(2N)/T(N): 1.25 ;~ OBSERVED RATIO T(2N)/T(N): 0.99
+=====================================================================
+MORE DIAGNOSTICS:  POSSIBLE ISSUES WITH CLOCK RESOLUTION 
+     (MAY NEED TO INCREASE NUMBER OF TRIALS\n\n
+=====================================================================
+NOTES ON THIS RUN:\n
+   MACHINE USED FOR TESTS:  MacBook-Pro.local
+   BASELINE NUM_TRIALS ~ 10000 (NECESSARY FOR linux TIMING?)

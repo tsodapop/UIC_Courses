@@ -1,0 +1,76 @@
+running program t6_filter-D
+~STARTING AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~    ./t6_filter-D <N> <NUM_TRIALS>
+~EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~    ./t6_filter-D 9999 100000
+~here we go...
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::filter_leq test Suite (D) - 4 pts
+~
+~   FYI... one clock 'tick' = 3 units
+~~   FYI... Numtrials for runtime tests: 10000
+~
+~~##################################################
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     1 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 1.500 points
+~       FUNCTION CALL: "checksum_tst_2lists(lsts[0], lsts[1], cksum_before)"
+~       DESCRIPTION  : test: [10 8 6 4 2 0]; cutoff=5: 'no-new-nodes' test
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 1 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     2 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 1.250 points
+~       FUNCTION CALL: "same_contents(lsts[1], lsts[2], 1)"
+~       DESCRIPTION  : test: [10 8 6 4 2 0]; cutoff=5 - is LEQ correct?
+~        Expected Contents:  [ 4 2 0 ]
+~        Actual Contents  :  [ 4 2 0 ]
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 2 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     3 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 1.250 points
+~       FUNCTION CALL: "same_contents(lsts[0], lsts[3], 1)"
+~       DESCRIPTION  : test: [10 8 6 4 2 0]; cutoff=5 - is RHS correct?
+~        Expected Contents:  [ 10 8 6 ]
+~        Actual Contents  :  [ 10 8 6 ]
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 3 #######
+~
+~~[0m~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::filter_leq test Suite (D) - 4 pts
+~~  RESULTS:
+~~       AUTO__SCORED:      4.000 / 4.000
+~
+~##################################################
+~~[0m~
+~YOU JUST RAN THIS AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~IF YOU RECEIVED A ~~[0;91m~WARNING ~~[0m~ ABOUT UNRELIABLE RUNTIME MEASUREMENTS
+~AND INCREASING NUMBER OF TRIALS / PROBLEM SIZE
+~HERE IS HOW YOU DO IT:
+~  USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~~[0;96m~    ./t6_filter-D <N> <NUM_TRIALS>
+~~[0m~  EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~~[0;96m~    ./t6_filter-D 9999 100000
+~~[0m

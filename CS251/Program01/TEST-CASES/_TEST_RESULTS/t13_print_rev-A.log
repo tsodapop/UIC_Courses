@@ -1,0 +1,79 @@
+running program t13_print_rev-A
+~STARTING AUTO-TEST WITH: 
+~    N (Big Problem Size) = 5000
+~    NUM_TRIALS       = 10000
+~USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~    ./t13_print_rev-A <N> <NUM_TRIALS>
+
+~EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~    ./t13_print_rev-A 9999 100000
+
+~here we go...
+
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::print_rev Suite (15 pts)
+~
+~   FYI... one clock 'tick' = 1 units
+~~   FYI... Numtrials for runtime tests: 10000
+~
+~~##################################################
+~
+~~[0m~~[0;95m~  ###  TEST 1:  "lsts[0]->print_rev()"; 5.000 points
+~  MANUAL TA TODO:  DETERMINE IF OUTPUT MATCHES EXPECTED AND ASSIGN SCORE
+~
+~~[0;96m~    EXPECTED OUTPUT: 
+~
+~        5 4 3 2 1 
+~
+~    ACTUAL OUTPUT: 
+~
+5 4 3 2 1 ~    
+ END STUDENT OUTPUT: 
+~
+~     TA REPORTED SCORE: ____ / 5.000
+~~[0;95m~  ###  END TEST 1
+~
+~~[0m~~[0;95m~  ###  TEST 2:  "lsts[0]->print_rev()"; 5.000 points
+~  MANUAL TA TODO:  DETERMINE IF OUTPUT MATCHES EXPECTED AND ASSIGN SCORE
+~
+~~[0;96m~    EXPECTED OUTPUT: 
+~
+~        5 4 3 2 1 
+~
+~    ACTUAL OUTPUT: 
+~
+5 4 3 2 1 ~    
+ END STUDENT OUTPUT: 
+~
+~     TA REPORTED SCORE: ____ / 5.000
+~~[0;95m~  ###  END TEST 2
+~
+~~[0m~~[0;95m~  ###  TEST 3:  "lsts[1]->print_rev()"; 5.000 points
+~  MANUAL TA TODO:  DETERMINE IF OUTPUT MATCHES EXPECTED AND ASSIGN SCORE
+~
+~~[0;96m~    EXPECTED OUTPUT: 
+~
+~        [] (empty) 
+~
+~    ACTUAL OUTPUT: 
+~
+~    
+ END STUDENT OUTPUT: 
+~
+~     TA REPORTED SCORE: ____ / 5.000
+~~[0;95m~  ###  END TEST 3
+~
+~~[0m~~  END TEST SUITE.  
+~~  DESCRIPTION: '~List::print_rev Suite (15 pts)' ~~~~~~~
+~~~~~   TA TODO:  ENTER TOTAL POINTS FOR MANUAL TESTS ABOVE
+~
+~~~~~   MANUAL__SCORE:   ______ / 15.000
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~
+~
+
+POST-MORTEM...
+~THIS TEST REQUIRES MANUAL INSPECTION OF OUTPUT...
+~     (NOT AUTO-GRADED, BUT LOG INDICATES EXPECTED OUTPUT

@@ -1,0 +1,33 @@
+
+ AUTO-SCORE TOTAL:  0 / 0
+
+  MISSING POINTS (CRASHES?):  240
+  (EXPECTED MAX AUTO-SCORE: 225)
+=====================================================================
+FINAL TABULATION
+  (NOTE:  POINTS FOR print_rev NOT INCLUDED ABOVE)
+
+  SCORE FOR print_rev (out of 15):  _____
+
+  DEDUCTIONS FOR UNALLOWED MEMORY ALLOCATION NOT INCLUDED:
+     (25% reduction if violated)
+
+       prefix     :  ______
+       merge_with :  ______
+       filter_leq :  ______
+       concat     :  ______
+
+FINAL SCORE: _____  / 240
+
+=====================================================================
+
+=====================================================================
+DIAGNOSTICS:  RUNTIME RATIO TEST RESULTS (LOOK FOR POSSIBLE FALSE NEGATIVES!)
+
+=====================================================================
+MORE DIAGNOSTICS:  POSSIBLE ISSUES WITH CLOCK RESOLUTION 
+     (MAY NEED TO INCREASE NUMBER OF TRIALS\n\n
+=====================================================================
+NOTES ON THIS RUN:\n
+   MACHINE USED FOR TESTS:  MacBook-Pro.local
+   BASELINE NUM_TRIALS ~ 10000 (NECESSARY FOR linux TIMING?)

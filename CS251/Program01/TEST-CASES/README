@@ -1,0 +1,108 @@
+
+
+Final test suite for List.h
+
+Instructions:
+
+  Copy/download ALL of the files in this directory into your 
+own directory containing your implementation of List.h.
+(Including the weird looking _util.h and _test.h files).
+
+TEST PROGRAMS (.cpp files):
+
+     You will find a grand total of 44 test programs!  The
+     naming conventions of the files give you a pretty clear
+     idea of the functions each is written to test.  Furthermore,
+     each such file contains a short comment at the top 
+     describing the tests performed and, when run, the output
+     will also give short descriptions.
+
+COMPILATION:
+
+     To compile, you can run make simply like this:
+
+        make
+
+     or
+
+        make quick
+
+     The 'quick' option will configure the runtime tests
+     to do fewer trials (see below for discussion).  These
+     tests will run faster, but, depending on the machine 
+     you are on, may sometimes give 'false negatives.'  The
+     default configuration is less likely to have this
+     issue (but is likely to be overkill).
+
+     Recommendation:  start with "make quick".  Then run
+     the test programs which you are interested in at that
+     moment.  For example, if I just finished work on 
+     the concat function, I would focus on the executables:
+
+       t9_concat-A thru t9_concat-D
+
+     Each test program will produce a log/report with 
+     colored text.  When a test is failed, dig into the
+     details of the nature of the test (start from the
+     banner comments at the top of the corresponding .cpp
+     file) and start debugging!
+
+
+BATCH MODE:  
+
+     If you have everything done and want to run the entire
+     test suite in one shot (including compilation, running
+     the individual test programs and tabulating results), just 
+     run the script 
+
+          ./run_tests
+
+     or for 'quick' mode which does fewer trials and is 
+         probably ok for Macs (and probably other systems
+         on which the clock granularity is reasonably small):
+
+          ./run_tests -quick
+
+     This will compile all of the test programs and run them 
+     one-by-one.
+
+         IMPORTANT SIDE NOTE:  the file run_tests is a bash script
+         and must have "executable permission" to run as shown
+         above.
+
+         As given, it does have executable permission, but if
+         you download it directly, your downloaded version may
+         not have executable permission (kind of a safety thing
+         I suppose).
+
+         In the unix world, you correct this with 
+
+              chmod +x run_tests
+
+     (back to main topic of discussion...)
+     Running ./run_tests should create a directory called _TEST_RESULTS 
+     containing:
+
+        - a .log file for each program (the output of the run)
+
+        - a subtotal for each group of tests.  For example, there 
+          are three test programs for the equal_to function:
+
+               t1_eq_to-A.cpp
+               t1_eq_to-B.cpp
+               t1_eq_to-C.cpp
+
+          Each of these will produce its own log file, but the 
+          script also produces a summary and subtotal for thes tests in:
+
+               t1_eq_to.SUBTOTAL
+
+        - from the .SUBTOTAL files, an overall tabulation is generated and
+          stored in score_summary
+
+        - In addition, score_summary includes some diagnostics to help 
+          identify "false negatives"
+
+  
+  
+      

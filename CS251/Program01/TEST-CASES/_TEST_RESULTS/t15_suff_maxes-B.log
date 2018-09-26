@@ -1,0 +1,62 @@
+running program t15_suff_maxes-B
+~STARTING AUTO-TEST WITH: 
+~    N (Big Problem Size) = 2500
+~    NUM_TRIALS       = 20000
+~USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~    ./t15_suff_maxes-B <N> <NUM_TRIALS>
+~EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~    ./t15_suff_maxes-B 9999 100000
+~here we go...
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::suffix_maxes test Suite (B) - 3 pts
+~
+~   FYI... one clock 'tick' = 2 units
+~~   FYI... Numtrials for runtime tests: 20000
+~
+~~##################################################
+~
+~~[0m[ 7 7 5 5 1 ]
+~~[0;95m~  ###  BEGIN TEST     1 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 1.500 points
+~       FUNCTION CALL: "lsts_equal_destructive(lsts[1], lsts[2])"
+~       DESCRIPTION  : testing {4,7,3,5,1}
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 1 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     2 (FUNCTIONAL) ########### 
+~~[0;96m~       POINTS       : 1.500 points
+~       FUNCTION CALL: "eq2array(lsts[0], bb, 5)"
+~       DESCRIPTION  : making sure original list unchanged
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 2 #######
+~
+~~[0m~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ ~List::suffix_maxes test Suite (B) - 3 pts
+~~  RESULTS:
+~~       AUTO__SCORED:      3.000 / 3.000
+~
+~##################################################
+~~[0m~
+~YOU JUST RAN THIS AUTO-TEST WITH: 
+~    N (Big Problem Size) = 2500
+~    NUM_TRIALS       = 20000
+~IF YOU RECEIVED A ~~[0;91m~WARNING ~~[0m~ ABOUT UNRELIABLE RUNTIME MEASUREMENTS
+~AND INCREASING NUMBER OF TRIALS / PROBLEM SIZE
+~HERE IS HOW YOU DO IT:
+~  USAGE TO OVER-RIDE DEFAULT N and NUM_TRIALS:
+~~[0;96m~    ./t15_suff_maxes-B <N> <NUM_TRIALS>
+~~[0m~  EXAMPLE WITH N=9999; NUM_TRIALS=100000:
+~~[0;96m~    ./t15_suff_maxes-B 9999 100000
+~~[0m
