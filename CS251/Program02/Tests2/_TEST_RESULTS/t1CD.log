@@ -1,0 +1,42 @@
+running program t1CD
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~ COLLECTION OF BASIC FUNCTIONAL-TESTS 
+~
+~   FYI... one clock 'tick' = 2 units
+~~   FYI... Numtrials for runtime tests: 10000
+~
+~~##################################################
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     1 ########### 
+~~[0;96m~       POINTS       : 5.000 points
+~       FUNCTION CALL: "t1C(n)"
+~       DESCRIPTION  : simple num_rows, num_cols functional test
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 1 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     2 ########### 
+~~[0;96m~       POINTS       : 5.000 points
+~       FUNCTION CALL: "t1D(n)"
+~       DESCRIPTION  : simple birth + members functional test
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 2 #######
+~
+~~[0m~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ ~ COLLECTION OF BASIC FUNCTIONAL-TESTS 
+~~  RESULTS:
+~~       AUTO__SCORED:      10.000 / 10.000
+~
+~##################################################
+~~[0m

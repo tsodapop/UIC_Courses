@@ -1,0 +1,31 @@
+running program t2B
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~ COLLECTION OF FUNCTIONAL-TESTS 
+~
+~   FYI... one clock 'tick' = 2 units
+~~   FYI... Numtrials for runtime tests: 10000
+~
+~~##################################################
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     1 ########### 
+~~[0;96m~       POINTS       : 5.000 points
+~       FUNCTION CALL: "t2B(n)"
+~       DESCRIPTION  : n births + n/2 deaths + whereis (functional only)
+~       RESULTS: 
+~         Returned Value       : 0
+~         Expected Return Value: 1
+~~[0;91m~     FAILED
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 1 #######
+~
+~~[0m~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ ~ COLLECTION OF FUNCTIONAL-TESTS 
+~~  RESULTS:
+~~       AUTO__SCORED:      0.000 / 5.000
+~
+~##################################################
+~~[0m

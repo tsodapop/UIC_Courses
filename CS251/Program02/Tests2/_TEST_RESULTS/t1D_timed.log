@@ -1,0 +1,41 @@
+running program t1D_timed
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~ TIMED TEST
+~
+~   FYI... one clock 'tick' = 2 units
+~~   FYI... Numtrials for runtime tests: 1000
+~
+~~##################################################
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST 1 #######
+~~[0;96m~       POINTS:    15.000
+~       FUNCTION-CALL-A:    "t1D(n)"
+~       FUNCTION-CALL-B:    "t1D(2*n)"
+~       GENERAL DESCRIPTION: this is a timed test.
+~            FUNCTION-CALL-A and FUNCTION-CALL-B are both called
+~            NUM_TRIALS times
+~            THE RATIO (TIME-FOR-CALL-B)/(TIME-FOR-CALL-A)
+~            IS TESTED VS MAX-ALLOWED
+~            COMMON USAGE: CALL-B is on a problem instance
+~              twice of that used in CALL-A
+~            NOTE: must pass both correctness & runtime
+~                  (zero points for getting the wrong answer fast!)
+~       SPECIFIC DESCRIPTION: runtime test of n birth ops + n members 
+~
+~~[0m~    RESULTS OF THIS TEST:
+~~[1;32m~   PASSED!!:  correctness & runtime criteria satisfied
+~   MAX RATIO T(2N)/T(N): 2.25 ;~ OBSERVED RATIO T(2N)/T(N): 2.00
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 1 #######
+~
+~~[0m~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ ~ TIMED TEST
+~~  RESULTS:
+~~       AUTO__SCORED:      15.000 / 15.000
+~
+~##################################################
+~~[0m

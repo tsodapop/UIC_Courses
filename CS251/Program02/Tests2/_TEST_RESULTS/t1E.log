@@ -1,0 +1,31 @@
+running program t1E
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~ COLLECTION OF BASIC FUNCTIONAL-TESTS 
+~
+~   FYI... one clock 'tick' = 2 units
+~~   FYI... Numtrials for runtime tests: 10000
+~
+~~##################################################
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     1 ########### 
+~~[0;96m~       POINTS       : 5.000 points
+~       FUNCTION CALL: "t1E(n)"
+~       DESCRIPTION  : birth + move + members + whereis functional test
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 1 #######
+~
+~~[0m~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ ~ COLLECTION OF BASIC FUNCTIONAL-TESTS 
+~~  RESULTS:
+~~       AUTO__SCORED:      5.000 / 5.000
+~
+~##################################################
+~~[0m

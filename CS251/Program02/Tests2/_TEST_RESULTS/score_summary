@@ -1,0 +1,24 @@
+t1.SUBTOTAL:~~  __SUBTOTAL:  60 / 60
+t2.SUBTOTAL:~~  __SUBTOTAL:  60 / 60
+
+ AUTO-SCORE TOTAL:  120 / 120
+
+  MISSING POINTS (CRASHES?):  0
+  (EXPECTED MAX AUTO-SCORE: 120)
+=====================================================================
+
+=====================================================================
+DIAGNOSTICS:  RUNTIME RATIO TEST RESULTS (LOOK FOR POSSIBLE FALSE NEGATIVES!)
+
+t1A_timed.log:~   MAX RATIO T(2N)/T(N): 2.25 ;~ OBSERVED RATIO T(2N)/T(N): 1.93
+t1D_timed.log:~   MAX RATIO T(2N)/T(N): 2.25 ;~ OBSERVED RATIO T(2N)/T(N): 2.00
+t1E_timed.log:~   MAX RATIO T(2N)/T(N): 2.25 ;~ OBSERVED RATIO T(2N)/T(N): 1.97
+t2A_timed.log:~   MAX RATIO T(2N)/T(N): 2.25 ;~ OBSERVED RATIO T(2N)/T(N): 1.95
+t2B_timed.log:~   MAX RATIO T(2N)/T(N): 2.25 ;~ OBSERVED RATIO T(2N)/T(N): 1.95
+t2C_timed.log:~   MAX RATIO T(2N)/T(N): 2.25 ;~ OBSERVED RATIO T(2N)/T(N): 1.95
+=====================================================================
+MORE DIAGNOSTICS:  POSSIBLE ISSUES WITH CLOCK RESOLUTION 
+     (MAY NEED TO INCREASE NUMBER OF TRIALS\n\n
+=====================================================================
+NOTES ON THIS RUN:\n
+   MACHINE USED FOR TESTS:  MacBook-Pro-2.local

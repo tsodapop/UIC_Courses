@@ -1,0 +1,124 @@
+
+#!/bin/bash
+
+  TDIR="_TEST_RESULTS"
+
+  rm -r -f $TDIR
+
+  mkdir $TDIR
+
+  # script -a $TDIR/make.log ./compile
+
+  echo "STARTING COMPILATION"
+  make clean
+  # if [ $1 = "quick" ]; then
+  #    make DEFINES=-DSMALL_TRIALS >> $TDIR/make.log
+  # else
+      make  >> $TDIR/make.log
+  # fi
+
+  echo "COMPILATION COMPLETE"
+  echo "   log stored in $TDIR/make.log"
+
+  # tests t1*  through t9*
+  for test in `ls t[0-9]*[!p]`
+  do
+        echo "running program $test" > $TDIR/$test.log
+        echo "running program $test" 
+        ./$test | grep ^~ >> $TDIR/$test.log
+        sleep .02
+  done
+  
+
+  # now do some tabulation of results
+  cd $TDIR
+
+  echo "TESTS LISTED BELOW MAY HAVE CRASHED" 
+  echo ""  
+  echo "   TA INVESTIGATION MAY BE REQUIRED" 
+  grep -L "END TEST SUITE" t*.log 
+
+  echo "TESTS LISTED BELOW MAY HAVE CRASHED" > crashes
+  echo ""  > crashes
+  echo "   TA INVESTIGATION MAY BE REQUIRED" > crashes
+  grep -L "END TEST SUITE" t*.log > crashes
+
+  # Collect subtotals
+  for tnum in `seq 1 2`
+  do
+        prefix="t"$tnum
+      
+        # first=`ls $prefix*.log`
+        # testName=${first%-A.log}
+        summary=$prefix.SUBTOTAL
+
+        grep "__SCORE" $prefix*.log >> $summary
+        echo >> $summary
+        awk  'BEGIN{s=0; p=0;}{s=s+$3 ; p=p+$5;}END{print "\n~~  __SUBTOTAL:  "  s " / "  p }' < $summary >> $summary
+  done
+          
+      
+  grep "__SUBTOTAL" t*.SUBTOTAL > score_summary
+
+  awk 'BEGIN{s=0; p=0;}{s=s+$3 ; p=p+$5;}END{print "\n AUTO-SCORE TOTAL:  "  s " / "  p; print "\n  MISSING POINTS (CRASHES?):  " 120 - p}' < score_summary >> score_summary
+
+  echo "  (EXPECTED MAX AUTO-SCORE: 120)" >> score_summary
+  echo "=====================================================================">> score_summary
+  # echo "FINAL TABULATION" >> score_summary
+  # echo "  (NOTE:  POINTS FOR DESTRUCTOR AND 'HONEST EFFORT' NOT INCLUDED ABOVE)" >> score_summary
+  # echo >> score_summary
+  # echo "  SCORE FOR destructor (out of 10):  _____"  >> score_summary
+  # echo >> score_summary
+  # echo "  SCORE FOR 'honest effort' (out of 40):  _____"  >> score_summary
+  # echo >> score_summary
+  # echo >> score_summary
+  # echo "FINAL SCORE: _____  / 120" >> score_summary
+  # echo >> score_summary
+  # echo "=====================================================================" >> score_summary
+  echo >> score_summary
+  echo "=====================================================================" >> score_summary
+  echo "DIAGNOSTICS:  RUNTIME RATIO TEST RESULTS (LOOK FOR POSSIBLE FALSE NEGATIVES!)" >> score_summary
+  echo >> score_summary
+  grep "OBSERVED" *.log >> score_summary
+  echo "=====================================================================">> score_summary
+  echo "MORE DIAGNOSTICS:  POSSIBLE ISSUES WITH CLOCK RESOLUTION ">>score_summary
+  echo "     (MAY NEED TO INCREASE NUMBER OF TRIALS\n\n" >> score_summary
+  grep "TIME_RATIO WARNING" *.log >> score_summary
+  echo "=====================================================================">> score_summary
+  echo "NOTES ON THIS RUN:\n" >> score_summary
+  host=`hostname`
+  echo "   MACHINE USED FOR TESTS:  $host" >> score_summary
+  echo
+  echo "====================================================================="
+  echo
+  echo "TESTS COMPLETE!"
+  echo
+  echo "SEE _TEST_RESULTS/score_summary FOR AUTO-SCORED RESULTS"
+  echo
+  echo "   TA INSTRUCTIONS:"
+  echo
+  echo "      - MAKE SURE TESTS COMPLETED AS EXPECTED:"
+  echo "          o LOOK FOR CRASHES (file crashes might tell you"
+  echo
+  echo "      - LOOK FOR FALSE NEGATIVES IN RUNTIME TESTS:"
+  echo
+  echo "            TESTS WITH RUNTIME EVAL:  t1_*, t2*, t3*, t8*, t9*, t15*"
+  echo
+  echo "      - INSPECT t13*log TO MANUALLY SCORE print_rev"
+  echo
+  echo "      - INSPECT List.h:  prefix, merge_with, filter_leq, concat"
+  echo "                for unallowed memory allocation"
+  echo "                deduct 25% from each functions score if violated"
+  echo
+  echo "      - ENTER RESULTS OF ABOVE IN THE score_summary FILE"
+  echo
+  echo "      - THEN ENTER FINAL SCORE (out of 240) IN score_summary FILE"
+  echo
+  echo "====================================================================="
+  echo "score_summary (also in _TEST_RESULTS/score_summary):"
+  echo 
+  cat score_summary
+
+
+
+

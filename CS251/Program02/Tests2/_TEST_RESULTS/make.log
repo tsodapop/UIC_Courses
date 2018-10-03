@@ -1,0 +1,12 @@
+g++ -std=c++11   t1AB.cpp -o t1AB
+g++ -std=c++11   t1A_timed.cpp -o t1A_timed
+g++ -std=c++11   t1CD.cpp -o t1CD
+g++ -std=c++11   t1D_timed.cpp -o t1D_timed
+g++ -std=c++11   t1E.cpp -o t1E
+g++ -std=c++11   t1E_timed.cpp -o t1E_timed
+g++ -std=c++11   t2A.cpp -o t2A
+g++ -std=c++11   t2A_timed.cpp -o t2A_timed
+g++ -std=c++11   t2B.cpp -o t2B
+g++ -std=c++11   t2B_timed.cpp -o t2B_timed
+g++ -std=c++11   t2C.cpp -o t2C
+g++ -std=c++11   t2C_timed.cpp -o t2C_timed

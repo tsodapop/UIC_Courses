@@ -1,0 +1,42 @@
+running program t1AB
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ ~ COLLECTION OF BASIC FUNCTIONAL-TESTS 
+~
+~   FYI... one clock 'tick' = 2 units
+~~   FYI... Numtrials for runtime tests: 10000
+~
+~~##################################################
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     1 ########### 
+~~[0;96m~       POINTS       : 2.500 points
+~       FUNCTION CALL: "t1A(n)"
+~       DESCRIPTION  : n births + n whereis ops (functional only)
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 1 #######
+~
+~~[0m~~[0;95m~  ###  BEGIN TEST     2 ########### 
+~~[0;96m~       POINTS       : 2.500 points
+~       FUNCTION CALL: "t1B(n)"
+~       DESCRIPTION  : n births + population calls (functional only)
+~       RESULTS: 
+~         Returned Value       : 1
+~         Expected Return Value: 1
+~~[1;32m~             PASSED!!
+~~[0m~~[0;96m~
+~~[0;95m~  ###  END TEST 2 #######
+~
+~~[0m~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ ~ COLLECTION OF BASIC FUNCTIONAL-TESTS 
+~~  RESULTS:
+~~       AUTO__SCORED:      5.000 / 5.000
+~
+~##################################################
+~~[0m
