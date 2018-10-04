@@ -90,7 +90,7 @@ class GridWorld {
           return;
         }
         else if (leavingP == back) { //if person leaving is in the back
-        // cout << "twetes\n";
+
           this->back = leavingP->previous;
           leavingP->previous->next = nullptr;
           leavingP->next = nullptr;
@@ -98,9 +98,6 @@ class GridWorld {
           return;
         }
         else {                                           //2+ item list   
-          // Person *temp = leavingP->previous;  
-          // leavingP->previous->next = leavingP->next;
-          // leavingP->next->previous = temp; 
           leavingP->next->previous = leavingP->previous;
           leavingP->previous->next = leavingP->next;
           leavingP->next = nullptr;
@@ -227,7 +224,7 @@ class GridWorld {
         cout << "Alive\n\n";
       }
       else {
-        cout << "Dead.\n\n";
+        cout << "Dead\n\n";
       }
       if (thePerson.toDistrictList == nullptr ) {
         cout << "The person is not linked to a district.\n";
@@ -249,9 +246,6 @@ class GridWorld {
      */   
     bool birth(int row, int col, int &id){
       //Use an ID from the graveyard if possible
-      // if (graveyard->endOfList() != nullptr && row < gridRows) {
-      //   return false;
-      // }
       if (graveyard->endOfList() != nullptr && row < gridRows && col < gridCols) {
         graveyard->frontOfList()->setAlive();
         graveyard->frontOfList()->updateDistrict(row,col);
@@ -259,11 +253,7 @@ class GridWorld {
         int reviveID = graveyard->frontOfList()->pID;
         id = reviveID;
 
-        Person *newPerson = graveyard->frontOfList(); 
-        // personInfo(*newPerson);
-        // theGrid[row][col].printList();
-        // graveyard->printList();
-        // theGrid[row][col].push_back(newPerson);   //add to the district DLL    
+        Person *newPerson = graveyard->frontOfList();  
         graveyard->pop_out(newPerson);            //remove from grave DLL
         theGrid[row][col].push_back(newPerson);   //add to the district DLL        
 
@@ -275,14 +265,13 @@ class GridWorld {
 
       //Create new ID if it is within the bounds of the grid
       if (row < gridRows && col < gridCols) {
-        // cout << "hello\n";
         id = personVector.size();
         Person *newPerson = new Person(row, col, personVector.size());
         newPerson->setAlive();
 
         // add them to the correct district
         theGrid[row][col].push_back(newPerson);
-// printGraveyard();
+
         //connect the new person pointer to the district node
         newPerson->toDistrictList = theGrid[row][col].endOfList();
 
@@ -310,18 +299,12 @@ class GridWorld {
       }
 
       if (personVector[personID].isAlive) {
-        // getBeforeAndAfter(personID);
         int tempRow = personVector[personID].pRow;
         int tempCol = personVector[personID].pCol;
 
         //set the vector and pointer to dead
         personVector[personID].setDead();
         personVector[personID].toDistrictList->setDead();
-
-        // getBeforeAndAfter(personID);
-        //remove the person from the list
-        // personInfo(*personVector[personID].toDistrictList);
-        // getBeforeAndAfter(personID);
         
         theGrid[tempRow][tempCol].pop_out(personVector[personID].toDistrictList);
 
@@ -347,7 +330,6 @@ class GridWorld {
         return false;
       }
       if (personVector[id].isAlive) {         //if they're alive, update row and col
-        // cout << "District: " << personVector[id].pRow << " " << personVector[id].pCol << endl; //testing
         row = personVector[id].pRow;
         col = personVector[id].pCol;
         return true;
@@ -371,11 +353,6 @@ class GridWorld {
         if (personVector[id].isAlive && targetRow < gridRows && targetCol < gridCols) {
           int tempRow = personVector[id].pRow;
           int tempCol = personVector[id].pCol;
-          //don't do anything if moving the end person of a list to the same list
-          // if (theGrid[targetRow][targetCol].endOfList()->pID == id) { 
-          //   cout << "hello\n";
-          //   return false;
-          // }
 
           //move out of curr district
           theGrid[tempRow][tempCol].pop_out(personVector[id].toDistrictList);

@@ -1,9 +1,9 @@
-t1.SUBTOTAL:~~  __SUBTOTAL:  5 / 60
-t2.SUBTOTAL:~~  __SUBTOTAL:  0 / 60
+t1.SUBTOTAL:~~  __SUBTOTAL:  0 / 0
+t2.SUBTOTAL:~~  __SUBTOTAL:  0 / 0
 
- AUTO-SCORE TOTAL:  5 / 120
+ AUTO-SCORE TOTAL:  0 / 0
 
-  MISSING POINTS (CRASHES?):  0
+  MISSING POINTS (CRASHES?):  120
   (EXPECTED MAX AUTO-SCORE: 120)
 =====================================================================
 
@@ -13,12 +13,6 @@ DIAGNOSTICS:  RUNTIME RATIO TEST RESULTS (LOOK FOR POSSIBLE FALSE NEGATIVES!)
 =====================================================================
 MORE DIAGNOSTICS:  POSSIBLE ISSUES WITH CLOCK RESOLUTION 
      (MAY NEED TO INCREASE NUMBER OF TRIALS\n\n
-t1A_timed.log:~       TIME_RATIO WARNING - first time trial is only 14 'ticks'
-t1D_timed.log:~       TIME_RATIO WARNING - first time trial is only 7 'ticks'
-t1E_timed.log:~       TIME_RATIO WARNING - first time trial is only 3 'ticks'
-t2A_timed.log:~       TIME_RATIO WARNING - first time trial is only 6 'ticks'
-t2B_timed.log:~       TIME_RATIO WARNING - first time trial is only 9 'ticks'
-t2C_timed.log:~       TIME_RATIO WARNING - first time trial is only 10 'ticks'
 =====================================================================
 NOTES ON THIS RUN:\n
-   MACHINE USED FOR TESTS:  10-107-210-209.vlan895.client.wireless.uic.edu
+   MACHINE USED FOR TESTS:  dhcp-vlan861-208-173.vlan861.client.wireless.uic.edu

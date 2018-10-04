@@ -4,7 +4,7 @@ running program t1D_timed
 ~~  BEGIN TEST SUITE.  
 ~~  DESCRIPTION: ~ ~ TIMED TEST
 ~
-~   FYI... one clock 'tick' = 2 units
+~   FYI... one clock 'tick' = 3 units
 ~~   FYI... Numtrials for runtime tests: 1000
 ~
 ~~##################################################
@@ -26,7 +26,7 @@ running program t1D_timed
 ~
 ~~[0m~    RESULTS OF THIS TEST:
 ~~[1;32m~   PASSED!!:  correctness & runtime criteria satisfied
-~   MAX RATIO T(2N)/T(N): 2.25 ;~ OBSERVED RATIO T(2N)/T(N): 2.00
+~   MAX RATIO T(2N)/T(N): 2.25 ;~ OBSERVED RATIO T(2N)/T(N): 1.97
 ~~[0m~~[0;96m~
 ~~[0;95m~  ###  END TEST 1 #######
 ~

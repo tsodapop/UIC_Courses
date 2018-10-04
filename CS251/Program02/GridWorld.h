@@ -90,6 +90,7 @@ class GridWorld {
           return;
         }
         else if (leavingP == back) { //if person leaving is in the back
+
           this->back = leavingP->previous;
           leavingP->previous->next = nullptr;
           leavingP->next = nullptr;
