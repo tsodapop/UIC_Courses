@@ -4,7 +4,7 @@ running program t1AB
 ~~  BEGIN TEST SUITE.  
 ~~  DESCRIPTION: ~ ~ COLLECTION OF BASIC FUNCTIONAL-TESTS 
 ~
-~   FYI... one clock 'tick' = 3 units
+~   FYI... one clock 'tick' = 2 units
 ~~   FYI... Numtrials for runtime tests: 10000
 ~
 ~~##################################################

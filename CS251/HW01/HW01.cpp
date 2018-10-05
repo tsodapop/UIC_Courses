@@ -113,18 +113,18 @@ int i;
 	// 		return 0;
 	// 	}
 
-	C. 	
-		int * clone_array(int a[], int n) {
+	// C. 	
+		// int * clone_array(int a[], int n) {
 
-		int * b;
-		b = new int[n];
-		int i;
+		// int * b;
+		// b = new int[n];
+		// int i;
 
-		  for(i=0; i<n; i++) {
-		      b[i] = a[i];
-		  }
-		  return b;
-		}
+		//   for(i=0; i<n; i++) {
+		//       b[i] = a[i];
+		//   }
+		//   return b;
+		// }
 /*
 		The revised version above creates a pointer b. The pointer b then is set to point
 		to an array of int[2] that is created on the heap via new. 
@@ -176,16 +176,17 @@ int main() {
 	lst->next = nullptr;
 
 	NODE *secondTestNode = new NODE;
-	secondTestNode->val = 6;
+	secondTestNode->val = 9;
 	secondTestNode->next = nullptr;
 
 	lst->next = secondTestNode;
 
 	NODE *thirdTestNode = new NODE;
-	thirdTestNode->val = 7;
+	secondTestNode->next = thirdTestNode;
+
+	thirdTestNode->val = 9;
 	thirdTestNode->next = nullptr;
 
-	secondTestNode->next = thirdTestNode;
 	cout << has_dups(lst) << endl;
 
 /*________________________________QUESTION 1 END________________________________*/

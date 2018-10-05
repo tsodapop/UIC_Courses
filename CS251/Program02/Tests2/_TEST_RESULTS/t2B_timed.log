@@ -4,7 +4,7 @@ running program t2B_timed
 ~~  BEGIN TEST SUITE.  
 ~~  DESCRIPTION: ~ ~ TIMED TEST 
 ~
-~   FYI... one clock 'tick' = 4 units
+~   FYI... one clock 'tick' = 2 units
 ~~   FYI... Numtrials for runtime tests: 1000
 ~
 ~~##################################################
