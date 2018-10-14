@@ -15,13 +15,14 @@
 		.quad 0x111
 		.quad 0x222
 		.quad 0x333
-
+	length:
+		.quad 0x3
 #main function
 
 main:
 	irmovq src, %rdi		 # move src into rdi register
 	irmovq dest, %rsi		 # move dest into rsi register
-	irmovq $3, %rdx 		 # the case for just 3 blocks
+	irmovq length, %rdx 		 # the case for just 3 blocks
 	irmovq $0, %rax
 	call copy_block
 	ret
