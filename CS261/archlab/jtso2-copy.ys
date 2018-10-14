@@ -1,0 +1,50 @@
+	.pos 0
+	irmovq stack, %rsp
+	call main
+	halt
+
+#provided information here for testing
+	.align 9
+	#source block
+	src:
+		.quad 0x421
+		.quad 0x357
+		.quad 0x875
+	#destination block
+	dest:
+		.quad 0x111
+		.quad 0x222
+		.quad 0x333
+
+#main function
+
+main:
+	irmovq src, %rdi		 # move src into rdi register
+	irmovq dest, %rsi		 # move dest into rsi register
+	irmovq $3, %rdx 		 # the case for just 3 blocks
+	irmovq $0, %rax
+	call copy_block
+	ret
+
+#function copy_block(long *src, long *dest, long len)
+#start in %rdi, return will be in %rax
+
+copy_block:
+	irmovq $8, %r9 		#displacement of 8 into r9
+	irmovq $1, %r10		#subtracting for each block we use
+	call whileloop
+	ret
+whileloop:
+	mrmovq (%rdi), %r8	#move src to val
+	addq %r9, %rdi		#update rdi to be next byte (update src++)
+	rmmovq %r8, (%rsi)	#move dest = val
+	addq %r9, %rsi		#update rsi to be next byte (update dest++)
+	xorq %r8, %rax			
+	subq %r10, %rdx		#subtract 1 from the counter of how many blocks
+	jne whileloop		
+	ret
+
+
+#stack starts here and goes to lower addresses
+	.pos 0x200
+stack:

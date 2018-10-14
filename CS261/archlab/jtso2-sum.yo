@@ -1,0 +1,48 @@
+0x000:                      | 	.pos 0
+0x000: 30f40002000000000000 | 	irmovq stack, %rsp
+0x00a: 804800000000000000   | 	call main
+0x013: 00                   | 	halt
+                            | 
+                            | # creation of sample linked list per provision
+                            | 
+0x018:                      | 	.align 8
+0x018:                      | 	ele1:
+0x018: 2104000000000000     | 		.quad 0x421
+0x020: 3800000000000000     | 		.quad ele3
+0x028:                      | 	ele2:
+0x028: 5703000000000000     | 		.quad 0x357
+0x030: 0000000000000000     | 		.quad 0
+0x038:                      | 	ele3:
+0x038: 7508000000000000     | 		.quad 0x875
+0x040: 2800000000000000     | 		.quad ele2
+                            | 
+                            | #main function
+                            | 
+0x048:                      | main:
+0x048: 30f71800000000000000 | 	irmovq ele1, %rdi		 # move ele1, first node, into rdi register
+0x052: 30f00000000000000000 | 	irmovq $0, %rax
+0x05c: 806600000000000000   | 	call sum
+0x065: 90                   | 	ret
+                            | 
+                            | #sum(node *ele1)
+                            | #start in %rdi, return will be in %rax
+                            | 
+0x066:                      | sum:
+0x066: 807000000000000000   | 	call whileloop
+0x06f: 90                   | 	ret
+0x070:                      | whileloop:
+                            | 
+0x070: 50970000000000000000 | 	mrmovq (%rdi), %r9		#store in a new register
+0x07a: 6090                 | 	addq %r9, %rax			#add the node value to the sum, stored in rax
+0x07c: 30fa0800000000000000 | 	irmovq $8, %r10			#set r10 equal to 8 for displacement
+0x086: 60a7                 | 	addq %r10, %rdi			#displace rdi to get to the next node pointer
+0x088: 50770000000000000000 | 	mrmovq (%rdi), %rdi
+0x092: 30fb0000000000000000 | 	irmovq $0, %r11			#move 0 for testing
+0x09c: 61b7                 | 	subq %r11, %rdi			#subtract 0 from the next node pointerr	
+0x09e: 747000000000000000   | 	jne whileloop			#if not equal, go to next list
+0x0a7: 90                   | 	ret
+                            | 
+                            | 
+                            | #stack starts here and goes to lower addresses
+0x200:                      | 	.pos 0x200
+0x200:                      | stack:

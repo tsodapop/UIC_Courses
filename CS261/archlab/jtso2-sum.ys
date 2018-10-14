@@ -1,0 +1,48 @@
+	.pos 0
+	irmovq stack, %rsp
+	call main
+	halt
+
+# creation of sample linked list per provision
+
+	.align 8
+	ele1:
+		.quad 0x421
+		.quad ele3
+	ele2:
+		.quad 0x357
+		.quad 0
+	ele3:
+		.quad 0x875
+		.quad ele2
+
+#main function
+
+main:
+	irmovq ele1, %rdi		 # move ele1, first node, into rdi register
+	irmovq $0, %rax
+	call sum
+	ret
+
+#sum(node *ele1)
+#start in %rdi, return will be in %rax
+
+sum:
+	call whileloop
+	ret
+whileloop:
+
+	mrmovq (%rdi), %r9		#store in a new register
+	addq %r9, %rax			#add the node value to the sum, stored in rax
+	irmovq $8, %r10			#set r10 equal to 8 for displacement
+	addq %r10, %rdi			#displace rdi to get to the next node pointer
+	mrmovq (%rdi), %rdi
+	irmovq $0, %r11			#move 0 for testing
+	subq %r11, %rdi			#subtract 0 from the next node pointerr	
+	jne whileloop			#if not equal, go to next list
+	ret
+
+
+#stack starts here and goes to lower addresses
+	.pos 0x200
+stack:

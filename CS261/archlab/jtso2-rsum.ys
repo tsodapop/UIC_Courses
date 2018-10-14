@@ -1,0 +1,50 @@
+	.pos 0
+	irmovq stack, %rsp
+	call main
+	halt
+
+# creation of sample linked list per provision
+
+	.align 8
+	ele1:
+		.quad 0x421
+		.quad ele3
+	ele2:
+		.quad 0x357
+		.quad 0
+	ele3:
+		.quad 0x875
+		.quad ele2
+
+#main function
+
+main:
+	irmovq ele1, %rdi		 # move ele1, first node, into rdi register
+	irmovq $0, %rax
+	call rsum_list
+	ret
+
+#sum_list(node *ele1)
+#start in %rdi, return will be in %rax
+
+rsum_list:
+	mrmovq (%rdi), %r9		#store in a new register
+	pushq %r9			#push this value onto the stack 
+	irmovq $8, %r10			#set r10 equal to 8 for displacement
+	addq %r10, %rdi			#displace rdi to get to the next node pointer
+	jmp test
+test:	
+	mrmovq (%rdi), %rdi
+	irmovq $0, %r11			#move 0 for testing
+	subq %r11, %rdi			#subtract 0 from the next node pointerr	
+	je complete			#begin set of recursive call end, otherwise continue to call rsum_list
+	call rsum_list
+
+complete:
+	popq %r9			#pop off the top value into r9 and add to sum on rax
+	addq %r9, %rax
+	ret
+
+#stack starts here and goes to lower addresses
+	.pos 0x200
+stack:
