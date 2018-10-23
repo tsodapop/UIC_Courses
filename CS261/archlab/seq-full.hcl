@@ -1,3 +1,18 @@
+#Jonathan Tso's seq-full.hcl file
+#NetID: jtso2
+
+#Explanation for where the IIADDQ was added:
+#For IIADDQ, we plan to add a constant with a register value. At the beginning,
+#We add IIADDQ to instr_valid to consider it a valid instruction. We will need valC
+#and a regisster (the register we are adding to), so we add to need_valC and need_regids.
+#We do not have a srcA, but we do have a srcB register so we let them know in decode. We also
+#let them know that dstE, or the end result will be stored in rB, which is srcB's register.
+#we are not storing anything in memory and only manipulating register values so we ignore valM.
+#aluA is set to valC because it is the constant we are adding in. aluB is the register value valB.
+#we update set_cc because we want to recognize whenever we are done with potential loops using this.
+#like previous, we ignore the memory stage. additionally, we are not making any jumps or changes, so we
+#can ignore PC update to anything outside of the normal.
+
 #/* $begin seq-all-hcl */
 ####################################################################
 #  HCL Description of Control for Single Cycle Y86-64 Processor SEQ   #
