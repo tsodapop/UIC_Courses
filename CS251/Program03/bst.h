@@ -71,11 +71,13 @@ class bst {
       if(x < r->val){
         r->left = _insert(r->left, x, success);
         r->lSize = _size(r->left)+1;// + _size(r->right);
+        sizeBalance(r);
         return r;
       } 
       else {
         r->right = _insert(r->right, x, success);
         r->lSize = _size(r->left);// + _size(r->right);
+        sizeBalance(r);
         return r;
       }
     }
@@ -191,9 +193,11 @@ class bst {
       }
       if(x < r->val){
         r->left = _remove(r->left, x, success);
+        r->lSize = _size(r->left);
       }
       else {
         r->right = _remove(r->right, x, success);
+        r->lSize = _size(r->left);
       }
       return r;
 
@@ -219,6 +223,12 @@ class bst {
   public: 
     int size() {
       return _size(root);
+    }
+
+    void printSize() {
+      cout << "Size of tree: " << _size(root) << endl;
+      cout << "Size of left: " << _size(root->left) << endl;
+      cout << "Size of right: " << _size(root->right) << endl;
     }
 
   private:
@@ -259,7 +269,7 @@ class bst {
     // TODO
 
   private: 
-
+    //helper function for to_vector
     void insToVec(bst_node *r, vector<T> *vector) {
       if(r == nullptr) {  //if null, return
         return;
@@ -279,7 +289,7 @@ class bst {
     }  
 
   public:
-
+//puts the values of a bst into a vector in-order
     std::vector<T> * to_vector() {
       vector<T> *toVector = new vector<T>;  //creates new vector pointer to vector
 
@@ -287,8 +297,6 @@ class bst {
 
       return toVector;
     }
-
-
 
     // print out a vector
     void printVector(vector<T> *pvector) {
@@ -314,7 +322,6 @@ class bst {
      */
 
     bool _get_ith(int i, T &x, bst_node *root) {
-      // cout << "i is: " << i  << " root val is: " << root->lSize+1 << endl;
       if (i == (root->lSize+1)) {
         x = root->val;
         return true;
@@ -324,7 +331,6 @@ class bst {
         return true;
       }
       else {
-// cout << "i is: " << i  << " root val is: " << root->lSize+1 << endl;
         _get_ith((i-(root->lSize+1)), x, root->right);;
         return true;
       }
@@ -466,7 +472,33 @@ class bst {
       return total;
     }
 
+  private:
+    void static sizeBalance(bst_node *root) {
+      if (root == nullptr) {
+        return;
+      }
+      int size1 = _size(root->left);
+      int size2 = _size(root->right);
+      int min = 0;
+      int max = 0;
 
+      //setting up which side, left or right, has more nodes
+      if (size1 >= size2) {
+        max = size1;
+        min = size2;
+      }
+      else {
+        max = size2;
+        min = size1;
+      }
+      if ((min*2)+1 >= max) {
+        cout << "Size Balance Is Okay.\n";
+      }
+      if ((min*2)+1 < max) {
+        // cout << "Size Balance Error.\n";
+        // cout << min << " " << max << endl;
+      }
+    }
 
 
 
