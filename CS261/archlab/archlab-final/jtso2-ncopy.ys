@@ -1,0 +1,163 @@
+#NetID: jtso2
+#UIN: 662758603
+#Description:
+#I updated the code to have loop unrolling up to 7 times, and included
+#a remainder, which checks if the length left is still > 0 and to account for that.
+#I added the actual summations of the unrolled loop at the bottom of the loop
+
+#/* $begin ncopy-ys */
+##################################################################
+# ncopy.ys - Copy a src block of len words to dst.
+# Return the number of positive words (>0) contained in src.
+#
+# Include your name and ID here.
+#
+# Describe how and why you modified the baseline code.
+#
+##################################################################
+# Do not modify this portion
+# Function prologue.
+# %rdi = src, %rsi = dst, %rdx = len
+ncopy:
+
+##################################################################
+# You can modify this portion
+# Loop header
+	xorq %rax, %rax		#rax = 0
+	iaddq $-7, %rdx		#len = len-7
+	jge  Loop		#if len >= 7, go to Loop, else Addback
+########################add back############################
+Addback:
+	iaddq $7, %rdx
+	jg Remainder
+	je Done
+#######################loop#########################	
+Loop: 
+
+	mrmovq (%rdi), %r8	# read val from src...
+	mrmovq 8(%rdi), %r9	#val from src
+	mrmovq 16(%rdi), %r10	#val from src
+	mrmovq 24(%rdi), %r11	#val from src
+	mrmovq 32(%rdi), %r12	#val from src
+	mrmovq 40(%rdi), %r13	#val from src
+	mrmovq 48(%rdi), %r14	#val from src
+
+	rmmovq %r8, (%rsi)	# ...and store it to dst
+	rmmovq %r9, 8(%rsi)	# store to dst
+	rmmovq %r10, 16(%rsi)	# store to dst
+	rmmovq %r11, 24(%rsi)	# store to dst
+	rmmovq %r12, 32(%rsi)	# store to dst
+	rmmovq %r13, 40(%rsi)	# store to dst
+	rmmovq %r14, 48(%rsi)	# store to dst
+
+	andq %r8, %r8		# val <= 0?
+	jle Npos
+	iaddq $1, %rax		#count++
+Npos:
+	andq %r9, %r9		# val <= 0?
+	jle Npos2
+	iaddq $1, %rax		#count++
+Npos2:
+	andq %r10, %r10		# val <= 0?
+	jle Npos3
+	iaddq $1, %rax		#count++
+Npos3:
+	andq %r11, %r11		# val <= 0?
+	jle Npos4
+	iaddq $1, %rax		#count++
+Npos4:
+	andq %r12, %r12		# val <= 0?
+	jle Npos5
+	iaddq $1, %rax		#count++
+Npos5:
+	andq %r13, %r13		# val <= 0?
+	jle Npos6
+	iaddq $1, %rax		#count++
+Npos6:
+	andq %r14, %r14		# val <= 0?
+	
+	jle StatUpdate
+	iaddq $1, %rax		#count++
+#######################Length subtraction#########################
+StatUpdate:
+	iaddq $56, %rdi
+	iaddq $56, %rsi
+#######################loop checker#########################
+	iaddq $-7, %rdx
+	jge Loop			#go back into loop if >0
+	jl Addback		#if len < 0, go to Addback
+########################remainder############################
+
+Remainder:
+	mrmovq (%rdi), %r10	# read val from src...
+	rmmovq %r10, (%rsi)	# ...and store it to dst
+	andq %r10, %r10		# val <= 0?
+	jle NposRem
+	iaddq $1, %rax		#count++
+NposRem:
+	iaddq $-1, %rdx		#len--
+	jle Done		#if length = 0, you are done
+
+	mrmovq 8(%rdi), %r10	#from src
+	rmmovq %r10, 8(%rsi)	#to dst
+	andq %r10, %r10		#val <= 0?
+	jle NposRem2
+	iaddq $1, %rax		#count++
+
+NposRem2:
+	iaddq $-1, %rdx		#len--
+	jle Done
+
+	mrmovq 16(%rdi), %r10	#from src
+	rmmovq %r10, 16(%rsi)	#to dst
+	andq %r10, %r10		#val <= 0?
+	jle NposRem3
+	iaddq $1, %rax		#count++
+NposRem3:
+	iaddq $-1, %rdx		#len--
+	jle Done
+
+	mrmovq 24(%rdi), %r10	#from src
+	rmmovq %r10, 24(%rsi)	#to dst
+	andq %r10, %r10		#val <= 0?
+	jle NposRem4
+	iaddq $1, %rax		#count++
+
+NposRem4:
+	iaddq $-1, %rdx		#len--
+	jle Done
+
+	mrmovq 32(%rdi), %r10	#from src
+	rmmovq %r10, 32(%rsi)	#to dst
+	andq %r10, %r10		#val <= 0?
+	jle NposRem5
+	iaddq $1, %rax
+NposRem5:
+	iaddq $-1, %rdx
+	jle Done
+
+	mrmovq 40(%rdi), %r10
+	rmmovq %r10, 40(%rsi)
+	andq %r10, %r10
+
+	jle NposRem6
+	iaddq $1, %rax
+NposRem6:
+	iaddq $-1, %rdx
+	jle Done
+
+	mrmovq 48(%rdi), %r10
+	rmmovq %r10, 48(%rsi)
+	andq %r10, %r10
+
+	jle Done
+	iaddq $1, %rax		#count++
+##################################################################
+# Do not modify the following section of code
+# Function epilogue.
+Done:
+	ret
+##################################################################
+# Keep the following label at the end of your function
+End:
+#/* $end ncopy-ys */
