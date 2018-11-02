@@ -11,29 +11,24 @@ int main(){
 
     // while( (std::cin >> x)) 
         // t->insert(x);
+    for ( int i =1; i <= 6; i++) {
+        t->insert(i);
+    }
+    x = 2;
+    t->remove(x);
+    x = 1;
+    t->remove(x);
+    // x = 5; t->remove(x);
 
     // if(t->size() <= 20) {
     //   t->inorder();
-	//     t->preorder();
-	//     t->postorder();
+	    // t->preorder();
     // }
     // _________________________ to_vector _________________________
-    x = 4;
-    t->insert(x);
-    x = 2;
-    t->insert(x);
-    x = 1;
-    t->insert(x);
-    // x = 3;
-    // t->insert(x);
-    // x = 5;
-    // t->insert(x);
-    // x = 8;
-    // t->insert(x);
     // cout << "Testing to_vector\n";
-    vector<int> *newVec = t->to_vector();
-    t->printVector(newVec);
-    // t->printNodeVal();
+    vector<int> *newVec = t->to_vector(); cout << "Vector of BST: "; t->printVector(newVec);
+    // cout << endl; t->printNodeVal();
+    // t->preorder();
     cout << endl;
     // _________________________ to_vector _________________________
 
@@ -44,11 +39,14 @@ int main(){
     // _________________________ get_ith _________________________
 
     // _________________________ size_bal _________________________
-    cout << "Testing size_bal\n";
+    // cout << "TESTING SIZE BAL\n";
     // t->printSize();
-    // cout << z << endl;
+    // vector<int> *newVec = t->to_vector(); cout << "Vector of BST: "; t->printVector(newVec);
     // _________________________ size_bal _________________________
-
+    // if(t->size() <= 20) {
+    //   t->inorder();
+	    // t->preorder();
+    // }
 
 
     // h = t->height();
