@@ -1,0 +1,73 @@
+running program t3
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ [get_ith]:  builds balanced tree + get_ith
+~
+~   FYI... one clock 'tick' = 1 units
+~~   FYI... Numtrials for runtime tests: 1000
+~
+~~##################################################
+~
+~~[0m~  ###  TEST 1:   2.000 points
+~          DESC: COMPILATION
+~     Returned Value      : 1
+~     Correct Return Value: 1
+~     PASSED
+~  ###  END TEST 1
+~
+~     Score So Far For This Test Suite: 2.000 / 2.000
+~  ###  TEST 2:   3.000 points
+~          DESC: CORRECTNESS-ONLY-TEST
+~     Returned Value      : 1
+~     Correct Return Value: 1
+~     PASSED
+~  ###  END TEST 2
+~
+~     Score So Far For This Test Suite: 5.000 / 5.000
+~~[0;95m~  ###  BEGIN TEST 3 #######
+~~[0;96m~       POINTS:    5.000
+~       FUNCTION-CALL-A:    "test(height, n)"
+~       FUNCTION-CALL-B:    "test(height2, n2)"
+~       GENERAL DESCRIPTION: this is a timed test.
+~            FUNCTION-CALL-A and FUNCTION-CALL-B are both called
+~            NUM_TRIALS times
+~            THE RATIO (TIME-FOR-CALL-B)/(TIME-FOR-CALL-A)
+~            IS TESTED VS MAX-ALLOWED
+~            COMMON USAGE: CALL-B is on a problem instance
+~              twice of that used in CALL-A
+~            NOTE: must pass both correctness & runtime
+~                  (zero points for getting the wrong answer fast!)
+~       SPECIFIC DESCRIPTION: 
+~
+~~[0m~    RESULTS OF THIS TEST:
+~~[0;91m~   FAILED 
+~   TOO SLOW!
+~   MAX RATIO T(2N)/T(N): 2.50 ;~ OBSERVED RATIO T(2N)/T(N): 3.97
+~     (NUM-TRIALS:       1000)
+~~[0;96m~
+     CUMMULATIVE SCORE: 5.000 / 10.000
+~~[0;95m~  ###  END TEST 3 #######
+~
+~~[0m~
+~
+~ #####   TESTS_COMPLETED ######  
+~
+~
+~    FINAL RESULTS OF TESTS:  
+~
+~
+~        AUTOSCORED:    5.000 / 10.000
+~
+~
+~          AUTO TESTS PASSED:  2
+~~          AUTO TESTS FAILED:  1
+~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ [get_ith]:  builds balanced tree + get_ith
+~~  RESULTS:
+~~       AUTO__SCORED:      5.000 / 10.000
+~
+~##################################################
+~~[0m

@@ -46,14 +46,17 @@ int test(int h, int init_n) {
 
   lo = max/5;
   hi = max-lo;
-
+  cout << "testsetset\n" << n << " " <<  lo << " " << hi << endl;
   answer = (hi-lo)/2;
   if((hi%2) || (lo%2))
     answer++;
-  
+  cout << "answer: " << answer << endl;
+  cout << "leq hi: " << t->num_leq(hi);
+  cout << "leq lo: " << t->num_leq(lo);
   passed = 1;
   for(i=0; i<n; i++) {
     if(t->num_range( lo, hi) != answer)
+      // cout << "BROKEN BY THE ANSWER: " << t->num_range(lo,hi) << " IT SHOULD BE " << answer << endl;
       passed = 0;
   }
   bst_free(t);

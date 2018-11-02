@@ -1,0 +1,22 @@
+t1.log:~~       AUTO__SCORED:      10.000 / 10.000
+t10.log:~~       AUTO__SCORED:      1.500 / 7.500
+t11.log:~~       AUTO__SCORED:      1.000 / 5.000
+t12.log:~~       AUTO__SCORED:      5.000 / 5.000
+t13.log:~~       AUTO__SCORED:      1.000 / 5.000
+t14.log:~~       AUTO__SCORED:      20.000 / 20.000
+t15.log:~~       AUTO__SCORED:      20.000 / 20.000
+t16.log:~~       AUTO__SCORED:      20.000 / 20.000
+t2.log:~~       AUTO__SCORED:      10.000 / 10.000
+t3.log:~~       AUTO__SCORED:      5.000 / 10.000
+t4.log:~~       AUTO__SCORED:      5.000 / 10.000
+t7.log:~~       AUTO__SCORED:      7.500 / 7.500
+t8.log:~~       AUTO__SCORED:      7.500 / 7.500
+t9.log:~~       AUTO__SCORED:      7.500 / 7.500
+
+ AUTO-SCORE TOTAL:  121 / 145
+
+  MISSING POINTS (CRASHES?):  0
+  (EXPECTED MAX AUTO-SCORE: 145)
+
+  (POINTS FOR README FILE NOT INCLUDED)
+  (POINTS FOR 'HONEST EFFORT' NOT INCLUDED)

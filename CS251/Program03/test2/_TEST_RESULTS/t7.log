@@ -1,0 +1,71 @@
+running program t7
+~~[0;94m~
+~##################################################
+~~  BEGIN TEST SUITE.  
+~~  DESCRIPTION: ~ [num_leq]: balanced tree + num_leq scan
+~
+~   FYI... one clock 'tick' = 3 units
+~~   FYI... Numtrials for runtime tests: 1000
+~
+~~##################################################
+~
+~~[0m~  ###  TEST 1:   1.500 points
+~          DESC: COMPILATION
+~     Returned Value      : 1
+~     Correct Return Value: 1
+~     PASSED
+~  ###  END TEST 1
+~
+~     Score So Far For This Test Suite: 1.500 / 1.500
+~  ###  TEST 2:   2.250 points
+~          DESC: CORRECTNESS-ONLY-TEST
+~     Returned Value      : 1
+~     Correct Return Value: 1
+~     PASSED
+~  ###  END TEST 2
+~
+~     Score So Far For This Test Suite: 3.750 / 3.750
+~~[0;95m~  ###  BEGIN TEST 3 #######
+~~[0;96m~       POINTS:    3.750
+~       FUNCTION-CALL-A:    "test(height, n)"
+~       FUNCTION-CALL-B:    "test(height2, n2)"
+~       GENERAL DESCRIPTION: this is a timed test.
+~            FUNCTION-CALL-A and FUNCTION-CALL-B are both called
+~            NUM_TRIALS times
+~            THE RATIO (TIME-FOR-CALL-B)/(TIME-FOR-CALL-A)
+~            IS TESTED VS MAX-ALLOWED
+~            COMMON USAGE: CALL-B is on a problem instance
+~              twice of that used in CALL-A
+~            NOTE: must pass both correctness & runtime
+~                  (zero points for getting the wrong answer fast!)
+~       SPECIFIC DESCRIPTION: 
+~
+~~[0m~    RESULTS OF THIS TEST:
+~~[1;32m~   PASSED!!:  correctness & runtime criteria satisfied
+~   MAX RATIO T(2N)/T(N): 2.50 ;~ OBSERVED RATIO T(2N)/T(N): 2.14
+~~[0m~~[0;96m~
+     CUMMULATIVE SCORE: 7.500 / 7.500
+~~[0;95m~  ###  END TEST 3 #######
+~
+~~[0m~
+~
+~ #####   TESTS_COMPLETED ######  
+~
+~
+~    FINAL RESULTS OF TESTS:  
+~
+~
+~        AUTOSCORED:    7.500 / 7.500
+~
+~
+~          AUTO TESTS PASSED:  3
+~~          AUTO TESTS FAILED:  0
+~~[0;94m~
+~##################################################
+~~  END TEST SUITE.  
+~~  DESCRIPTION: ~ [num_leq]: balanced tree + num_leq scan
+~~  RESULTS:
+~~       AUTO__SCORED:      7.500 / 7.500
+~
+~##################################################
+~~[0m

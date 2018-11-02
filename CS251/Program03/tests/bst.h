@@ -281,14 +281,14 @@ static bst_node * _removeBal(bst_node *r, T & x, bool &success, bst_node * rootN
       if(x < r->val){
         r->left = _removeBal(r->left, x, success, rootNode);
         if (success) {
-          // r->numNodes--;
+          r->numNodes--;
           // r->lSize--;
         }          
       }
       else {
         r->right = _removeBal(r->right, x, success, rootNode);
         if (success) {
-          // r->numNodes--;
+          r->numNodes--;
         }            
       }
       return r;
@@ -425,20 +425,23 @@ static bst_node * _removeBal(bst_node *r, T & x, bool &success, bst_node * rootN
      * Runtime:  O(h) where h is the tree height
      */
     //helper recursive funciton for get ith
-    bool _get_ith(int i, T &x, bst_node *root) {
+    bool _get_ith(int ith, T &x, bst_node *root) {
       int testVal = root->lSize+1;
-      if (i == testVal) {
+
+      if (root == nullptr) {
+        return false;
+      }
+      if (ith == testVal) {
         x = root->val;
         return true;
       }
-      if (i < testVal) {
-        _get_ith(i, x, root->left);
-        return true;
+      if (ith < testVal) {
+        return _get_ith(ith, x, root->left);
       }
       else {
-        _get_ith((i-testVal), x, root->right);;
-        return true;
+        return _get_ith((ith-testVal), x, root->right);
       }
+      return false;
     }
 
     //get ith function
@@ -446,8 +449,8 @@ static bst_node * _removeBal(bst_node *r, T & x, bool &success, bst_node * rootN
       if (i < 1 || i > size()) {
         return false;
       }
-      _get_ith(i, x, root);
-      return true;   // placeholder
+      return _get_ith(i, x, root);
+      // return true;   // placeholder
     }
 
 
@@ -471,9 +474,39 @@ static bst_node * _removeBal(bst_node *r, T & x, bool &success, bst_node * rootN
      * Runtime:  O(h) where h is the tree height
      */
     int num_geq(const T & x) {
-      int geqNum = 0;
+      int rootNodes = root->numNodes+1;
+      int geq =  _num_geq(root,x, rootNodes);
 
-      return 0;  // placeholder
+      // if (x > root->size()) { return 0;}
+      // if (x < 1) { return size();}
+      return geq;
+    }
+    //helper function
+    static int _num_geq(bst_node *r,const T&x, int rootNodes) {
+      int num = 0;
+      if (r == nullptr) {
+        return 0;
+      }
+
+      if (r->val == x) {
+          num = _num_geq(r->right, x,rootNodes) + _num_geq(r->left, x, rootNodes) + 1; 
+        return num;
+      }
+
+      if (r->val > x) {
+        // cout << "left!!\n";
+        num = _num_geq(r->left, x,rootNodes);
+        int j = (r->numNodes - r->lSize)+1;
+        num = num + j;
+        return num;
+      }
+
+      if (r->val < x) {
+        // cout << "right!!\n";
+        num = _num_geq(r->right, x,rootNodes);
+        return num;
+      }
+      return num;
     }
 
     /*
@@ -495,7 +528,40 @@ static bst_node * _removeBal(bst_node *r, T & x, bool &success, bst_node * rootN
      *
      **/
     int num_leq(const T &x) {
-      return 0;  // placeholder
+      int rootNodes = root->numNodes+1;
+      int leq =  _num_leq(root,x, rootNodes);
+      return leq;  
+    }
+    //helper function
+    static int _num_leq(bst_node *r,const T&x, int rootNodes) {
+      int num = 0;
+      if (r == nullptr) {
+        return 0;
+      }
+
+      if (r->val == x) {
+          num = _num_leq(r->left, x,rootNodes) + _num_leq(r->right, x, rootNodes) + 1; 
+        return num;
+      }
+
+      if (r->val > x) {
+        // cout << "right!!\n";
+        // cout << "left!!\n";
+        num = _num_leq(r->left, x,rootNodes);
+        // int j = (r->lSize)+1;
+        // num = num + j;
+        return num;
+      }
+
+      if (r->val < x) {
+        // cout << "left!!\n";
+        // cout << "right!!\n";
+        // num = _num_leq(r->right, x,rootNodes)+1;
+        num = _num_leq(r->right,x,rootNodes);
+        num = num + r->lSize+1;
+        return num;
+      }
+      return num;
     }
 
     /*
@@ -516,6 +582,38 @@ static bst_node * _removeBal(bst_node *r, T & x, bool &success, bst_node * rootN
      *
      **/
     int num_range(const T & min, const T & max) {
+      // return _num_range(root, min, max);
+      return num_leq(max) - num_leq(min) + 1;
+    }
+
+
+    //helper function
+    int _num_range(bst_node *root, int min, int max) {
+      // if (root == nullptr) {
+      //   return 0;
+      // }
+
+      // if (root->val == min && root->val == max) {
+      //   return 1;
+      // }
+
+      // if (root->val > max) {
+      //   return _num_range(root->left, min, max);
+      // }
+
+      // if (root->val < min) {
+      //   return _num_range(root->right, min, max);
+      // }
+
+      // if (root->val >= min && root->val <= max) {
+      //   if (root->left < min) {
+      //     return (root-lSize)
+      //   }
+        // return _num_range(root->right, min, max) + _num_range(root->left, min, max)+1;
+
+      // }
+
+     
       return 0;
     }
 
@@ -705,7 +803,7 @@ static bst_node * _removeBal(bst_node *r, T & x, bool &success, bst_node * rootN
       // cout << "value: " << root->val << endl;
       root->left  = _from_vec(a, low, m-1); 
       root->right = _from_vec(a, m+1, hi);
-      
+
       if (root->left != nullptr) {
         root->lSize = _size(root->left);
         root->numNodes = _size(root)-1;
