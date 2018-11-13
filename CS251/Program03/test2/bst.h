@@ -216,6 +216,7 @@ class bst {
         // if we get here, r has two children
         r->val = _min_node(r->right)->val;
         r->right = _remove(r->right, r->val, sanity, rootNode);
+        r->numNodes--;
         if(!sanity)
           std::cerr << "ERROR:  remove() failed to delete promoted value?\n";
         return r;
@@ -471,9 +472,6 @@ static bst_node * _removeBal(bst_node *r, T & x, bool &success, bst_node * rootN
     int num_geq(const T & x) {
       int rootNodes = root->numNodes+1;
       int geq =  _num_geq(root,x, rootNodes);
-
-      // if (x > root->size()) { return 0;}
-      // if (x < 1) { return size();}
       return geq;
     }
     //helper function
