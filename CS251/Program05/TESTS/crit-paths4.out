@@ -1,0 +1,27 @@
+@1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@2
+@3 COMMAND-LINE:
+@4
+@5    ./cpaths_verbose ladder10.g 
+@6
+@7++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@ a1 : dist=0 ; pred=a1
+@ a2 : dist=973 ; pred=b1
+@ b2 : dist=872 ; pred=b1
+@ b1 : dist=0 ; pred=b1
+@ a3 : dist=1448 ; pred=b2
+@ b3 : dist=1149 ; pred=a2
+@ a4 : dist=1728 ; pred=b3
+@ b4 : dist=1803 ; pred=a3
+@ a5 : dist=2610 ; pred=a4
+@ b5 : dist=2462 ; pred=b4
+@ a6 : dist=3431 ; pred=a5
+@ b6 : dist=3266 ; pred=b5
+@ a7 : dist=4016 ; pred=a6
+@ b7 : dist=3916 ; pred=b6
+@ a8 : dist=4120 ; pred=b7
+@ b8 : dist=4808 ; pred=a7
+@ a9 : dist=4984 ; pred=b8
+@ b9 : dist=5210 ; pred=b8
+@ a10 : dist=6058 ; pred=b9
+@ b10 : dist=5634 ; pred=a9

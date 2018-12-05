@@ -1,0 +1,129 @@
+
+#!/bin/bash
+
+#  TDIR="_TEST_RESULTS"
+
+#  rm -r -f $TDIR
+
+#  mkdir $TDIR
+
+  # script -a $TDIR/make.log ./compile
+  # ./compile 
+  #
+  runtest () {
+    # comment out line below once reference files have been generated
+      # $1 | grep ^@ > $2.ref
+
+    echo
+    echo ">>> START TEST >>>>"
+
+    $1 | grep ^@ > $2.out
+    diff $2.out $2.ref > $2.diff
+    diff=`wc -c < $2.diff`
+    let score=0
+    if [ $diff = 0 ]; then
+       let "score = $3"
+    fi
+    let "max = $max + $3"
+    let "total = $total + $score"
+
+    echo "test $2 ; cmd: $1 ; score:  $score / $3"
+  }
+
+  runtest_sort () {
+    # comment out line below once reference files have been generated
+
+     # $1 | grep ^@ | sort > $2.ref
+
+    echo
+    echo ">>> START TEST >>>>"
+
+    $1 | grep ^@ | sort > $2.out
+    diff $2.out $2.ref > $2.diff
+    diff=`wc -c < $2.diff`
+    let score=0
+    if [ $diff = 0 ]; then
+       let "score = $3"
+    fi
+    let "max = $max + $3"
+    let "total = $total + $score"
+
+    echo "test $2 ; cmd: $1 ; score:  $score / $3"
+  }
+
+  timetest () {
+    # comment out line below once reference files have been generated
+    
+      # /usr/bin/time -p  $1  | grep ^@ > $2.ref
+
+    echo
+    echo "!>>> START TEST >>>>"
+
+     /usr/bin/time -p  $1   | grep ^@ > $2.out   
+
+    diff $2.out $2.ref > $2.diff
+    diff=`wc -c < $2.diff`
+    let score=0
+    if [ $diff = 0 ]; then
+       echo "!FUNCTIONAL TEST:  PASSED"
+    else
+       echo "!FUNCTIONAL TEST:  FAILED"
+    fi
+    let "max = $max + $3"
+    echo "!USER TIME ABOVE MUST ALSO BE < 0.1 SECONDS TO PASS"
+
+    echo "! test $2 ; cmd: $1 ; score:  _______ / $3"
+  }
+
+  make clean
+  make
+
+  let total=0
+  let max=0
+
+  runtest "./bfs rings.g c1" "bfs1" 2
+  runtest "./bfs rings.g c4" "bfs2" 2
+  runtest "./bfs torus6x6.g v1_1" "bfs3" 2
+  runtest "./bfs torus6x6.g v1_3" "bfs4" 2
+  runtest "./bfs chain20.g v5" "bfs5" 2
+
+  runtest "./dfs rings.g c1" "extract1" 4
+  runtest "./dfs rings.g a4" "extract2" 4
+  runtest "./dfs torus6x6.g v1_1" "extract3" 4
+  runtest "./dfs torus6x6.g v3_4" "extract4" 4
+  runtest "./dfs chain20.g v5" "extract5" 4
+
+  runtest "./cpaths_basic chain10.g" "crit-paths1" 5
+  runtest "./cpaths_verbose chain10.g" "crit-paths2" 5
+  runtest "./cpaths_basic ladder10.g" "crit-paths3" 5
+  runtest "./cpaths_verbose ladder10.g" "crit-paths4" 5
+  timetest "./cpaths_basic ladder20.g" "crit-paths5" 5
+  timetest "./cpaths_basic chain30.g" "crit-paths6" 5
+
+  
+  runtest "./npaths chain10.g" "num-paths1" 10
+  runtest "./npaths ladder10.g" "num-paths2" 10
+  timetest "./npaths ladder20.g" "num-paths3" 5
+  timetest "./npaths chain30.g" "num-paths4" 5
+
+  runtest "./vtopo chain10.g chain_1.o" "vtopo1" 5
+  runtest "./vtopo chain10.g chain_2.o" "vtopo2" 5
+
+  runtest "./vtopo chain10.g chain_1.o" "vtopo1" 5
+  runtest "./vtopo chain10.g chain_2.o" "vtopo2" 5
+  runtest "./vtopo aladder.g aladder_1.o" "vtopo3" 5
+  runtest "./vtopo aladder.g aladder_2.o" "vtopo4" 5
+
+  runtest_sort "./epaths ladder10.g a8" "enum1" 6
+  runtest_sort "./epaths chain10.g v7" "enum2" 6
+  runtest_sort "./epaths aladder.g b5" "enum3" 6
+  runtest_sort "./epaths chain20.g v6" "enum4" 6
+  runtest_sort "./epaths ladder20.g a7" "enum5" 6
+
+
+  echo
+  echo PARTIAL SCORE:  $total "/" $max
+
+
+  
+

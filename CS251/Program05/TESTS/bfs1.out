@@ -1,0 +1,19 @@
+@1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@2
+@3 COMMAND-LINE:
+@4
+@5    ./bfs rings.g c1 
+@6
+@7++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@ a1 : dist=2 ; npaths=1
+@ a2 : dist=3 ; npaths=3
+@ a3 : dist=4 ; npaths=6
+@ a4 : dist=5 ; npaths=10
+@ b1 : dist=1 ; npaths=1
+@ b2 : dist=2 ; npaths=2
+@ b3 : dist=3 ; npaths=3
+@ b4 : dist=4 ; npaths=4
+@ c1 : dist=0 ; npaths=1
+@ c2 : dist=1 ; npaths=1
+@ c3 : dist=2 ; npaths=1
+@ c4 : dist=3 ; npaths=1

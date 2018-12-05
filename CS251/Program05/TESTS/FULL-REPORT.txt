@@ -1,0 +1,128 @@
+rm -f bfs cpaths_basic cpaths_npaths cpaths_verbose dfs epaths gen_chain_dbl gen_ladder gen_torus npaths topo vtopo
+g++ -std=c++11 -g  bfs.cpp -o bfs
+g++ -std=c++11 -g  cpaths_basic.cpp -o cpaths_basic
+g++ -std=c++11 -g  cpaths_npaths.cpp -o cpaths_npaths
+g++ -std=c++11 -g  cpaths_verbose.cpp -o cpaths_verbose
+g++ -std=c++11 -g  dfs.cpp -o dfs
+g++ -std=c++11 -g  epaths.cpp -o epaths
+g++ -std=c++11 -g  gen_chain_dbl.cpp -o gen_chain_dbl
+g++ -std=c++11 -g  gen_ladder.cpp -o gen_ladder
+g++ -std=c++11 -g  gen_torus.cpp -o gen_torus
+g++ -std=c++11 -g  npaths.cpp -o npaths
+g++ -std=c++11 -g  topo.cpp -o topo
+g++ -std=c++11 -g  vtopo.cpp -o vtopo
+
+>>> START TEST >>>>
+test bfs1 ; cmd: ./bfs rings.g c1 ; score:  2 / 2
+
+>>> START TEST >>>>
+test bfs2 ; cmd: ./bfs rings.g c4 ; score:  2 / 2
+
+>>> START TEST >>>>
+test bfs3 ; cmd: ./bfs torus6x6.g v1_1 ; score:  2 / 2
+
+>>> START TEST >>>>
+test bfs4 ; cmd: ./bfs torus6x6.g v1_3 ; score:  2 / 2
+
+>>> START TEST >>>>
+test bfs5 ; cmd: ./bfs chain20.g v5 ; score:  2 / 2
+
+>>> START TEST >>>>
+test extract1 ; cmd: ./dfs rings.g c1 ; score:  4 / 4
+
+>>> START TEST >>>>
+test extract2 ; cmd: ./dfs rings.g a4 ; score:  4 / 4
+
+>>> START TEST >>>>
+test extract3 ; cmd: ./dfs torus6x6.g v1_1 ; score:  4 / 4
+
+>>> START TEST >>>>
+test extract4 ; cmd: ./dfs torus6x6.g v3_4 ; score:  4 / 4
+
+>>> START TEST >>>>
+test extract5 ; cmd: ./dfs chain20.g v5 ; score:  4 / 4
+
+>>> START TEST >>>>
+test crit-paths1 ; cmd: ./cpaths_basic chain10.g ; score:  5 / 5
+
+>>> START TEST >>>>
+test crit-paths2 ; cmd: ./cpaths_verbose chain10.g ; score:  5 / 5
+
+>>> START TEST >>>>
+test crit-paths3 ; cmd: ./cpaths_basic ladder10.g ; score:  5 / 5
+
+>>> START TEST >>>>
+test crit-paths4 ; cmd: ./cpaths_verbose ladder10.g ; score:  5 / 5
+
+!>>> START TEST >>>>
+real         0.00
+user         0.00
+sys          0.00
+!FUNCTIONAL TEST:  PASSED
+!USER TIME ABOVE MUST ALSO BE < 0.1 SECONDS TO PASS
+! test crit-paths5 ; cmd: ./cpaths_basic ladder20.g ; score:  _______ / 5
+
+!>>> START TEST >>>>
+real         0.00
+user         0.00
+sys          0.00
+!FUNCTIONAL TEST:  PASSED
+!USER TIME ABOVE MUST ALSO BE < 0.1 SECONDS TO PASS
+! test crit-paths6 ; cmd: ./cpaths_basic chain30.g ; score:  _______ / 5
+
+>>> START TEST >>>>
+test num-paths1 ; cmd: ./npaths chain10.g ; score:  10 / 10
+
+>>> START TEST >>>>
+test num-paths2 ; cmd: ./npaths ladder10.g ; score:  10 / 10
+
+!>>> START TEST >>>>
+real         0.00
+user         0.00
+sys          0.00
+!FUNCTIONAL TEST:  PASSED
+!USER TIME ABOVE MUST ALSO BE < 0.1 SECONDS TO PASS
+! test num-paths3 ; cmd: ./npaths ladder20.g ; score:  _______ / 5
+
+!>>> START TEST >>>>
+real         0.00
+user         0.00
+sys          0.00
+!FUNCTIONAL TEST:  PASSED
+!USER TIME ABOVE MUST ALSO BE < 0.1 SECONDS TO PASS
+! test num-paths4 ; cmd: ./npaths chain30.g ; score:  _______ / 5
+
+>>> START TEST >>>>
+test vtopo1 ; cmd: ./vtopo chain10.g chain_1.o ; score:  5 / 5
+
+>>> START TEST >>>>
+test vtopo2 ; cmd: ./vtopo chain10.g chain_2.o ; score:  5 / 5
+
+>>> START TEST >>>>
+test vtopo1 ; cmd: ./vtopo chain10.g chain_1.o ; score:  5 / 5
+
+>>> START TEST >>>>
+test vtopo2 ; cmd: ./vtopo chain10.g chain_2.o ; score:  5 / 5
+
+>>> START TEST >>>>
+test vtopo3 ; cmd: ./vtopo aladder.g aladder_1.o ; score:  5 / 5
+
+>>> START TEST >>>>
+test vtopo4 ; cmd: ./vtopo aladder.g aladder_2.o ; score:  5 / 5
+
+>>> START TEST >>>>
+test enum1 ; cmd: ./epaths ladder10.g a8 ; score:  6 / 6
+
+>>> START TEST >>>>
+test enum2 ; cmd: ./epaths chain10.g v7 ; score:  6 / 6
+
+>>> START TEST >>>>
+test enum3 ; cmd: ./epaths aladder.g b5 ; score:  6 / 6
+
+>>> START TEST >>>>
+test enum4 ; cmd: ./epaths chain20.g v6 ; score:  6 / 6
+
+>>> START TEST >>>>
+test enum5 ; cmd: ./epaths ladder20.g a7 ; score:  6 / 6
+
+PARTIAL SCORE: 130 / 150

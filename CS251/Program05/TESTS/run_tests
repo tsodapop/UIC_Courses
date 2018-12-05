@@ -1,0 +1,7 @@
+
+#!/bin/bash
+
+  ./batch &> FULL-REPORT.txt
+
+  grep PARTIAL  FULL-REPORT.txt > PARTIAL-SCORE.txt
+  grep "^\!\|user|exceeded"  FULL-REPORT.txt > TIMED-RESULTS.txt

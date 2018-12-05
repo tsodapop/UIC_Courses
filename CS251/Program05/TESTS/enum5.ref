@@ -1,0 +1,71 @@
+@1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@2
+@3 COMMAND-LINE:
+@4
+@5    ./epaths ladder20.g a7 
+@6
+@7++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@: a1 a2 a3 a4 a5 a6 a7
+@: a1 a2 a3 a4 a5 b6 a7
+@: a1 a2 a3 a4 b5 a6 a7
+@: a1 a2 a3 a4 b5 b6 a7
+@: a1 a2 a3 b4 a5 a6 a7
+@: a1 a2 a3 b4 a5 b6 a7
+@: a1 a2 a3 b4 b5 a6 a7
+@: a1 a2 a3 b4 b5 b6 a7
+@: a1 a2 b3 a4 a5 a6 a7
+@: a1 a2 b3 a4 a5 b6 a7
+@: a1 a2 b3 a4 b5 a6 a7
+@: a1 a2 b3 a4 b5 b6 a7
+@: a1 a2 b3 b4 a5 a6 a7
+@: a1 a2 b3 b4 a5 b6 a7
+@: a1 a2 b3 b4 b5 a6 a7
+@: a1 a2 b3 b4 b5 b6 a7
+@: a1 b2 a3 a4 a5 a6 a7
+@: a1 b2 a3 a4 a5 b6 a7
+@: a1 b2 a3 a4 b5 a6 a7
+@: a1 b2 a3 a4 b5 b6 a7
+@: a1 b2 a3 b4 a5 a6 a7
+@: a1 b2 a3 b4 a5 b6 a7
+@: a1 b2 a3 b4 b5 a6 a7
+@: a1 b2 a3 b4 b5 b6 a7
+@: a1 b2 b3 a4 a5 a6 a7
+@: a1 b2 b3 a4 a5 b6 a7
+@: a1 b2 b3 a4 b5 a6 a7
+@: a1 b2 b3 a4 b5 b6 a7
+@: a1 b2 b3 b4 a5 a6 a7
+@: a1 b2 b3 b4 a5 b6 a7
+@: a1 b2 b3 b4 b5 a6 a7
+@: a1 b2 b3 b4 b5 b6 a7
+@: b1 a2 a3 a4 a5 a6 a7
+@: b1 a2 a3 a4 a5 b6 a7
+@: b1 a2 a3 a4 b5 a6 a7
+@: b1 a2 a3 a4 b5 b6 a7
+@: b1 a2 a3 b4 a5 a6 a7
+@: b1 a2 a3 b4 a5 b6 a7
+@: b1 a2 a3 b4 b5 a6 a7
+@: b1 a2 a3 b4 b5 b6 a7
+@: b1 a2 b3 a4 a5 a6 a7
+@: b1 a2 b3 a4 a5 b6 a7
+@: b1 a2 b3 a4 b5 a6 a7
+@: b1 a2 b3 a4 b5 b6 a7
+@: b1 a2 b3 b4 a5 a6 a7
+@: b1 a2 b3 b4 a5 b6 a7
+@: b1 a2 b3 b4 b5 a6 a7
+@: b1 a2 b3 b4 b5 b6 a7
+@: b1 b2 a3 a4 a5 a6 a7
+@: b1 b2 a3 a4 a5 b6 a7
+@: b1 b2 a3 a4 b5 a6 a7
+@: b1 b2 a3 a4 b5 b6 a7
+@: b1 b2 a3 b4 a5 a6 a7
+@: b1 b2 a3 b4 a5 b6 a7
+@: b1 b2 a3 b4 b5 a6 a7
+@: b1 b2 a3 b4 b5 b6 a7
+@: b1 b2 b3 a4 a5 a6 a7
+@: b1 b2 b3 a4 a5 b6 a7
+@: b1 b2 b3 a4 b5 a6 a7
+@: b1 b2 b3 a4 b5 b6 a7
+@: b1 b2 b3 b4 a5 a6 a7
+@: b1 b2 b3 b4 a5 b6 a7
+@: b1 b2 b3 b4 b5 a6 a7
+@: b1 b2 b3 b4 b5 b6 a7

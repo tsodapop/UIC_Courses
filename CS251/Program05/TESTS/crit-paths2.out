@@ -1,0 +1,17 @@
+@1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@2
+@3 COMMAND-LINE:
+@4
+@5    ./cpaths_verbose chain10.g 
+@6
+@7++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@ v1 : dist=0 ; pred=v1
+@ v2 : dist=385 ; pred=v1
+@ v3 : dist=1056 ; pred=v2
+@ v5 : dist=1902 ; pred=v4
+@ v9 : dist=4676 ; pred=v8
+@ v4 : dist=1510 ; pred=v3
+@ v6 : dist=2674 ; pred=v5
+@ v10 : dist=5148 ; pred=v9
+@ v7 : dist=2977 ; pred=v6
+@ v8 : dist=3938 ; pred=v7

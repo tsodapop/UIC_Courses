@@ -1,0 +1,31 @@
+@1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@2
+@3 COMMAND-LINE:
+@4
+@5    ./dfs rings.g a4 
+@6
+@7++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@ a1
+@     PATH: <a4 a1>
+@ a2
+@     PATH: <a4 a1 a2>
+@ a3
+@     PATH: <a4 a1 a2 a3>
+@ a4
+@     PATH: <a4>
+@ b1
+@     PATH: <a4 a1 a2 a3 b3 b4 b1>
+@ b2
+@     PATH: <a4 a1 a2 a3 b3 b4 b1 b2>
+@ b3
+@     PATH: <a4 a1 a2 a3 b3>
+@ b4
+@     PATH: <a4 a1 a2 a3 b3 b4>
+@ c1
+@     PATH: <a4 a1 a2 a3 b3 b4 b1 b2 c2 c3 c4 c1>
+@ c2
+@     PATH: <a4 a1 a2 a3 b3 b4 b1 b2 c2>
+@ c3
+@     PATH: <a4 a1 a2 a3 b3 b4 b1 b2 c2 c3>
+@ c4
+@     PATH: <a4 a1 a2 a3 b3 b4 b1 b2 c2 c3 c4>

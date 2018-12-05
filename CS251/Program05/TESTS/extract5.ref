@@ -1,0 +1,47 @@
+@1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@2
+@3 COMMAND-LINE:
+@4
+@5    ./dfs chain20.g v5 
+@6
+@7++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@ v2
+@     PATH: <>
+@ v18
+@     PATH: <v5 v6 v7 v8 v9 v10 v11 v12 v13 v14 v15 v16 v17 v18>
+@ v3
+@     PATH: <>
+@ v4
+@     PATH: <>
+@ v5
+@     PATH: <v5>
+@ v7
+@     PATH: <v5 v6 v7>
+@ v11
+@     PATH: <v5 v6 v7 v8 v9 v10 v11>
+@ v19
+@     PATH: <v5 v6 v7 v8 v9 v10 v11 v12 v13 v14 v15 v16 v17 v18 v19>
+@ v6
+@     PATH: <v5 v6>
+@ v8
+@     PATH: <v5 v6 v7 v8>
+@ v12
+@     PATH: <v5 v6 v7 v8 v9 v10 v11 v12>
+@ v20
+@     PATH: <v5 v6 v7 v8 v9 v10 v11 v12 v13 v14 v15 v16 v17 v18 v19 v20>
+@ v9
+@     PATH: <v5 v6 v7 v8 v9>
+@ v13
+@     PATH: <v5 v6 v7 v8 v9 v10 v11 v12 v13>
+@ v1
+@     PATH: <>
+@ v17
+@     PATH: <v5 v6 v7 v8 v9 v10 v11 v12 v13 v14 v15 v16 v17>
+@ v10
+@     PATH: <v5 v6 v7 v8 v9 v10>
+@ v14
+@     PATH: <v5 v6 v7 v8 v9 v10 v11 v12 v13 v14>
+@ v15
+@     PATH: <v5 v6 v7 v8 v9 v10 v11 v12 v13 v14 v15>
+@ v16
+@     PATH: <v5 v6 v7 v8 v9 v10 v11 v12 v13 v14 v15 v16>

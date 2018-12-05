@@ -1,0 +1,16 @@
+!>>> START TEST >>>>
+!FUNCTIONAL TEST:  PASSED
+!USER TIME ABOVE MUST ALSO BE < 0.1 SECONDS TO PASS
+! test crit-paths5 ; cmd: ./cpaths_basic ladder20.g ; score:  _______ / 5
+!>>> START TEST >>>>
+!FUNCTIONAL TEST:  PASSED
+!USER TIME ABOVE MUST ALSO BE < 0.1 SECONDS TO PASS
+! test crit-paths6 ; cmd: ./cpaths_basic chain30.g ; score:  _______ / 5
+!>>> START TEST >>>>
+!FUNCTIONAL TEST:  PASSED
+!USER TIME ABOVE MUST ALSO BE < 0.1 SECONDS TO PASS
+! test num-paths3 ; cmd: ./npaths ladder20.g ; score:  _______ / 5
+!>>> START TEST >>>>
+!FUNCTIONAL TEST:  PASSED
+!USER TIME ABOVE MUST ALSO BE < 0.1 SECONDS TO PASS
+! test num-paths4 ; cmd: ./npaths chain30.g ; score:  _______ / 5

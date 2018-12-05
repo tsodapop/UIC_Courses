@@ -1,0 +1,27 @@
+@1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@2
+@3 COMMAND-LINE:
+@4
+@5    ./npaths ladder10.g 
+@6
+@7++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@ a1 ; npaths=512
+@ a2 ; npaths=512
+@ b2 ; npaths=512
+@ b1 ; npaths=512
+@ a3 ; npaths=512
+@ b3 ; npaths=512
+@ a4 ; npaths=512
+@ b4 ; npaths=512
+@ a5 ; npaths=512
+@ b5 ; npaths=512
+@ a6 ; npaths=512
+@ b6 ; npaths=512
+@ a7 ; npaths=512
+@ b7 ; npaths=512
+@ a8 ; npaths=512
+@ b8 ; npaths=512
+@ a9 ; npaths=512
+@ b9 ; npaths=512
+@ a10 ; npaths=512
+@ b10 ; npaths=512

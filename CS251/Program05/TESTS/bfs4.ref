@@ -1,0 +1,43 @@
+@1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@2
+@3 COMMAND-LINE:
+@4
+@5    ./bfs torus6x6.g v1_3 
+@6
+@7++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@ v0_0 : dist=4 ; npaths=8
+@ v5_0 : dist=5 ; npaths=20
+@ v1_0 : dist=3 ; npaths=2
+@ v0_1 : dist=3 ; npaths=3
+@ v0_5 : dist=3 ; npaths=3
+@ v5_1 : dist=4 ; npaths=6
+@ v1_1 : dist=2 ; npaths=1
+@ v0_2 : dist=2 ; npaths=2
+@ v5_2 : dist=3 ; npaths=3
+@ v1_2 : dist=1 ; npaths=1
+@ v0_3 : dist=1 ; npaths=1
+@ v5_3 : dist=2 ; npaths=1
+@ v1_3 : dist=0 ; npaths=1
+@ v0_4 : dist=2 ; npaths=2
+@ v5_4 : dist=3 ; npaths=3
+@ v1_4 : dist=1 ; npaths=1
+@ v5_5 : dist=4 ; npaths=6
+@ v1_5 : dist=2 ; npaths=1
+@ v2_0 : dist=4 ; npaths=8
+@ v2_1 : dist=3 ; npaths=3
+@ v2_2 : dist=2 ; npaths=2
+@ v2_3 : dist=1 ; npaths=1
+@ v2_4 : dist=2 ; npaths=2
+@ v2_5 : dist=3 ; npaths=3
+@ v3_0 : dist=5 ; npaths=20
+@ v3_1 : dist=4 ; npaths=6
+@ v3_2 : dist=3 ; npaths=3
+@ v3_3 : dist=2 ; npaths=1
+@ v3_4 : dist=3 ; npaths=3
+@ v3_5 : dist=4 ; npaths=6
+@ v4_0 : dist=6 ; npaths=80
+@ v4_1 : dist=5 ; npaths=20
+@ v4_2 : dist=4 ; npaths=8
+@ v4_3 : dist=3 ; npaths=2
+@ v4_4 : dist=4 ; npaths=8
+@ v4_5 : dist=5 ; npaths=20
