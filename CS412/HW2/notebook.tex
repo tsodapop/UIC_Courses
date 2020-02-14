@@ -1,0 +1,1321 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{untitled}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Name: Jonathan Tso}\label{name-jonathan-tso}
+
+\section{NetID: jtso2}\label{netid-jtso2}
+
+\section{UIN: 662758603}\label{uin-662758603}
+
+\section{Homework: 2}\label{homework-2}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}122}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{neighbors} \PY{k}{import} \PY{n}{DistanceMetric}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{decomposition} \PY{k}{import} \PY{n}{PCA}\PY{p}{,} \PY{n}{KernelPCA}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{linear\PYZus{}model} \PY{k}{import} \PY{n}{LogisticRegression}\PY{p}{,} \PY{n}{LogisticRegressionCV}
+          \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+          \PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k}{import} \PY{n}{show}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{svm} \PY{k}{import} \PY{n}{SVC}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{cross\PYZus{}val\PYZus{}score}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}123}]:} \PY{n}{data} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{}shuffle the data and select training and test data}
+          \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{seed}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{)}
+          \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{shuffle}\PY{p}{(}\PY{n}{data}\PY{p}{)}
+          
+          \PY{n}{features} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{digits} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          
+          \PY{k}{for} \PY{n}{row} \PY{o+ow}{in} \PY{n}{data}\PY{p}{:}
+              \PY{k}{if}\PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{==}\PY{l+m+mi}{1} \PY{o+ow}{or} \PY{n}{row}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{==}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{features}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{}add in remaining values past the first (this is a matrix)}
+                  \PY{n}{digits}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{str}\PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{}add the 1 or the 5 to digits}
+          
+          \PY{c+c1}{\PYZsh{}select the proportion of data to use for training}
+          \PY{n}{numTrain} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{features}\PY{p}{)}\PY{o}{*}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{)} \PY{c+c1}{\PYZsh{}we are training on 20\PYZpc{} of the data}
+          
+          \PY{n}{trainFeatures} \PY{o}{=} \PY{n}{features}\PY{p}{[}\PY{p}{:}\PY{n}{numTrain}\PY{p}{]} \PY{c+c1}{\PYZsh{}we train on the first 20\PYZpc{} of the data}
+          \PY{n}{testFeatures} \PY{o}{=} \PY{n}{features}\PY{p}{[}\PY{n}{numTrain}\PY{p}{:}\PY{p}{]}  \PY{c+c1}{\PYZsh{}we test on the remaining 80\PYZpc{}}
+          \PY{n}{trainDigits} \PY{o}{=} \PY{n}{digits}\PY{p}{[}\PY{p}{:}\PY{n}{numTrain}\PY{p}{]}     \PY{c+c1}{\PYZsh{}we train on the first 20\PYZpc{} of the data}
+          \PY{n}{testDigits} \PY{o}{=} \PY{n}{digits}\PY{p}{[}\PY{n}{numTrain}\PY{p}{:}\PY{p}{]}      \PY{c+c1}{\PYZsh{}we test on the remaining 80\PYZpc{}}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}305}]:} \PY{c+c1}{\PYZsh{}create the model}
+          \PY{c+c1}{\PYZsh{}https://scikit\PYZhy{}learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html}
+          
+          \PY{n}{X} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{Y} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{simpleTrain} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{colors} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{index} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+              \PY{n}{X}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{(}\PY{n+nb}{sum}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{256}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{c+c1}{\PYZsh{}mean intensity squared}
+              \PY{n}{Y}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{sum}\PY{p}{(}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{128}\PY{p}{]}\PY{o}{\PYZhy{}} \PY{n}{trainFeatures}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{128}\PY{p}{:}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{256}\PY{p}{)} \PY{c+c1}{\PYZsh{}horiz symmetry}
+              \PY{n}{simpleTrain}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{p}{(}\PY{n+nb}{sum}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{256}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{,}\PY{n+nb}{sum}\PY{p}{(}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{128}\PY{p}{]}\PY{o}{\PYZhy{}} \PY{n}{trainFeatures}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{128}\PY{p}{:}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{256}\PY{p}{]}\PY{p}{)}
+              \PY{k}{if}\PY{p}{(}\PY{n}{trainDigits}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:} \PY{c+c1}{\PYZsh{}if the digit is 1, it is blue. else, it is red (only 1\PYZsq{}s and 5\PYZsq{}s)}
+                  \PY{n}{colors}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+              \PY{k}{else}\PY{p}{:}
+                  \PY{n}{colors}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{c+c1}{\PYZsh{}normalization of X and Y}
+          \PY{n}{normX} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{2}\PY{o}{*}\PY{p}{(}\PY{p}{(}\PY{n}{i} \PY{o}{\PYZhy{}} \PY{n+nb}{min}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n+nb}{max}\PY{p}{(}\PY{n}{X}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n+nb}{min}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{X}\PY{p}{]}
+          \PY{n}{normY} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{2}\PY{o}{*}\PY{p}{(}\PY{p}{(}\PY{n}{i} \PY{o}{\PYZhy{}} \PY{n+nb}{min}\PY{p}{(}\PY{n}{Y}\PY{p}{)}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n+nb}{max}\PY{p}{(}\PY{n}{Y}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n+nb}{min}\PY{p}{(}\PY{n}{Y}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{Y}\PY{p}{]}
+          
+          \PY{n}{normTrain} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{normX}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+              \PY{n}{normTrain}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{n}{normX}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,}\PY{n}{normY}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \section{1 Feature Extraction}\label{feature-extraction}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}125}]:} \PY{n}{kpca\PYZus{}model} \PY{o}{=} \PY{n}{KernelPCA}\PY{p}{(}\PY{n}{n\PYZus{}components}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{poly}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{fit\PYZus{}inverse\PYZus{}transform}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
+          \PY{n}{kpca\PYZus{}model\PYZus{}full} \PY{o}{=} \PY{n}{KernelPCA}\PY{p}{(} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{poly}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{fit\PYZus{}inverse\PYZus{}transform}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
+          
+          \PY{n}{kpca\PYZus{}trans} \PY{o}{=} \PY{n}{kpca\PYZus{}model}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{)}
+          \PY{n}{kpca\PYZus{}full\PYZus{}trans} \PY{o}{=} \PY{n}{kpca\PYZus{}model\PYZus{}full}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{} Plot results}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Figure 2.1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{kpca\PYZus{}trans}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{kpca\PYZus{}trans}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)} \PY{c+c1}{\PYZsh{}runs through all first column, all second column when run}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    1a: The features generated from kPCA look to split the data effectively,
+arguably better than what was used in HW1, which was mean intensity
+squared and horizontal symmetry.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}126}]:} \PY{n}{lambdas} \PY{o}{=} \PY{n}{kpca\PYZus{}model}\PY{o}{.}\PY{n}{lambdas\PYZus{}}
+          \PY{n}{lambdas\PYZus{}full} \PY{o}{=} \PY{n}{kpca\PYZus{}model\PYZus{}full}\PY{o}{.}\PY{n}{lambdas\PYZus{}}
+          \PY{n}{kpca\PYZus{}var} \PY{o}{=} \PY{n+nb}{sum}\PY{p}{(}\PY{n}{lambdas}\PY{p}{)} \PY{o}{/} \PY{n+nb}{sum}\PY{p}{(}\PY{n}{lambdas\PYZus{}full}\PY{p}{)}
+          
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{kPCA Explained Variance:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{kpca\PYZus{}var}\PY{p}{)} 
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{HW1  Explained Variance:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{var}\PY{p}{(}\PY{n}{simpleTrain}\PY{p}{)} \PY{o}{/} \PY{n}{np}\PY{o}{.}\PY{n}{var}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{}2 features selected from HW1}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+kPCA Explained Variance: 0.4642628930488372
+HW1  Explained Variance: 0.1096824333256313
+
+    \end{Verbatim}
+
+    1b: The kPCA has a larger explained variance. This is expected, because
+kPCA is based off of maximizing the variance which would then account
+for more of the variance. This is how it tries to fit the data best. In
+HW1, we manually chose which two features we would use to separate the
+data. This can be prone to human error or human bias.
+
+    \section{2 Logistic Regression}\label{logistic-regression}
+
+    The following C values have been modified beyond C=2 in order to provide
+a better example of increasing C.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}134}]:} \PY{n}{model} \PY{o}{=} \PY{n}{LogisticRegression}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{01}\PY{p}{,}\PY{n}{penalty}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{l2}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Figure 2.2}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_11_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}136}]:} \PY{n}{model} \PY{o}{=} \PY{n}{LogisticRegression}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,}\PY{n}{penalty}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{l2}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Figure 2.3}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_12_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \section{Graduate Question}\label{graduate-question}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}137}]:} \PY{n}{model} \PY{o}{=} \PY{n}{LogisticRegression}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{01}\PY{p}{,}\PY{n}{penalty}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{l1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{L1 Regularization, C=.01}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_14_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}138}]:} \PY{n}{model} \PY{o}{=} \PY{n}{LogisticRegression}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,}\PY{n}{penalty}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{l1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{L1 Regularization, C=10}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_15_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    To Note: C is the inverse of regularization strength. This means that a
+lower C is more regularized, while higher C is less regularized.
+
+Both L1 and L2 are meant to regularize and prevent overfitting. L2 looks
+to square the data and then provide a more smoothed fit to this
+separated data, while L1 looks for the absolute values. When looking at
+the logistic regression models above, we can see that for low C values
+(high regularization), L2 has a more slanted, forgiving separator than
+L1. Additionally, when looking at where C values increase (decreased
+regularization), we see that L1 tries to accomodate the incorrect red
+points more than L2. Because of this, we say that L1 in our case is more
+likely to overfit the data.
+
+    \section{3 Support Vector Machines}\label{support-vector-machines}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}270}]:} \PY{n}{xAxis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yAxis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yErr} \PY{o}{=} \PY{l+m+mi}{100}
+          \PY{n}{iMin} \PY{o}{=} \PY{l+m+mi}{0}
+          
+          \PY{c+c1}{\PYZsh{}running this for cross validation of 10}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{10000}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{linear}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{simpleTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}
+              \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{p}{,} \PY{n}{simpleTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+              \PY{n}{xAxis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}\PY{p}{)}
+              \PY{n}{yAxis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              
+              \PY{k}{if} \PY{p}{(}\PY{n}{yErr} \PY{o}{\PYZgt{}} \PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{p}{:}
+                  \PY{n}{yErr} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                  \PY{n}{iMin} \PY{o}{=} \PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100} 
+              
+          \PY{n}{plt}\PY{o}{.}\PY{n}{errorbar}\PY{p}{(}\PY{n}{xAxis}\PY{p}{,} \PY{n}{yAxis}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{xscale}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{log}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Figure 2.4}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{C values}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Error, }\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Lowest error at C value:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{iMin}\PY{p}{)} 
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_18_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Lowest error at C value: 1.01
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}87}]:} \PY{n}{xAxis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{n}{yAxis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         
+         \PY{c+c1}{\PYZsh{}running this for cross validation of 10}
+         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{10000}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+             \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{linear}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}
+             \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+             \PY{n}{xAxis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}\PY{p}{)}
+             \PY{n}{yAxis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+             
+         \PY{n}{plt}\PY{o}{.}\PY{n}{errorbar}\PY{p}{(}\PY{n}{xAxis}\PY{p}{,} \PY{n}{yAxis}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xscale}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{log}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Figure 2.5}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{C values}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Error, }\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_19_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    From figure 2.4, the C value that first has the lowest cross validation
+error is when C=1.01. The accuracy is 99.03\%.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}200}]:} \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{linear}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{simpleTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                      
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Figure 2.6}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Horizontal Symmetry}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Squared Mean Intensity}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{The information above is based on the two picked features from HW1. The C value for the SVC model was determined from figure 2.4.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_21_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+The information above is based on the two picked features from HW1. The C value for the SVC model was determined from figure 2.4.
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}183}]:} \PY{c+c1}{\PYZsh{}kernel = poly, degree = 2}
+          
+          \PY{n}{xAxis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yAxis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yErr} \PY{o}{=} \PY{l+m+mi}{100}
+          \PY{n}{iMin} \PY{o}{=} \PY{l+m+mi}{0}
+          
+          \PY{c+c1}{\PYZsh{}running this for cross validation of 10}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{10000}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{poly}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}
+              \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+              \PY{n}{xAxis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}\PY{p}{)}
+              \PY{n}{yAxis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              
+              \PY{k}{if} \PY{p}{(}\PY{n}{yErr} \PY{o}{\PYZgt{}} \PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{p}{:}
+                  \PY{n}{yErr} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                  \PY{n}{iMin} \PY{o}{=} \PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}
+              
+              
+          \PY{n}{plt}\PY{o}{.}\PY{n}{errorbar}\PY{p}{(}\PY{n}{xAxis}\PY{p}{,} \PY{n}{yAxis}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{xscale}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{log}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Lowest error at C value:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{iMin}\PY{p}{)} 
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_22_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Lowest error at C value: 1.01
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}184}]:} \PY{c+c1}{\PYZsh{}kernel = poly, degree = 5}
+          
+          \PY{n}{xAxis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yAxis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yErr} \PY{o}{=} \PY{l+m+mi}{100}
+          \PY{n}{iMin} \PY{o}{=} \PY{l+m+mi}{0}
+          
+          \PY{c+c1}{\PYZsh{}running this for cross validation of 10}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{10000}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{poly}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}
+              \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+              \PY{n}{xAxis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}\PY{p}{)}
+              \PY{n}{yAxis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              
+              \PY{k}{if} \PY{p}{(}\PY{n}{yErr} \PY{o}{\PYZgt{}} \PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{p}{:}
+                  \PY{n}{yErr} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                  \PY{n}{iMin} \PY{o}{=} \PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}
+              
+              
+          \PY{n}{plt}\PY{o}{.}\PY{n}{errorbar}\PY{p}{(}\PY{n}{xAxis}\PY{p}{,} \PY{n}{yAxis}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{xscale}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{log}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Lowest error at C value:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{iMin}\PY{p}{)} 
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_23_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Lowest error at C value: 1.01
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}267}]:} \PY{c+c1}{\PYZsh{}kernel = poly, degree = 10}
+          
+          \PY{n}{xAxis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yAxis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yErr} \PY{o}{=} \PY{l+m+mi}{100}
+          \PY{n}{iMin} \PY{o}{=} \PY{l+m+mi}{0}
+          
+          \PY{c+c1}{\PYZsh{}running this for cross validation of 10}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{10000}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{poly}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}
+              \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+              \PY{n}{xAxis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}\PY{p}{)}
+              \PY{n}{yAxis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              
+              \PY{k}{if} \PY{p}{(}\PY{n}{yErr} \PY{o}{\PYZgt{}} \PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{p}{:}
+                  \PY{n}{yErr} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                  \PY{n}{iMin} \PY{o}{=} \PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}
+              
+              
+          \PY{n}{plt}\PY{o}{.}\PY{n}{errorbar}\PY{p}{(}\PY{n}{xAxis}\PY{p}{,} \PY{n}{yAxis}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{xscale}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{log}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{c+c1}{\PYZsh{} plt.title(\PYZdq{}Figure 2.5\PYZdq{})}
+          \PY{c+c1}{\PYZsh{} plt.xlabel(\PYZdq{}C values\PYZdq{})}
+          \PY{c+c1}{\PYZsh{} plt.ylabel(\PYZdq{}Error, \PYZpc{}\PYZdq{})}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Lowest error at C value:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{iMin}\PY{p}{)} 
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Lowest error at C value: 1.01
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}185}]:} \PY{c+c1}{\PYZsh{}kernel = poly, degree = 20}
+          
+          \PY{n}{xAxis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yAxis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yErr} \PY{o}{=} \PY{l+m+mi}{100}
+          \PY{n}{iMin} \PY{o}{=} \PY{l+m+mi}{0}
+          
+          \PY{c+c1}{\PYZsh{}running this for cross validation of 10}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{10000}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{poly}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}
+              \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+              \PY{n}{xAxis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}\PY{p}{)}
+              \PY{n}{yAxis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              
+              \PY{k}{if} \PY{p}{(}\PY{n}{yErr} \PY{o}{\PYZgt{}} \PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{p}{:}
+                  \PY{n}{yErr} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                  \PY{n}{iMin} \PY{o}{=} \PY{n}{i}\PY{o}{/}\PY{l+m+mi}{100}
+              
+              
+          \PY{n}{plt}\PY{o}{.}\PY{n}{errorbar}\PY{p}{(}\PY{n}{xAxis}\PY{p}{,} \PY{n}{yAxis}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{xscale}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{log}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Lowest error at C value:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{iMin}\PY{p}{)} 
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_25_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Lowest error at C value: 7.01
+
+    \end{Verbatim}
+
+    As we increase C, we are decreasing the percentage error, thus being
+more prone to overfit. By increasing the degree, it looks like we are
+shifting at what point we have the lowest error. Because of this, the
+relationship seems to be that as we increase the polynomial degree, we
+will tend to overfit less at the same C values, and that higher C values
+will incline us to be overfit.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}221}]:} \PY{c+c1}{\PYZsh{}kernel = poly, degree = 1}
+          \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{poly}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}    
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_27_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}230}]:} \PY{c+c1}{\PYZsh{}kernel = poly, degree = 1}
+          \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{poly}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}    
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_28_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}222}]:} \PY{c+c1}{\PYZsh{}kernel = poly, degree = 2}
+          \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{poly}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}    
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_29_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}226}]:} \PY{c+c1}{\PYZsh{}kernel = poly, degree = 2}
+          \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{poly}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}    
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}227}]:} \PY{c+c1}{\PYZsh{}kernel = poly, degree = 5}
+          \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{poly}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}    
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_31_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}228}]:} \PY{c+c1}{\PYZsh{}kernel = poly, degree = 5}
+          \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{poly}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}    
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Above are graphs of decision regions with the underlying scatter plot.
+The graphs represent degree=1,2,5 with C=1,100. We can see that as we
+increase the degree, we create a more flexible distinction between red
+and blue than just a linear separator. However, when looking at the
+actual data, we see that we have clearly linearly separable data and so
+having a skewed separator has a detrimental effect since it
+misclassifies more data. Because of this, we choose degree=1 as our best
+fit degree.
+
+When looking at degree=1, we can see that as we increase C, we decrease
+the margin between the hyperplane and its support vectors. This
+tightness can potentially lead to eventual overfitting when comparing
+the training data to our testing data. Because of this, we leave c=1
+since it provides more room for error in our training model.
+
+    \section{Graduate Question}\label{graduate-question}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}252}]:} \PY{c+c1}{\PYZsh{}This represents an overfit graph}
+          \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{100000000000}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{poly}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}  
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+          \PY{n}{error} \PY{o}{=} \PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+                      
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n+nb}{print}\PY{p}{(}\PY{n}{error}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_35_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+0.0
+
+    \end{Verbatim}
+
+    In the above chart, we have a very high C with degree=5. This is grossly
+overfit from the image above, as we can see some strong formation and
+rejection of the decision region where there are red dots. The only
+outlier in the training set is the one blue point in the red region, but
+the blue region is skewed heavily towards it to compensate. A high C was
+chosen because we determined that an increase in C allows for tigher
+classification and lower room for error, while degree was chosen at a
+low value to keep us from balancing out an increased C value. This
+resulted in 0\% error.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}268}]:} \PY{c+c1}{\PYZsh{}This represents an underfit graph}
+          \PY{n}{svc\PYZus{}model3} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{01}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{poly}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}  
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model3}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{svc\PYZus{}model3}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+          \PY{n}{error} \PY{o}{=} \PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+                      
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n+nb}{print}\PY{p}{(}\PY{n}{error}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_37_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+33.000672043010745
+
+    \end{Verbatim}
+
+    In the above chart, we have a low C with high degree=20. From the above,
+we see that everything is considered blue, which is a large error in
+consideration of the training set. This correlates to a 33\% error. This
+is considered underfit, as we do not fit the training data well at all
+and see it all as blue. A low C was chosen since we recognized that a
+lower C indicates that we are more generous with misclassification,
+while a higher degree may give us a lower fit as well.
+
+    \section{Extra Credit}\label{extra-credit}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}284}]:} \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{rbf}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{gamma}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}  
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+          \PY{n}{error} \PY{o}{=} \PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+                      
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_40_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}285}]:} \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{rbf}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{gamma}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}  
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+          \PY{n}{error} \PY{o}{=} \PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+                      
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_41_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}286}]:} \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{rbf}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{gamma}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}  
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+          \PY{n}{error} \PY{o}{=} \PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+                      
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_42_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}287}]:} \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{rbf}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{gamma}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}  
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+          \PY{n}{error} \PY{o}{=} \PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+                      
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_43_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}288}]:} \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{rbf}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{gamma}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}  
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+          \PY{n}{error} \PY{o}{=} \PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+                      
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_44_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}289}]:} \PY{n}{svc\PYZus{}model} \PY{o}{=} \PY{n}{SVC}\PY{p}{(}\PY{n}{C}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{kernel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{rbf}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{degree}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{gamma}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{normTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{)}  
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{svc\PYZus{}model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+          \PY{n}{error} \PY{o}{=} \PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+                      
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_45_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Poly was excluded and only rbf testing was conducted. This is because
+when running Poly tests, a degree of 7+ with an increasing gamma
+introduced a very large runtime, not completing in any reasonable amount
+of time. For this reason, we have only run tests on rbf for testing the
+effects of gamma.
+
+    We ran tests involving rbf as our kernel. When increasing gamma with a
+small degree and C, we saw that the decision region became more attuned
+to individual points.
+
+We then ran tests where we increased the degree and ran from a low gamma
+to a high gamma. Again, we saw that gamma played a similar effect, and
+that the individual blue point had a blue region instead of being
+misclassified.
+
+Finally, we ran tests where we increased the C and increased gamma. The
+same effect played out, where our decision region tried to misclassify
+as little data as possible.
+
+Because of the tests run above, we infer that as gamma increases, we
+would expect a higher level of overfitting.
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

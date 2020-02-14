@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{6BFFB429-B781-D6A4-39BD-23B95F76209C}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LocationUpdate.cs">
+    <Files>
+      <File FileName="Assets/module-omicron/CAVE2/Scripts/Examples/HoverOverIndicator.cs" Line="121" Column="34" />
+      <File FileName="Assets/HoverForSound.cs" Line="25" Column="41" />
+      <File FileName="Assets/ClickForSound.cs" Line="11" Column="35" />
+      <File FileName="Assets/ClickToJump.cs" Line="11" Column="53" />
+      <File FileName="Assets/LocationUpdate.cs" Line="10" Column="9" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Chicago-UIC" expanded="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Chicago-UIC" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0458e69e-0f5d-404e-b6a5-0fd37e25db5f" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,11 @@
+#REPORT FILE
+
+The approach to this problem is the basic subset sum problem, where we include memoization to reduce the runtime to O(n*T).
+This approach was discussed in lecture in the algorithm, where we have a main function (num_of_subsets)
+
+The main function runs a recursive function (recursive_call) that will go iteratively through all possible sums
+
+The largest difference between regular subset sum and this function is that inside recursive call, there is another function (calculate_smallest_subset) which will help find out the possible smallest subset based on how deep it went into the "tree." Therefore, it adds +1 to the height and when it finds a possible subset sum, it determines if that height is the shortest height and updates via that.
+
+The memoization is set for each desired_total per recursive call and its current object in the array of votes.
+

@@ -1,0 +1,190 @@
+fileFormatVersion: 2
+guid: 87ad8b7bcccd3ba478c7d950173413b8
+timeCreated: 1443212595
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: 0_emergency_new_curve_
+    100002: 0_emergency_reloc_curve_
+    100004: 0_Fence_Exist_curve_
+    100006: 0_Furn_curve_
+    100008: 0_Gate_curve_
+    100010: 0_path_curve_
+    100012: 0_Perennials_Prop_curve_
+    100014: 0_planting_bed_curve_
+    100016: 0_Prop_Lights_curve_
+    100018: 0_Scoring_curve_
+    100020: 0_Scoring_mesh_
+    100022: 0_text-new_curve_
+    100024: 0_work_limit_curve_
+    100026: G-ANNO-TTLB_curve_
+    100028: L-SITE-DETL_curve_
+    100030: ROW_EX_Easement_curve_
+    100032: ROW_EX_ROW_Line_curve_
+    100034: //RootNode
+    100036: Topo_Advertising_Sign_curve_
+    100038: Topo_Building_curve_
+    100040: 0_path_curve__001
+    100042: Cube
+    100044: Defpoints_curve_
+    100046: Grove_Path
+    400000: 0_emergency_new_curve_
+    400002: 0_emergency_reloc_curve_
+    400004: 0_Fence_Exist_curve_
+    400006: 0_Furn_curve_
+    400008: 0_Gate_curve_
+    400010: 0_path_curve_
+    400012: 0_Perennials_Prop_curve_
+    400014: 0_planting_bed_curve_
+    400016: 0_Prop_Lights_curve_
+    400018: 0_Scoring_curve_
+    400020: 0_Scoring_mesh_
+    400022: 0_text-new_curve_
+    400024: 0_work_limit_curve_
+    400026: G-ANNO-TTLB_curve_
+    400028: L-SITE-DETL_curve_
+    400030: ROW_EX_Easement_curve_
+    400032: ROW_EX_ROW_Line_curve_
+    400034: //RootNode
+    400036: Topo_Advertising_Sign_curve_
+    400038: Topo_Building_curve_
+    400040: 0_path_curve__001
+    400042: Cube
+    400044: Defpoints_curve_
+    400046: Grove_Path
+    2300000: 0_emergency_new_curve_
+    2300002: 0_emergency_reloc_curve_
+    2300004: 0_Fence_Exist_curve_
+    2300006: 0_Furn_curve_
+    2300008: 0_Gate_curve_
+    2300010: 0_path_curve_
+    2300012: 0_Perennials_Prop_curve_
+    2300014: 0_planting_bed_curve_
+    2300016: 0_Prop_Lights_curve_
+    2300018: 0_Scoring_curve_
+    2300020: 0_Scoring_mesh_
+    2300022: 0_text-new_curve_
+    2300024: 0_work_limit_curve_
+    2300026: G-ANNO-TTLB_curve_
+    2300028: L-SITE-DETL_curve_
+    2300030: ROW_EX_Easement_curve_
+    2300032: ROW_EX_ROW_Line_curve_
+    2300034: //RootNode
+    2300036: Topo_Advertising_Sign_curve_
+    2300038: Topo_Building_curve_
+    2300040: 0_path_curve__001
+    2300042: Cube
+    2300044: Defpoints_curve_
+    2300046: Grove_Path
+    3300000: 0_emergency_new_curve_
+    3300002: 0_emergency_reloc_curve_
+    3300004: 0_Fence_Exist_curve_
+    3300006: 0_Furn_curve_
+    3300008: 0_Gate_curve_
+    3300010: 0_path_curve_
+    3300012: 0_Perennials_Prop_curve_
+    3300014: 0_planting_bed_curve_
+    3300016: 0_Prop_Lights_curve_
+    3300018: 0_Scoring_curve_
+    3300020: 0_Scoring_mesh_
+    3300022: 0_text-new_curve_
+    3300024: 0_work_limit_curve_
+    3300026: G-ANNO-TTLB_curve_
+    3300028: L-SITE-DETL_curve_
+    3300030: ROW_EX_Easement_curve_
+    3300032: ROW_EX_ROW_Line_curve_
+    3300034: //RootNode
+    3300036: Topo_Advertising_Sign_curve_
+    3300038: Topo_Building_curve_
+    3300040: 0_path_curve__001
+    3300042: Cube
+    3300044: Defpoints_curve_
+    3300046: Grove_Path
+    4300000: Defpoints_curve_
+    4300002: Topo_Building_curve_
+    4300004: Topo_Advertising_Sign_curve_
+    4300006: ROW_EX_Easement_curve_
+    4300008: ROW_EX_ROW_Line_curve_
+    4300010: L-SITE-DETL_curve_
+    4300012: G-ANNO-TTLB_curve_
+    4300014: 0_work_limit_curve_
+    4300016: 0_text-new_curve_
+    4300018: 0_planting_bed_curve_
+    4300020: 0_path_curve_
+    4300022: 0_emergency_reloc_curve_
+    4300024: 0_emergency_new_curve_
+    4300026: 0_Scoring_mesh_
+    4300028: 0_Scoring_curve_
+    4300030: 0_Prop_Lights_curve_
+    4300032: 0_Perennials_Prop_curve_
+    4300034: 0_Gate_curve_
+    4300036: 0_Furn_curve_
+    4300038: 0_Fence_Exist_curve_
+    4300040: 0_path_curve__001
+    4300042: Cube
+    4300044: Grove_Path
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

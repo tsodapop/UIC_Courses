@@ -1,0 +1,238 @@
+fileFormatVersion: 2
+guid: 8be41f8aadad15c4bb89d33cb52f5c37
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: NOName
+    100004: NOName_MeshPart0
+    100006: NOName_MeshPart1
+    100008: NOName_MeshPart2
+    100010: NOName_MeshPart3
+    100012: NOName_MeshPart4
+    100014: NOName_MeshPart5
+    100016: NOName_MeshPart6
+    100018: NOName_MeshPart7
+    100020: Plane
+    100022: Plane_1
+    100024: Chicago
+    100026: Chicago_MeshPart0
+    100028: Chicago_MeshPart1
+    100030: Chicago_MeshPart2
+    100032: Chicago_MeshPart3
+    100034: Chicago_MeshPart4
+    100036: Chicago_MeshPart5
+    100038: Chicago_MeshPart6
+    100040: Chicago_MeshPart7
+    100042: UIC
+    100044: Chicago-Loop
+    100046: Chicago-NewEastSide
+    100048: Chicago_001
+    100050: Greektown
+    100052: Sears_Tower
+    100054: Chicago_002
+    100056: UIC-UH
+    400000: //RootNode
+    400002: NOName
+    400004: NOName_MeshPart0
+    400006: NOName_MeshPart1
+    400008: NOName_MeshPart2
+    400010: NOName_MeshPart3
+    400012: NOName_MeshPart4
+    400014: NOName_MeshPart5
+    400016: NOName_MeshPart6
+    400018: NOName_MeshPart7
+    400020: Plane
+    400022: Plane_1
+    400024: Chicago
+    400026: Chicago_MeshPart0
+    400028: Chicago_MeshPart1
+    400030: Chicago_MeshPart2
+    400032: Chicago_MeshPart3
+    400034: Chicago_MeshPart4
+    400036: Chicago_MeshPart5
+    400038: Chicago_MeshPart6
+    400040: Chicago_MeshPart7
+    400042: UIC
+    400044: Chicago-Loop
+    400046: Chicago-NewEastSide
+    400048: Chicago_001
+    400050: Greektown
+    400052: Sears_Tower
+    400054: Chicago_002
+    400056: UIC-UH
+    2300000: NOName_MeshPart0
+    2300002: NOName_MeshPart1
+    2300004: NOName_MeshPart2
+    2300006: NOName_MeshPart3
+    2300008: NOName_MeshPart4
+    2300010: NOName_MeshPart5
+    2300012: NOName_MeshPart6
+    2300014: NOName_MeshPart7
+    2300016: Plane
+    2300018: Plane_1
+    2300020: Chicago_MeshPart0
+    2300022: Chicago_MeshPart1
+    2300024: Chicago_MeshPart2
+    2300026: Chicago_MeshPart3
+    2300028: Chicago_MeshPart4
+    2300030: Chicago_MeshPart5
+    2300032: Chicago_MeshPart6
+    2300034: Chicago_MeshPart7
+    2300036: UIC
+    2300038: Chicago-Loop
+    2300040: Chicago-NewEastSide
+    2300042: Chicago_001
+    2300044: Greektown
+    2300046: Sears_Tower
+    2300048: Chicago_002
+    2300050: UIC-UH
+    3300000: NOName_MeshPart0
+    3300002: NOName_MeshPart1
+    3300004: NOName_MeshPart2
+    3300006: NOName_MeshPart3
+    3300008: NOName_MeshPart4
+    3300010: NOName_MeshPart5
+    3300012: NOName_MeshPart6
+    3300014: NOName_MeshPart7
+    3300016: Plane
+    3300018: Plane_1
+    3300020: Chicago_MeshPart0
+    3300022: Chicago_MeshPart1
+    3300024: Chicago_MeshPart2
+    3300026: Chicago_MeshPart3
+    3300028: Chicago_MeshPart4
+    3300030: Chicago_MeshPart5
+    3300032: Chicago_MeshPart6
+    3300034: Chicago_MeshPart7
+    3300036: UIC
+    3300038: Chicago-Loop
+    3300040: Chicago-NewEastSide
+    3300042: Chicago_001
+    3300044: Greektown
+    3300046: Sears_Tower
+    3300048: Chicago_002
+    3300050: UIC-UH
+    4300000: NOName_MeshPart0
+    4300002: NOName_MeshPart1
+    4300004: NOName_MeshPart2
+    4300006: NOName_MeshPart3
+    4300008: NOName_MeshPart4
+    4300010: NOName_MeshPart5
+    4300012: NOName_MeshPart6
+    4300014: NOName_MeshPart7
+    4300016: Plane_1
+    4300018: Plane
+    4300020: UIC
+    4300022: Chicago_MeshPart0
+    4300024: Chicago_MeshPart1
+    4300026: Chicago_MeshPart2
+    4300028: Chicago_MeshPart3
+    4300030: Chicago_MeshPart4
+    4300032: Chicago_MeshPart5
+    4300034: Chicago_MeshPart6
+    4300036: Chicago_MeshPart7
+    4300038: Chicago-NewEastSide
+    4300040: Chicago-Loop
+    4300042: Greektown
+    4300044: Chicago_001
+    4300046: Sears_Tower
+    4300048: Chicago_002
+    4300050: UIC-UH
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_001
+    second: {fileID: 2100000, guid: 77e5ccecdefadd145b2b941000a17e9e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_2
+    second: {fileID: 2100000, guid: e96adaca91acfd34596c9580fb549eb4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_3
+    second: {fileID: 2100000, guid: 76be9b9c4324d4e4490a5d32c19415e8, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

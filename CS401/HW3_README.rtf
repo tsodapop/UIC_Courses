@@ -1,0 +1,29 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Homework 3\
+Question 6\
+\
+For this question, I admittedly do not know how to properly implement this. I believe I understand the idea is that we tackle this similarly to MergeSort, where we do create a left and right and we know everything on the left will be smaller than the right in terms of their l(i) values.\
+\
+We also know that the right most side of any end of a certain strip of the skyline will result in (X, 0) because the 0 represents no height, and so at the end of each merge\'92s array, we will end with such a value.\
+\
+We then do comparisons from the smallest of each of the two arrays, left and right. We continuously add in the X coordinate and height as (X, h) of the smaller X value. For instance,\
+\
+[1,20] vs [2,18]\
+\
+we add in [1,20]\
+\
+Similarly to merge sort, when we finally reach the end of the first array, we add in the coordinates of the rest in the right array. This will give us a complete skyline.\
+\
+To alleviate duplicates of coordinates where we have the same height, we can just do a check on the height of i-1\'92s height value. If they are the same, then we do not append the new coordinate. For instance,\
+\
+[2,20] vs [3,20]\
+\
+We do not add in either because we already have [1,20] in and it has the same height.\
+\
+I do not know how to implement this properly without copying an online solution. I would appreciate going over this question in lecture sometime.}

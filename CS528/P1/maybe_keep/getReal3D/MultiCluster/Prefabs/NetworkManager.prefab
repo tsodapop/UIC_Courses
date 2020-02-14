@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1060607702281748}
+  m_IsPrefabParent: 1
+--- !u!1 &1060607702281748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4418676259613980}
+  - component: {fileID: 114977561186752198}
+  - component: {fileID: 114127826473637806}
+  m_Layer: 0
+  m_Name: NetworkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4418676259613980
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060607702281748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114127826473637806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060607702281748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26befc016f90c054abc0606b054b9c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114977561186752198
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060607702281748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1759138922, guid: 6aebc42a318181047bb12fdb4b28b5c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_dontDestroyOnLoad: 1
+  networkAddress: 127.0.0.1
+  m_guidPool:
+    m_lowTide: 20
+    m_highTide: 50
+    guidsAsString:
+    - 72d4bbbd-a1d6-4906-9f51-b16d50ddf148
+    - e38f51d9-bfdd-4c0f-b87c-8ac749f07371
+    - a03a598a-c5d2-4f42-95dc-ef12584b28f4
+    - 2e7fe0f7-b476-4a30-a1f7-82bf959f141b
+    - 5553e8f4-32b7-49e1-afc5-c35e61aa4ad3
+    - 0c9ab4eb-3ace-4aea-beb1-04ba04fa85a3
+    - 39a4ba91-0d78-436d-88ea-dd773755ebb7
+    - a0d3d1cf-4184-4764-8e1e-b7f71758ab53
+    - 46f1ce41-7d21-466c-b263-4f516fb63f79
+    - 8d02763b-7050-4747-b74e-fd19af5548b5
+    - 6b712b67-a85b-4d22-8485-4c012beb2ddd
+    - d9b481fc-aa53-46b6-89b9-80a28ddb34a3
+    - a94071a7-f788-45dc-9409-4e85f51cdc73
+    - d5cc2cdf-f85f-476d-992c-f2791cdeb5d7
+    - 34aaeb75-2c25-4cd4-9025-a47fbb198e5e
+    - 7cda7b12-59c7-4d1b-b137-f8c690eaf226
+    - 691b0b12-facb-4878-84e2-fcd325fae3c2
+    - faf505cb-e854-4acb-ad1e-121769058762
+    - 24a489bd-6a09-407a-ad5b-75ac64b2ffd8
+    - ac29a7d0-200f-46b1-8e1e-13cfce40542f
+    - d420f85b-8f0c-4a1c-b0c5-e0550e565ebb
+    - 9c0a245f-b94b-4a0b-9bc7-7dd6e7093496
+    - f2066bc5-dfb7-4457-b5b9-816a08953f98
+    - dcd950ac-29e4-426f-b114-219799a7b5ca
+    - 3ad60421-9731-4499-a46a-e3bec14cd4be
+    - 833127e6-6262-43cb-9a6e-5f16a4cf8632
+    - 92f165ae-192d-4858-9718-9c03ace1667d
+    - 8ff291c9-9eff-40b8-b6ec-34a0f8ba4bcb
+    - 9a226d1a-967b-4ad3-8516-5e398fbc3414
+    - 2e629383-1b96-4a30-9397-c30a1b0c62f9
+    - 5e166da6-be5d-4414-b92e-45895432b33b
+    - 2ce3f44e-50bb-4cf8-a92c-e89f488c0614
+    - 345591c1-118b-4c38-b341-2a43861822c7
+    - 050171d6-2f49-4fb8-8578-53bddfe2836e
+    - 2145d029-32d8-4ed6-bb8f-cf410218815c
+    - 38858950-1d19-4611-bdf4-4919cef45b10
+    - 6718379b-8d86-431c-93e9-b91d54192a08
+    - d59b017d-fce4-4eb9-ae1d-5959256e5220
+    - 7d0cf2f3-55e1-4314-b264-43b997cc81fe
+    - a6068483-9932-455c-9150-b4e002a3883a
+    - 0e0cd2b3-5758-4c29-a860-281b43dceb1e
+    - 3d802e5d-ce99-4c6f-85ab-580fa2e239fe
+    - aa591132-2eff-4806-8dd2-683b8bf26d00
+    - ebac74c8-2c5c-4bdb-b152-4d9090df07b8
+    - 7435ceb8-ac3d-474a-9b50-0f95141c2464
+    - 9c63cb61-a4b3-47a4-9d53-b3254e1603db
+    - 83236d8e-b992-417b-b540-901bf579c4c0
+    - 8b637904-9a35-4035-9dd5-7a4c76640b85
+    - 50c4d3c1-5301-407e-8c44-6a4c3750ca81
+    - 4ee357d5-f94d-437a-af5e-b6bd886ca3e0
+  m_spawnPrefabs: []
+  m_playerPrefab: {fileID: 0}
+  startPositions: []
+  m_logMessages: 0

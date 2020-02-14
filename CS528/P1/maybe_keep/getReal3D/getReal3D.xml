@@ -1,0 +1,3973 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>getReal3D</name>
+    </assembly>
+    <members>
+        <member name="T:getReal3D.CameraPreviewData">
+            <summary>
+            Structure used to store preview camera matrix.
+            </summary>
+        </member>
+        <member name="F:getReal3D.CameraPreviewData.hasProjMatrix">
+            <summary>
+            True if the projection matrix is valid.
+            </summary>
+        </member>
+        <member name="F:getReal3D.CameraPreviewData.projMatrix">
+            <summary>
+            Projection matrix of the camera.
+            </summary>
+        </member>
+        <member name="T:getReal3D.CameraUpdaterInterface">
+            <summary>
+            Interface that a camera updater script must implement in order to use the
+            CameraUpdaterHelper class.
+            </summary>
+        </member>
+        <member name="P:getReal3D.CameraUpdaterInterface.updater">
+            <summary>
+            Return the CameraUpdaterHelper instance.
+            </summary>
+        </member>
+        <member name="P:getReal3D.CameraUpdaterInterface.behaviour">
+            <summary>
+            Return the behaviour this script is attached to.
+            </summary>
+        </member>
+        <member name="P:getReal3D.CameraUpdaterInterface.cameraPreviewData">
+            <summary>
+            Return the camera preview data.
+            </summary>
+        </member>
+        <member name="T:getReal3D.CameraUpdaterHelper">
+            <summary>
+            Helper class used to create and update getReal3D cameras.
+            </summary>
+        </member>
+        <member name="T:getReal3D.CameraUpdaterHelper.Eye">
+            <summary>
+            Eye enumeration.
+            </summary>
+        </member>
+        <member name="F:getReal3D.CameraUpdaterHelper.Eye.Left">
+            <summary>
+            Left eye
+            </summary>
+        </member>
+        <member name="F:getReal3D.CameraUpdaterHelper.Eye.Right">
+            <summary>
+            Right eye
+            </summary>
+        </member>
+        <member name="P:getReal3D.CameraUpdaterHelper.eye">
+            <summary>
+            The eye this camera is rendering.
+            </summary>
+        </member>
+        <member name="M:getReal3D.CameraUpdaterHelper.CreateCamerasForUserIfNeeded(UnityEngine.Camera,System.UInt32)">
+            <summary>
+            Duplicate the camera as needed for rendering of the given user.
+            </summary>
+            <param name="baseCamera">Base camera to duplicate.</param>
+            <param name="userId">User ID of the camera</param>
+        </member>
+        <member name="M:getReal3D.CameraUpdaterHelper.ResetHandledUsers">
+            <summary>
+            Resets the handled users. This can be used if the corresponding cameras have been
+            deleted and needs to be recreated later.
+            </summary>
+        </member>
+        <member name="M:getReal3D.CameraUpdaterHelper.UpdateCamera">
+            <summary>
+            Must be called by the owning script during the OnPreCull callback.
+            </summary>
+        </member>
+        <member name="M:getReal3D.CameraUpdaterHelper.PreRender">
+            <summary>
+            Must be called by the owning script during the OnPreRender callback.
+            </summary>
+        </member>
+        <member name="M:getReal3D.CameraUpdaterHelper.PostRender">
+            <summary>
+            Must be called by the owning script during the OnPostRender callback.
+            </summary>
+        </member>
+        <member name="M:getReal3D.CameraUpdaterHelper.OnRenderImage(UnityEngine.RenderTexture,UnityEngine.RenderTexture)">
+            <summary>
+            Must be called by the owning script during the OnRenderImage callback.
+            </summary>
+        </member>
+        <member name="M:getReal3D.CameraUpdaterHelper.Destroyed">
+            <summary>
+            Must be called by owning script during the OnDestroy callback.
+            </summary>
+        </member>
+        <member name="M:getReal3D.CameraUpdaterHelper.Disabled">
+            <summary>
+            Must be called by owning script during the OnDisabled callback.
+            </summary>
+        </member>
+        <member name="T:getReal3D.Cluster">
+            <summary>
+            A utility class for getReal3D Mechdyne-Cluster.
+            </summary>
+        </member>
+        <member name="P:getReal3D.Cluster.isMaster">
+            <summary>
+            Is this instance the master instance in a getReal3D for Unity Mechdyne-Cluster
+            </summary>
+        </member>
+        <member name="P:getReal3D.Cluster.isOn">
+            <summary>
+            Is the ClusterManager needed in a getReal3D for Unity Mechdyne-Cluster
+            </summary>
+        </member>
+        <member name="P:getReal3D.Cluster.isClientAndClusterOn">
+            <summary>
+            Is this instance a client in a getReal3D for Unity Mechdyne-Cluster
+            </summary>
+        </member>
+        <member name="P:getReal3D.Cluster.time">
+            <summary>
+            UnityEngine.Time.time from the master instance in a getReal3D for Unity Mechdyne-Cluster
+            </summary>
+        </member>
+        <member name="P:getReal3D.Cluster.deltaTime">
+            <summary>
+            UnityEngine.Time.deltaTime from the master instance in a getReal3D for Unity Mechdyne-Cluster
+            </summary>
+        </member>
+        <member name="P:getReal3D.Cluster.frameCount">
+            <summary>
+            Same as getReal3D.Plugin.getFrameCount()
+            The getReal3D cluster frame count; may not be the same as UnityEngine.Time.frameCount
+            </summary>
+        </member>
+        <member name="T:getReal3D.Config">
+            <summary>
+            The getReal3D Config class provides runtime access to Unity specific configuration settings.
+            </summary>
+        </member>
+        <member name="P:getReal3D.Config.renderingPath">
+            <summary>
+            Get the desired UnityEngine.RenderingPath for getReal3D cameras.
+            </summary>
+        </member>
+        <member name="P:getReal3D.Config.renderingPathSet">
+            <summary>
+            Set to true if the rendering path was specified in the configuration file.
+            </summary>
+        </member>
+        <member name="P:getReal3D.Config.targetFrameRate">
+            <summary>
+            Get the desired framerate for Unity instances.
+            </summary>
+        </member>
+        <member name="P:getReal3D.Config.qualityLevel">
+            <summary>
+            Get the desired UnityEngine.QualityLevel for Unity instances.
+            </summary>
+        </member>
+        <member name="T:getReal3D.DebuggerUI">
+            <summary>
+            The getReal.InputManager takes care of updating the trackd input data on a regular basis.
+            </summary>
+        </member>
+        <member name="T:getReal3D.getReal3DConfig">
+            <summary>
+            This class represents a getReal3D configuration file within Unity assets.
+            </summary>
+        </member>
+        <member name="T:getReal3D.getReal3DConfig.ConfigInfo">
+            <summary>
+            Stores information about the loaded configuration.
+            </summary>
+        </member>
+        <member name="F:getReal3D.getReal3DConfig.info">
+            <summary>
+            Information about that configuration file.
+            </summary>
+        </member>
+        <member name="F:getReal3D.getReal3DConfig.m_content">
+             We store this thing as a char[] otherwise Untiy goes mad when trying to display it.
+             (Text mesh generation is limited to 64K vertices!)
+        </member>
+        <member name="T:getReal3D.GUI">
+            <summary>
+            A utilty class for dealing with OnGUI setup across a getReal3D cluster.
+            </summary>
+        </member>
+        <member name="P:getReal3D.GUI.width">
+            <summary>
+            Use to override the default GUI width (800 pixels or the specified width of the master instance)
+            </summary>
+        </member>
+        <member name="P:getReal3D.GUI.height">
+            <summary>
+            Use to override the default GUI height (600 pixels or the specified height of the master instance)
+            </summary>
+        </member>
+        <member name="P:getReal3D.GUI.enabled">
+            <summary>
+            Should this Unity instance show its GUI
+            </summary>
+        </member>
+        <member name="P:getReal3D.GUI.isReady">
+            <summary>
+            Are the getReal3D GUI Utility initialized and the Unity instance resized
+            </summary>
+        </member>
+        <member name="M:getReal3D.GUI.BeginGUI">
+            <summary>
+            For cluster use.
+            Call at the start of OnGUI callbacks to ensure GUI elements are hidden where configured.
+            Also keeps OnGUI layout consistent, enabling hidden GUIs to receive input in the cluster.
+            </summary>
+        </member>
+        <member name="M:getReal3D.GUI.EndGUI">
+            <summary>
+            For cluster use.
+            Call at the end of OnGUI callbacks to ensure GUI elements are hidden where configured.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.ClientRpcAttribute">
+            <summary>
+            This is an attribute that can be put on methods of NetworkBehaviour classes to allow them to
+            be invoked on clients from a server. [ClientRPC] functions are called by code on Unity
+            Multiplayer servers, and then invoked on corresponding GameObjects on clients connected to
+            the server. The arguments to the RPC call are serialized across the network, so that the
+            client function is invoked with the same values as the function on the server. These
+            functions must begin with the prefix "Rpc" and cannot be static.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.ClientScene">
+            <summary>
+            A client manager which contains static client information and functions.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.ClientScene.AddPlayer(getReal3D.MultiCluster.NetworkConnection,System.Int16,getReal3D.MultiCluster.Message.MessageBase)">
+            <summary>
+            This adds a player GameObject for this client. This causes an AddPlayer message to be
+            sent to the server, and NetworkManager.OnServerAddPlayer is called. If an extra message
+            was passed to AddPlayer, then OnServerAddPlayer will be called with a NetworkReader
+            that contains the contents of the message.
+            </summary>
+            <param name="conn">The connection to the client</param>
+            <param name="controllerId">The local player ID number (not supported yet)</param>
+            <param name="extraMessage">An extra message object that can be passed to the server for
+            this player.</param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.ClientScene.FindLocalObject(getReal3D.MultiCluster.NetworkInstanceId)">
+            <summary>
+            This finds the local NetworkIdentity object with the specified network Id.
+            </summary>
+            <param name="netId">The id of the networked object.</param>
+            <returns>The game object that matches the netId.</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.ClientScene.RegisterPrefab(UnityEngine.GameObject)">
+            <summary>
+            Registers a prefab with the MultiCluster spawning system.
+            </summary>
+            <param name="prefab">A Prefab that will be spawned.</param>
+        </member>
+        <member name="T:getReal3D.MultiCluster.CommandAttribute">
+            <summary>
+            This is an attribute that can be put on methods of NetworkBehaviour classes to allow them to
+            be invoked on the server by sending a command from a client. [Command] functions are invoked
+            on the player GameObject associated with a connection.This is set up in response to the
+            "ready" message, by passing the player GameObject to the NetworkServer.PlayerIsReady()
+            function.The arguments to the command call are serialized across the network, so that the
+            server function is invoked with the same values as the function on the client.These
+            functions must begin with the prefix "Cmd" and cannot be static.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.GuidPool">
+            <summary>
+            This class is used internally by NetworkManager to provide new GUID during runtime.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.GuidPool.m_lowTide">
+            <summary>
+            The expected minimum number of GUIDs in the pool.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.GuidPool.m_highTide">
+            <summary>
+            The maximum number of GUIDs in the pool.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.GuidPool.guidsAsString">
+            <summary>
+            List of GUIDs in the pool.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.GuidPool.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.GuidPool.OnBeforeSerialize">
+            <summary>
+            Used for serialization.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.GuidPool.OnAfterDeserialize">
+            <summary>
+            Used for deserialization.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.INetworkErrorListener">
+            <summary>
+            If an object with this interface is present on the same object as the NetworkManager,
+            then the following error methods will be called.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.INetworkErrorListener.OnClientError(getReal3D.MultiCluster.NetworkConnection,System.Int32)">
+            <summary>
+            Same as NetworkManger.OnClientError.
+            </summary>
+            <param name="conn"></param>
+            <param name="errorCode"></param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.INetworkErrorListener.OnServerError(getReal3D.MultiCluster.NetworkConnection,System.Int32)">
+            <summary>
+            Same as NetworkManger.OnServerError.
+            </summary>
+            <param name="conn"></param>
+            <param name="errorCode"></param>
+        </member>
+        <member name="T:getReal3D.MultiCluster.Message.MessageBase">
+            <summary>
+            Base class for raw MultiCluster messages. Still quite different from Unity.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.Message.MultiClusterMessage">
+            <summary>
+            Base class for raw MultiCluster messages. Still quite different from Unity.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.Message.MultiClusterMessage.preSerialization">
+            <summary>
+            Callback before the message is serialized.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.Message.MultiClusterMessage.postDeserialization">
+            <summary>
+            Callback after the message is deserialized.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.Message.SerializableQuaternion">
+            <summary>
+            A Serializable class that can be implicitly casted to and from a Quaternion.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.Message.SerializableQuaternion.#ctor(UnityEngine.Quaternion)">
+            <summary>
+            Build a SerializableQuaternion from a Quaternion.
+            </summary>
+            <param name="q">Quaternion to copy.</param>
+        </member>
+        <member name="F:getReal3D.MultiCluster.Message.SerializableQuaternion.x">
+            <summary>
+            x coordinate.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.Message.SerializableQuaternion.y">
+            <summary>
+            y coordinate.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.Message.SerializableQuaternion.z">
+            <summary>
+            z coordinate.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.Message.SerializableQuaternion.w">
+            <summary>
+            w coordinate.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.Message.SerializableQuaternion.toQuaternion">
+            <summary>
+            Explicit conversion to a Quaternion.
+            </summary>
+            <returns>Converted quaternion</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.Message.SerializableQuaternion.op_Implicit(getReal3D.MultiCluster.Message.SerializableQuaternion)~UnityEngine.Quaternion">
+            <summary>
+            Implicit conversion.
+            </summary>
+            <param name="q">SerializableQuaternion to convert.</param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.Message.SerializableQuaternion.op_Implicit(UnityEngine.Quaternion)~getReal3D.MultiCluster.Message.SerializableQuaternion">
+            <summary>
+            Implicit conversion.
+            </summary>
+            <param name="quaternion">Quaternion to convert.</param>
+        </member>
+        <member name="T:getReal3D.MultiCluster.Message.SerializableVector3">
+            <summary>
+            A Serializable class that can be implicitly casted to and from a Vector3.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.Message.SerializableVector3.#ctor(UnityEngine.Vector3)">
+            <summary>
+            Build a SerializableVector3 from a Vector3.
+            </summary>
+            <param name="v">Vector3 to copy.</param>
+        </member>
+        <member name="F:getReal3D.MultiCluster.Message.SerializableVector3.x">
+            <summary>
+            x coordinate.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.Message.SerializableVector3.y">
+            <summary>
+            y coordinate.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.Message.SerializableVector3.z">
+            <summary>
+            z coordinate.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.Message.SerializableVector3.toVector3">
+            <summary>
+            Explicit conversion to a Vector3.
+            </summary>
+            <returns>Converted vector.</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.Message.SerializableVector3.op_Implicit(getReal3D.MultiCluster.Message.SerializableVector3)~UnityEngine.Vector3">
+            <summary>
+            Implicit conversion.
+            </summary>
+            <param name="v">SerializableVector3 to convert.</param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.Message.SerializableVector3.op_Implicit(UnityEngine.Vector3)~getReal3D.MultiCluster.Message.SerializableVector3">
+            <summary>
+            Implicit conversion.
+            </summary>
+            <param name="vector3">Vector3 to convert.</param>
+        </member>
+        <member name="T:getReal3D.MultiCluster.NetworkBehaviour">
+            <summary>
+            Base class which should be inherited by scripts which contain networking functionality. This
+            is a MonoBehaviour class so scripts which need to use the networking feature should inherit
+            this class instead of MonoBehaviour.It allows you to invoke networked actions, receive
+            various callbacks, and automatically synchronize state from server-to-client.
+            The NetworkBehaviour component requires a NetworkIdentity on the game object. There can be
+            multiple NetworkBehaviours on a single game object. For an object with sub-components in a
+            hierarchy, the NetworkIdentity must be on the root object, and NetworkBehaviour scripts must
+            also be on the root object.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkBehaviour.#ctor">
+            <summary>
+            Used internally.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkBehaviour.isServer">
+            <summary>
+            Returns true if this object is active on an active server.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkBehaviour.isClient">
+            <summary>
+            Returns true if running as a client and this object was spawned by a server.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkBehaviour.hasAuthority">
+            <summary>
+            This returns true if this object is the authoritative version of the object in the
+            distributed network application.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkBehaviour.isLocalPlayer">
+            <summary>
+            This returns true if this object is the one that represents the player on the local
+            machine.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkBehaviour.localPlayerAuthority">
+            <summary>
+            This value is set on the NetworkIdentity and is accessible here for convenient access
+            for scripts.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkBehaviour.netId">
+            <summary>
+            Unique identifier for this particular object instance, used for tracking objects
+            between networked clients and the server.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkBehaviour.OnStartAuthority">
+            <summary>
+            This is invoked on behaviours that have authority, based on context and
+            NetworkIdentity.localPlayerAuthority.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkBehaviour.OnStartClient">
+            <summary>
+            Called on every NetworkBehaviour when it is activated on a client.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkBehaviour.OnStartLocalPlayer">
+            <summary>
+            Called when the local player object has been set up.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkBehaviour.OnStartServer">
+            <summary>
+            This is invoked for NetworkBehaviour objects when they become active on the server.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkBehaviour.OnStopAuthority">
+            <summary>
+            This is invoked on behaviours when authority is removed.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkBehaviour.OnNetworkDestroy">
+            <summary>
+            This is invoked on clients when the server has caused this object to be destroyed.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.NetworkClient">
+            <summary>
+            This is a network client class used by the networking system. It contains a
+            NetworkConnection that is used to connection to a network server.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkClient.connection">
+            <summary>
+            The NetworkConnection object this client is using.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.NetworkConnection">
+            <summary>
+            A High level network connection. This is used for connections from client-to-server and
+            for connection from server-to-client.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkConnection.address">
+            <summary>
+            The IP address associated with the connection.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkConnection.hostId">
+            <summary>
+            Transport level host ID for this connection.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.NetworkError">
+            <summary>
+            Network error codes.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkError.Ok">
+            <summary>
+            No error
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkError.ConnectionLost">
+            <summary>
+            Connection lost.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkError.ConnectionFailure">
+            <summary>
+            Connection failure.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkError.LicenseError">
+            <summary>
+            License error
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.NetworkIdentity">
+            <summary>
+            The NetworkIdentity identifies objects across the network, between server and clients.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkIdentity.connectionToClient">
+            <summary>
+            The connection associated with this NetworkIdentity. This is only valid for player
+            objects on the server.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkIdentity.connectionToServer">
+            <summary>
+            The connection associated with this NetworkIdentity. This is only valid for player
+            objects on a local client.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkIdentity.clientAuthorityOwner">
+            <summary>
+            The client that has authority for this object. This will be null if no client
+            has authority.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkIdentity.netId">
+            <summary>
+            Unique identifier for this particular object instance, used for tracking objects
+            between networked clients and the server.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkIdentity.RegenIdentity">
+            <summary>
+            Generates a new ID.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkIdentity.hasAuthority">
+            <summary>
+            This returns true if this object is the authoritative version of the object in the
+            distributed network application.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkIdentity.isServer">
+            <summary>
+            Returns true if running as a server, which spawned the object.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkIdentity.isClient">
+            <summary>
+            Returns true if running as a client and this object was spawned by a server.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkIdentity.isLocalPlayer">
+            <summary>
+            This returns true if this object is the one that represents the player on the local
+            machine.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkIdentity.localPlayerAuthority">
+            <summary>
+            localPlayerAuthority means that the client of the "owning" player has authority over
+            their own player object.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkIdentity.serverOnly">
+            <summary>
+            Flag to make this object only exist when the game is running as a server (or host).
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkIdentity.AssignClientAuthority(getReal3D.MultiCluster.NetworkConnection)">
+            <summary>
+            This assigns control of an object to a client via the client's NetworkConnection.
+            </summary>
+            <param name="conn">The connection of the client to assign authority to.</param>
+            <returns>True if authority was assigned.</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkIdentity.RemoveClientAuthority(getReal3D.MultiCluster.NetworkConnection)">
+            <summary>
+            Removes ownership for an object for a client by its connection.
+            </summary>
+            <param name="conn"></param>
+            <returns>True if authority is removed.</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkIdentity.OnBeforeSerialize">
+            <summary>
+            Internal use.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkIdentity.OnAfterDeserialize">
+            <summary>
+            Internal use.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkIdentity.GetDuplicated">
+            <summary>
+            Return duplicated NetworkIdentity in the current scene and assets.
+            </summary>
+            <returns>Duplicates.</returns>
+        </member>
+        <member name="T:getReal3D.MultiCluster.NetworkInstanceId">
+            <summary>
+            This is used to identify networked objects across all participants of a network.
+            It is assigned at runtime by the server when an object is spawned.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkInstanceId.Invalid">
+            <summary>
+            A static invalid NetworkInstanceId that can be used for comparisons.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkInstanceId.#ctor(System.UInt32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="value">Internal value.</param>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkInstanceId.Value">
+            <summary>
+            The internal value of this identifier.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkInstanceId.Equals(System.Object)">
+            <summary>
+            Check for equality.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns>true if the specified Object is equal to the current Object; otherwise,
+            false.</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkInstanceId.GetHashCode">
+            <summary>
+            Hash function.
+            </summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkInstanceId.IsEmpty">
+            <summary>
+            Returns true if the value of the NetworkInstanceId is zero.
+            Object that have not been spawned will have a value of zero.
+            </summary>
+            <returns>True if zero.</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkInstanceId.ToString">
+            <summary>
+            Returns a string of "NetID:value"
+            </summary>
+            <returns>String representation of this object.</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkInstanceId.op_Equality(getReal3D.MultiCluster.NetworkInstanceId,getReal3D.MultiCluster.NetworkInstanceId)">
+            <summary>
+            Compare two NetworkInstanceId.
+            </summary>
+            <param name="c1">First object to compare.</param>
+            <param name="c2">Second object to compare.</param>
+            <returns>True if c1 and c2 are equals.</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkInstanceId.op_Inequality(getReal3D.MultiCluster.NetworkInstanceId,getReal3D.MultiCluster.NetworkInstanceId)">
+            <summary>
+            Compare two NetworkInstanceId.
+            </summary>
+            <param name="c1">First object to compare.</param>
+            <param name="c2">Second object to compare.</param>
+            <returns>True if c1 and c2 are different.</returns>
+        </member>
+        <member name="T:getReal3D.MultiCluster.NetworkManager">
+            <summary>
+            The NetworkManager is a convenience class for the HLAPI for managing networking systems. For
+             simple network applications the NetworkManager can be used to control the HLAPI.It provides
+             simple ways to start and stop client and servers, to manage scenes, and has virtual
+            functions that user code can use to implement handlers for network events.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkManager.m_dontDestroyOnLoad">
+            <summary>
+            A flag to control whether the NetworkManager object is destroyed when the scene changes.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkManager.networkAddress">
+            <summary>
+            The network address currently in use.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkManager.m_guidPool">
+            <summary>
+            GUID pool, internal use only.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkManager.client">
+            <summary>
+            The current NetworkClient being used by the manager.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnStartHost">
+            <summary>
+            This hook is invoked when a host is started.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnStartServer">
+            <summary>
+            This hook is invoked when a server is started - including when a host is started.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnServerConnect(getReal3D.MultiCluster.NetworkConnection)">
+            <summary>
+            Called on the server when a new client connects.
+            </summary>
+            <param name="conn">Connection from client.</param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnStartClient(getReal3D.MultiCluster.NetworkClient)">
+            <summary>
+            This is a hook that is invoked when the client is started.
+            </summary>
+            <param name="client">The NetworkClient object that was started.</param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnClientConnect(getReal3D.MultiCluster.NetworkConnection)">
+            <summary>
+            Called on the client when connected to a server.
+            The default implementation of this function adds a player.
+            </summary>
+            <param name="conn">Connection to the server.</param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnServerReady(getReal3D.MultiCluster.NetworkConnection)">
+            <summary>
+            Called on the server when a client is ready.
+            </summary>
+            <param name="conn">Connection from client.</param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnServerAddPlayer(getReal3D.MultiCluster.NetworkConnection,System.Int16,getReal3D.MultiCluster.NetworkReader)">
+            <summary>
+            Called on the server when a client adds a new player with ClientScene.AddPlayer.
+            </summary>
+            <param name="conn">Connection from client.</param>
+            <param name="playerControllerIdUnused">Id of the new player.</param>
+            <param name="extraMessageReader">An extra message object passed for the new player.
+            </param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnStopHost">
+            <summary>
+            This hook is called when a host is stopped.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnStopServer">
+            <summary>
+            This hook is called when a server is stopped - including when a host is stopped.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnStopClient">
+            <summary>
+            This hook is called when a client is stopped.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnClientDisconnect(getReal3D.MultiCluster.NetworkConnection)">
+            <summary>
+            Called on clients when disconnected from a server.
+            </summary>
+            <param name="conn">Connection to the server.</param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnServerDisconnect(getReal3D.MultiCluster.NetworkConnection)">
+            <summary>
+            Called on the server when a client disconnects.
+            </summary>
+            <param name="conn">Connection from client.</param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnClientError(getReal3D.MultiCluster.NetworkConnection,System.Int32)">
+            <summary>
+            Called on clients when a network error occurs.
+            The default implementation outputs a warning message and broadcast the error
+            to any INetworkErrorListener on this object.
+            </summary>
+            <param name="conn">Connection to a server.</param>
+            <param name="errorCode">Error code.</param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnServerError(getReal3D.MultiCluster.NetworkConnection,System.Int32)">
+            <summary>
+            Called on server when a network error occurs.
+            The default implementation outputs a warning message and broadcast the error
+            to any INetworkErrorListener on this object.
+            </summary>
+            <param name="conn">Connection to a client or null.</param>
+            <param name="errorCode">Error code.</param>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkManager.m_spawnPrefabs">
+            <summary>
+            List of prefabs that will be registered with the spawning system.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkManager.m_playerPrefab">
+            <summary>
+            The default prefab to be used to create player objects on the server.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkManager.startPositions">
+            <summary>
+            The list of currently registered player start positions for the current scene.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkManager.m_logMessages">
+            <summary>
+            If set to true, each MultiCluster message is logged (debug log level).
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.Shutdown">
+            <summary>
+            Shuts down the NetworkManager completely and destroy the singleton.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkManager.isNetworkActive">
+            <summary>
+            True if the NetworkServer or NetworkClient is active.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.StartHost">
+            <summary>
+            This starts a network "host" - a server and client in the same application.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.StopHost">
+            <summary>
+            This stops both the client and the server that the manager is using.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.StartClient">
+            <summary>
+            This starts a network client. It uses the networkAddress and networkPort properties as
+            the address to connect to.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.StopClient">
+            <summary>
+            Stops the client that the manager is using.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.Start">
+            <summary>
+            Unity callback. Must be called when overridden.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.preUpdate">
+            <summary>
+            Internal use.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.SetGuidContent(System.String)">
+            <summary>
+            Internal use.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.postUpdate">
+            <summary>
+            Internal use.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.Awake">
+            <summary>
+            Unity callback. Must be called when overridden.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnEnable">
+            <summary>
+            Unity callback. Must be called when overridden.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.OnDisable">
+            <summary>
+            Unity callback. Must be called when overridden.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkManager.GetStartPosition">
+            <summary>
+              This finds a spawn position based on NetworkStartPosition objects in the scene.
+            </summary>
+            <returns>
+              Returns the transform to spawn a player at, or null.
+            </returns>
+        </member>
+        <member name="T:getReal3D.MultiCluster.NetworkReader">
+            <summary>
+            Class mimicking UnityEngine.Network.NetworkReader.
+            So far, only a single method has been implemented though.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkReader.ReadMessage``1">
+            <summary>
+            This is a utility function to read a typed network message from the stream.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns>The type of the Network Message, must be derived from MessageBase.</returns>
+        </member>
+        <member name="T:getReal3D.MultiCluster.NetworkServer">
+            <summary>
+            The NetworkServer is a singleton. It has static convenience functions such as
+            NetworkServer.Spawn() which automatically use the singleton instance.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkServer.AddPlayerForConnection(getReal3D.MultiCluster.NetworkConnection,UnityEngine.GameObject,System.Int16)">
+            <summary>
+            When an AddPlayer message handler has received a request from a player, the server calls
+            this to associate the player object with the connection. When a player is added for a
+            connection, the client for that connection is made ready automatically.The player object
+            is automatically spawned, so you do not need to call NetworkServer.Spawn for that
+            object. This function is used for "adding" a player, not for "replacing" the player on a
+            connection.If there is already a player on this playerControllerId for this connection,
+            this will fail.
+            </summary>
+            <param name="conn">Connection which is adding the player.</param>
+            <param name="player">Player object spawned for the player.</param>
+            <param name="playerControllerId">The player controller ID number as specified by client.
+            </param>
+            <returns>True if player was added.</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkServer.Spawn(UnityEngine.GameObject)">
+            <summary>
+            Spawn the given game object on all clients which are ready. This will cause a new object
+            to be instantiated from the registered prefab, or from a custom spawn function.
+            </summary>
+            <param name="obj">Game object with NetworkIdentity to spawn.</param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkServer.SpawnWithClientAuthority(UnityEngine.GameObject,UnityEngine.GameObject)">
+            <summary>
+            This spawns an object like NetworkServer.Spawn() but also assigns Client Authority to
+            the specified client.
+            </summary>
+            <param name="obj">The object to spawn.</param>
+            <param name="player">The player object to set Client Authority to.</param>
+            <returns>True if the object was spawned.</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkServer.SpawnWithClientAuthority(UnityEngine.GameObject,getReal3D.MultiCluster.NetworkConnection)">
+            <summary>
+            This spawns an object like NetworkServer.Spawn() but also assigns Client Authority to
+            the specified client.
+            </summary>
+            <param name="obj">The object to spawn.</param>
+            <param name="conn">The connection to set Client Authority to.</param>
+            <returns>True if the object was spawned.</returns>
+        </member>
+        <member name="P:getReal3D.MultiCluster.NetworkServer.connections">
+            <summary>
+            A list of all the current connections from clients.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkServer.FindLocalObject(getReal3D.MultiCluster.NetworkInstanceId)">
+            <summary>
+            This finds the local NetworkIdentity object with the specified network Id.
+            </summary>
+            <param name="netId">The id of the networked object.</param>
+            <returns>The game object that matches the netId.</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.NetworkServer.Destroy(UnityEngine.GameObject)">
+            <summary>
+            Destroys this object and corresponding objects on all clients.
+            </summary>
+            <param name="obj">Game object to destroy.</param>
+        </member>
+        <member name="T:getReal3D.MultiCluster.NetworkTransform">
+            <summary>
+            A component to synchronize the position and rotation of networked objects. The movement
+            of game objects can be networked by this component.There are two models of authority for
+            networked movement: If the object has authority on the client, then it should be
+            controlled locally on the owning client, then movement state information will be sent
+            from the owning client to the server, then broadcast to all of the other clients. This
+            is common for player objects. If the object has authority on the server, then it should
+            be controlled on the server and movement state information will be sent to all clients.
+            This is common for objects not related to a specific client, such as an enemy unit.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkTransform.updateTime">
+            <summary>
+            Update interval in seconds.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.NetworkTransform.TransformSyncMode">
+            <summary>
+            How to synchronize an object's position.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkTransform.TransformSyncMode.SyncNone">
+            <summary>
+            Dont synchronize.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkTransform.TransformSyncMode.SyncTransform">
+            <summary>
+            Sync using the game object's base transform.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkTransform.transformSyncMode">
+            <summary>
+            How to synchronize an object's position.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.NetworkTransformChild">
+            <summary>
+            The NetworkTransformChild component synchronizes the position and rotation of a child
+            object of an object with a NetworkTransform component. The NetworkTransformChild
+            component should be placed on the same root object as the NetworkTransform, and then
+             the target slot populated with a child object from the heirarchy.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.NetworkTransformChild.target">
+            <summary>
+            child transform to be synchronized.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.SyncList`1">
+            <summary>
+            This is the base class for type-specific SyncList classes.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:getReal3D.MultiCluster.SyncList`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.SyncList`1.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element to get or set.</param>
+            <returns>The element at the specified index.</returns>
+        </member>
+        <member name="P:getReal3D.MultiCluster.SyncList`1.Callback">
+            <summary>
+            The delegate type used for SyncListChanged.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.SyncList`1.Count">
+            <summary>
+            Returns the number of elements in this SyncList&lt;T&gt;.
+            </summary>
+        </member>
+        <member name="P:getReal3D.MultiCluster.SyncList`1.IsReadOnly">
+            <summary>
+            Reports whether the SyncList&lt;T&gt; is read-only.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.SyncList`1.Add(`0)">
+            <summary>
+            Same as List:Add() but the item is added on clients.
+            </summary>
+            <param name="item">Item to add.</param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.SyncList`1.Clear">
+            <summary>
+            Same as List:Clear() but the list is cleared on clients.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.SyncList`1.Contains(`0)">
+            <summary>
+            Determines whether the list contains item item.
+            </summary>
+            <param name="item">Item to search for.</param>
+            <returns>True if the item is in the list.</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.SyncList`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the elements of the SyncList&lt;T&gt; to an Array, starting at a particular
+            Array index.
+            </summary>
+            <param name="array">Array to copy elements to.</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.SyncList`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the SyncList&lt;T&gt;.
+            </summary>
+            <returns>Enumerator</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.SyncList`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the SyncList&lt;T&gt;.
+            </summary>
+            <returns>Enumerator</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.SyncList`1.IndexOf(`0)">
+            <summary>
+            Determines the index of a specific item in the SyncList&lt;T&gt;.
+            </summary>
+            <param name="item">The item to return the index for.</param>
+            <returns>The item index or -1 if not found</returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.SyncList`1.Insert(System.Int32,`0)">
+            <summary>
+            Same as List::Insert() but also inserts into list on clients.
+            </summary>
+            <param name="index">Where to insert the item.</param>
+            <param name="item">Item to insert.</param>
+        </member>
+        <member name="M:getReal3D.MultiCluster.SyncList`1.Remove(`0)">
+            <summary>
+            Same as List:Remove except removes on clients also.
+            </summary>
+            <param name="item">Item to remove.</param>
+            <returns></returns>
+        </member>
+        <member name="M:getReal3D.MultiCluster.SyncList`1.RemoveAt(System.Int32)">
+            <summary>
+            Same as List:Remove except it removes the index on clients also.
+            </summary>
+            <param name="index">Index to remove.</param>
+        </member>
+        <member name="T:getReal3D.MultiCluster.SyncList`1.Operation">
+            <summary>
+            The types of operations that can occur for SyncLists.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.SyncList`1.Operation.OP_ADD">
+            <summary>
+            Item was added to the list.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.SyncList`1.Operation.OP_CLEAR">
+            <summary>
+            The list was cleared.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.SyncList`1.Operation.OP_INSERT">
+            <summary>
+            An item was inserted into the list.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.SyncList`1.Operation.OP_REMOVE">
+            <summary>
+            An item was removed from the list.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.SyncList`1.Operation.OP_REMOVEAT">
+            <summary>
+            An item was removed at an index from the list.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.SyncList`1.Operation.OP_SET">
+            <summary>
+            An item was set to a new value in the list.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.SyncList`1.Operation.OP_DIRTY">
+            <summary>
+            An item in the list was manually marked dirty.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MultiCluster.SyncList`1.Dirty(System.Int32)">
+            <summary>
+            Marks an item in the list as dirty, so it will be updated on clients.
+            </summary>
+            <param name="index">Index of item to dirty.</param>
+        </member>
+        <member name="T:getReal3D.MultiCluster.SyncList`1.SyncListChanged">
+            <summary>
+            A delegate that can be populated to receive callbacks when the list changes.
+            </summary>
+            <param name="op">The operation that occurred.</param>
+            <param name="itemIndex">The index of the item that was effected.</param>
+        </member>
+        <member name="T:getReal3D.MultiCluster.SyncListBool">
+            <summary>
+            A list of booleans that will be synchronized from server to clients.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.SyncListFloat">
+            <summary>
+            A list of floats that will be synchronized from server to clients.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.SyncListInt">
+            <summary>
+            A list of integers that will be synchronized from server to clients.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.SyncListString">
+            <summary>
+            A list of strings that will be synchronized from server to clients.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.SyncListStruct`1">
+            <summary>
+            A list of unsigned integers that will be synchronized from server to clients.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.SyncListUInt">
+            <summary>
+            A list of unsinged integers that will be synchronized from server to clients.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MultiCluster.SyncVarAttribute">
+            <summary>
+            [SyncVar] is an attribute that can be put on member variables of NetworkBehaviour classes.
+            These variables will have their values synchronized from the server to clients in the game
+            that are in the ready state.
+            </summary>
+        </member>
+        <member name="F:getReal3D.MultiCluster.SyncVarAttribute.hook">
+            <summary>
+            The hook attribute can be used to specify a function to be called when the sync
+            var changes value on the client.
+            </summary>
+        </member>
+        <member name="T:getReal3D.Sensor">
+            <summary>
+            A representation similar to the UnityEngine.Transform used by trackd sensors in getReal3D for Unity.
+            Consists of a position, rotation, and fixed scale.
+            </summary>
+        </member>
+        <member name="P:getReal3D.Sensor.scale">
+            <summary>
+            The sensor scale. Always Vector3.one
+            </summary>
+        </member>
+        <member name="F:getReal3D.Sensor.position">
+            <summary>
+            The sensor position in Unity units.
+            </summary>
+        </member>
+        <member name="F:getReal3D.Sensor.rotation">
+            <summary>
+            The sensor orientation.
+            </summary>
+        </member>
+        <member name="T:getReal3D.Input">
+            <summary>
+            This class loosely emulates the built-in Unity Input class.
+            </summary>
+        </member>
+        <member name="P:getReal3D.Input.sensors">
+            <summary>
+            The trackd sensors
+            </summary>
+        </member>
+        <member name="P:getReal3D.Input.cameras">
+            <summary>
+            The cameras configured for this Unity instance
+            </summary>
+        </member>
+        <member name="P:getReal3D.Input.valuators">
+            <summary>
+            The trackd controller valuators
+            </summary>
+        </member>
+        <member name="P:getReal3D.Input.buttons">
+            <summary>
+            The trackd controller button states (1 == down)
+            </summary>
+        </member>
+        <member name="P:getReal3D.Input.wandIndex">
+            <summary>
+            The sensor index of the wand.
+            </summary>
+        </member>
+        <member name="P:getReal3D.Input.headIndex">
+            <summary>
+            The sensor index of the head.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Input.buttonsName">
+            <summary>
+            Return buttons name.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Input.valuatorsName">
+            <summary>
+            Return valuators name.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Input.sensorsName">
+            <summary>
+            Return sensors name.
+            </summary>
+        </member>
+        <member name="T:getReal3D.Input.NavOptions">
+            <summary>
+            Utility class holding configuration values for controlling navigation, such as TranslationSpeed or RotationSpeed.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Input.NavOptions.HasValue(System.String)">
+            <summary>
+            Check if an option has a set value.
+            </summary>
+            <param name="optionName">The name of the option.</param>
+            <returns>True if a value has been set for that option</returns>
+        </member>
+        <member name="M:getReal3D.Input.NavOptions.GetValue``1(System.String,``0@)">
+            <summary>
+            Get the value of a named option as the specified Type.
+            </summary>
+            <typeparam name="T">The Type of the option</typeparam>
+            <param name="optionName">The name of the option</param>
+            <param name="optionValue">The value of the option if it can be converted to the given Type</param>
+            <returns>True if the option converted to Type</returns>
+        </member>
+        <member name="M:getReal3D.Input.NavOptions.GetString(System.String)">
+            <summary>
+            Get the value of a named option as a string. Useful for Types with no TypeConverter.
+            </summary>
+            <param name="optionName">The name of the option</param>
+            <returns>The string value of the named option</returns>
+        </member>
+        <member name="M:getReal3D.Input.NavOptions.SetValue``1(System.String,``0)">
+            <summary>
+            Set the named option to the specified value.
+            </summary>
+            <typeparam name="T">The Type of the option</typeparam>
+            <param name="optionName">The name of the option</param>
+            <param name="optionValue">The value of the option</param>
+            <returns>True of the option value could be stored</returns>
+        </member>
+        <member name="M:getReal3D.Input.NavOptions.SetString(System.String,System.String)">
+            <summary>
+            Set an option to a string value. Useful for Types with no TypeConverter.
+            </summary>
+            <param name="optionName">The option name</param>
+            <param name="optionValue">The option value as a string</param>
+        </member>
+        <member name="M:getReal3D.Input.Init">
+            <summary>
+            Initializes getReal3D Input classes.
+            </summary>
+            <returns>True if successful</returns>
+        </member>
+        <member name="P:getReal3D.Input.wand">
+            <summary>
+            The current wand transform
+            </summary>
+        </member>
+        <member name="P:getReal3D.Input.head">
+            <summary>
+            The current head transform
+            </summary>
+        </member>
+        <member name="M:getReal3D.Input.headForUser(System.UInt32)">
+            <summary>
+            The head transform for a specific user
+            </summary>
+            <param name="userId">The user ID</param>
+        </member>
+        <member name="M:getReal3D.Input.wandForUser(System.UInt32)">
+            <summary>
+            The wand transform for a specific user
+            </summary>
+            <param name="userId">The user ID</param>
+        </member>
+        <member name="M:getReal3D.Input.Update">
+            <summary>
+            Update trackd state. Called internally by getReal3D scripts.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Input.GetButton(System.String)">
+            <summary>
+            Get a Button by name (see getReal3D configuration).
+            </summary>
+            <param name="name">The button name</param>
+            <returns>True if down</returns>
+        </member>
+        <member name="M:getReal3D.Input.GetButtonUp(System.String)">
+            <summary>
+            Get a Button by name (see getReal3D configuration).
+            </summary>
+            <param name="name">The button name</param>
+            <returns>True if the button went up this frame</returns>
+        </member>
+        <member name="M:getReal3D.Input.GetButtonDown(System.String)">
+            <summary>
+            Get a Button by name (see getReal3D configuration).
+            </summary>
+            <param name="name">The button name</param>
+            <returns>True if the button went down this frame</returns>
+        </member>
+        <member name="M:getReal3D.Input.GetAxis(System.String)">
+            <summary>
+            Get a Axis (trackd valuator) by name (see getReal3D configuration).
+            </summary>
+            <param name="name">The axis name</param>
+            <returns>The value</returns>
+        </member>
+        <member name="M:getReal3D.Input.GetAxisRaw(System.String)">
+            <summary>
+            Get a Axis (trackd valuator) by name (see getReal3D configuration).
+            </summary>
+            <param name="name">The axis name</param>
+            <returns>The value without configured deadzone or inversion</returns>
+        </member>
+        <member name="M:getReal3D.Input.GetAxis(getReal3D.AxisCode)">
+            <summary>
+            Return the axis value.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Input.GetKey(getReal3D.VirtualKeyCode)">
+            <summary>
+            Return true if the corresponding key is pushed.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Input.GetKeyDown(getReal3D.VirtualKeyCode)">
+            <summary>
+            Return true if the corresponding key has been pushed during this frame.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Input.GetKeyUp(getReal3D.VirtualKeyCode)">
+            <summary>
+            Return true if the corresponding key has been released during this frame.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Input.GetSensor(System.String)">
+            <summary>
+            Get a trackd sensor by name (see getReal3D configuration).
+            </summary>
+            <param name="name">The sensor name</param>
+            <returns>The sensor transform</returns>
+        </member>
+        <member name="M:getReal3D.Input.GetCameraSensor(System.UInt32)">
+            <summary>
+            Get a camera sensor by index (for this Unity instance, see getReal3D configuration).
+            </summary>
+            <param name="i">The camera index</param>
+            <returns>The camera transform</returns>
+        </member>
+        <member name="M:getReal3D.Input.GetCameraProjection(System.UInt32,System.Single,System.Single)">
+            <summary>
+            Get a camera user-centered projection matrix by index (for this Unity instance, see getReal3D configuration).
+            </summary>
+            <param name="i">The camera index</param>
+            <param name="far">The distance to the camera far plane</param>
+            <param name="near">The distance to the camera new plane</param>
+            <returns>The camera projection matrix</returns>
+        </member>
+        <member name="M:getReal3D.Input.GetCameraAspectRatio(System.UInt32)">
+            <summary>
+            Get a camera aspect ratio by index (for this Unity instance, see getReal3D configuration).
+            </summary>
+            <param name="i">The camera index</param>
+            <returns>The camera projection aspect ratio</returns>
+        </member>
+        <member name="M:getReal3D.Input.GetCameraFieldOfView(System.UInt32)">
+            <summary>
+            Get a camera field of view by index (for this Unity instance, see getReal3D configuration).
+            </summary>
+            <param name="i">The camera index</param>
+            <returns>The camera field of view</returns>
+        </member>
+        <member name="T:getReal3D.InputManager">
+            <summary>
+            The getReal.InputManager takes care of updating the trackd input data on a regular basis.
+            </summary>
+        </member>
+        <member name="T:getReal3D.LogLevel">
+            <summary>
+            Levels of log message importance. Used to choose the amount run-time logging or denote the importance of a log message.
+            </summary>
+        </member>
+        <member name="F:getReal3D.LogLevel.Discarded">
+            <summary>
+            Discarded log-level denotes a discarded message.
+            </summary>
+        </member>
+        <member name="F:getReal3D.LogLevel.Debug">
+            <summary>
+            Debug log-level denotes detailed messages used in tracking the application flow and state. These messages are often so frequent as to impact performance.
+            </summary>
+        </member>
+        <member name="F:getReal3D.LogLevel.Info">
+            <summary>
+            Info log-level denotes messages about occasional flow and state changes. These messages are safely ignored in typical use.
+            </summary>
+        </member>
+        <member name="F:getReal3D.LogLevel.Warning">
+            <summary>
+            Warning log-level denotes messages about unexpected conditions that were caught and are not considered detremental to application performance or execution.
+            </summary>
+        </member>
+        <member name="F:getReal3D.LogLevel.Error">
+            <summary>
+            Error log-level denotes messages about unexpected conditions that were caught but may impede application performance or execution.
+            </summary>
+        </member>
+        <member name="F:getReal3D.LogLevel.None">
+            <summary>
+            None log-level denotes disabled logging.
+            </summary>
+        </member>
+        <member name="T:getReal3D.ScreenSpace">
+            <summary>
+            Screen space
+            </summary>
+        </member>
+        <member name="F:getReal3D.ScreenSpace.TrackerSpace">
+            <summary>
+            Tracker space
+            </summary>
+        </member>
+        <member name="F:getReal3D.ScreenSpace.EyeSpace">
+            <summary>
+            Eye space
+            </summary>
+        </member>
+        <member name="F:getReal3D.ScreenSpace.HeadSpace">
+            <summary>
+            Head space
+            </summary>
+        </member>
+        <member name="F:getReal3D.ScreenSpace.WandSpace">
+            <summary>
+            Wand space
+            </summary>
+        </member>
+        <member name="F:getReal3D.WindowSettings.x">
+            <summary>horizontal position of the window.</summary>
+        </member>
+        <member name="F:getReal3D.WindowSettings.y">
+            <summary>vertical position of the window.</summary>
+        </member>
+        <member name="F:getReal3D.WindowSettings.width">
+            <summary>width of the window.</summary>
+        </member>
+        <member name="F:getReal3D.WindowSettings.height">
+            <summary>height of the window.</summary>
+        </member>
+        <member name="F:getReal3D.WindowSettings.useAffinity">
+            <summary>if the window should use GPU affinity.</summary>
+        </member>
+        <member name="F:getReal3D.WindowSettings.isTopmost">
+            <summary>if the window should be topmost</summary>
+        </member>
+        <member name="F:getReal3D.WindowSettings.border">
+            <summary>if the window should display a border</summary>
+        </member>
+        <member name="F:getReal3D.WindowSettings.hidden">
+            <summary>if the window should be hidden</summary>
+        </member>
+        <member name="F:getReal3D.WindowSettings.hideMouse">
+            <summary>if the mouse should be hidden</summary>
+        </member>
+        <member name="T:getReal3D.NativePlugin">
+            <summary>
+            Native plugin access. See gr_plugin.h for more documentation.
+            </summary>
+        </member>
+        <member name="T:getReal3D.Plugin">
+             <summary>
+             The base wrapper class for the getReal3D plugin. Many of the functions here are low-level and need not be called directly by end-users.
+             </summary>
+            
+        </member>
+        <member name="P:getReal3D.Plugin.ClusterId">
+            <summary>
+            Returns the ID of the node in the cluster.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Plugin.#cctor">
+            <summary>
+            Static initializer.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Plugin.initVR">
+            <summary>
+            Initialize VR configuration. Reads config file and initializes components.
+            </summary>
+            <returns>True if properly initialized.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.deinit">
+            <summary>
+            Cleanup plugin when ready to exit the game. Call this if using the Plugin directly instead of Mechdyne supplied scripts.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Plugin.clusterShutdown">
+            <summary>
+            Shutdown the whole cluster application via the getReal3D daemon.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Plugin.initialized">
+            <summary>
+            Check if the plugin has been successfully initialized.
+            </summary>
+            <returns>True if the plugin is initialized.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.updateData">
+            <summary>
+            Update trackd inputs. Synchronize trackd inputs across the cluster, if appropriate.
+            </summary>
+            <returns>Returns false if a node in the cluster has exited.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getAppWindowHidden">
+            <summary>
+            Check if the configuration file requests that the main Unity window be hidden. Standalone only.
+            </summary>
+            <returns>The value of the confiuration option.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getAppWindowHeight">
+            <summary>
+            Get the height of this Unity instance window.
+            </summary>
+            <returns>The height in pixels</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getAppWindowWidth">
+            <summary>
+            Get the width of this Unity instance window.
+            </summary>
+            <returns>The width in pixels</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getMasterWindowHeight">
+            <summary>
+            Get the height of the master Unity instance window.
+            </summary>
+            <returns>The height in pixels</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getMasterWindowWidth">
+            <summary>
+            Get the width of the master Unity instance window.
+            </summary>
+            <returns>The width in pixels</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getNumberOfCameras">
+            <summary>
+            Query the number of cameras configured in this Unity instance.
+            </summary>
+            <returns>The number of cameras</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getCameraShowsUI(System.UInt32)">
+            <summary>
+            Query if a given camera should show the game UI.
+            </summary>
+            <param name="_cameraIndex">The index of the camrea for this Unity instance.</param>
+            <returns>True if UI should be shown</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getCameraUseRTT(System.UInt32)">
+            <summary>
+            Query if a given camera should use Render To Texture.
+            </summary>
+            <param name="_cameraIndex">The index of the camrea for this Unity instance.</param>
+            <returns>True if camera should use Render To Texture</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getCameraWidth(System.UInt32)">
+            <summary>
+            Query the width in pixels of a given camera
+            </summary>
+            <param name="_cameraIndex">The index of the camrea for this Unity instance.</param>
+            <returns>Width in pixels. -1 if cameraIndex is not valid.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getCameraHeight(System.UInt32)">
+            <summary>
+            Query the height in pixels of a given camera
+            </summary>
+            <param name="_cameraIndex">The index of the camrea for this Unity instance.</param>
+            <returns>Height in pixels. -1 if cameraIndex is not valid.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getCameraViewport(System.UInt32,UnityEngine.Rect@)">
+            <summary>
+            Get the normalized viewport Rect for a given camera
+            </summary>
+            <param name="_cameraIndex">The index of the camera for this Unity instance.</param>
+            <param name="_viewport">A reference to the Rect to hold the viewport.</param>
+            <returns>1 if the camera index is valid, 0 for an invalid index</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getCameraAspectRatio(System.UInt32)">
+            <summary>
+            Get the aspect ratio for a given camera.
+            </summary>
+            <param name="_cameraIndex">The index of the camera for this Unity instance.</param>
+            <returns>Returns the aspect ratio.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getCameraFieldOfView(System.UInt32)">
+            <summary>
+            Get the field of view for a given camera.
+            </summary>
+            <param name="_cameraIndex">The index of the camera for this Unity instance.</param>
+            <returns>Returns the field of view.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getCameraProjectionMatrix(System.UInt32,System.Single,System.Single,UnityEngine.Matrix4x4@)">
+            <summary>
+            Get the user-centric projection matrix for a given camera (does not consider navigation).
+            </summary>
+            <param name="_cameraIndex">The index of the camera for this Unity instance.</param>
+            <param name="near">The near plane distance in meters.</param>
+            <param name="far">The far plane distance in meters.</param>
+            <param name="_matrix">A reference to the Matrix4x4 to hold the projection.</param>
+            <returns>Returns 1 on success, 0 on failure (invalid cameraIndex).</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getCameraRotation(System.UInt32,UnityEngine.Quaternion@)">
+            <summary>
+            Get the rotation of the given camera that aligns it with its configured screen geometry.
+            </summary>
+            <param name="_cameraIndex">The index of the camera for this Unity instance.</param>
+            <param name="_quat">A reference to a Quaternion that will hold the camera rotation.</param>
+            <returns>Returns 1 on success, 0 on failure (invalid cameraIndex).</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getCameraPosition(System.UInt32,UnityEngine.Vector3@)">
+            <summary>
+            Get the position of the given camera (does not consider navigation).
+            </summary>
+            <param name="_cameraIndex">The index of the camera for this Unity instance.</param>
+            <param name="_vector">A reference to a Vector3 that will hold the camera position.</param>
+            <returns>Returns 1 on success, 0 on failure (invalid cameraIndex).</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getCameraSensors">
+            <summary>
+            Get the transforms for all cameras (managed by getReal3D) in this instance (does not consider navigation).
+            </summary>
+            <returns>A list of getReal3D Sensors (similar to a UnityEngine.Transform with scale 1).</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getHeadPositionRotation(UnityEngine.Vector3@,UnityEngine.Quaternion@)">
+            <summary>
+            Get the position and rotation of the trackd sensor set as the Head in the getReal3D configuration file.
+            </summary>
+            <param name="_headPosition">A reference to a Vector3 which will hold the head position</param>
+            <param name="_headRotation">A reference to a Quaternion which will hold the head rotation</param>
+            <returns>Returns 1 on success, 0 on failure.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getWandPositionRotation(UnityEngine.Vector3@,UnityEngine.Quaternion@)">
+            <summary>
+            Get the position and rotation of the trackd sensor set as the Wand in the getReal3D configuration file.
+            </summary>
+            <param name="_wandPosition">A reference to a Vector3 which will hold the wand position</param>
+            <param name="_wandRotation">A reference to a Quaternion which will hold the wand rotation</param>
+            <returns>Returns 1 on success, 0 on failure.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getNumSensors">
+            <summary>
+            Get the number of tracked sensors reported by trackd.
+            </summary>
+            <returns>Returns the number of sensors.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getSensors">
+            <summary>
+            Get the transforms for all sensors reported by trackd.
+            </summary>
+            <returns>A list of getReal3D Sensors (similar to a UnityEngine.Transform with scale 1).</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getSensorPositionRotation(System.Int32,UnityEngine.Vector3@,UnityEngine.Quaternion@)">
+            <summary>
+            Get the position and rotation of the given trackd sensor.
+            </summary>
+            <param name="_sensorIdx">The sensor index</param>
+            <param name="_sensorPosition">A reference to a Vector3 which will hold the position</param>
+            <param name="_sensorRotation">A reference to a Quaternion which will hold the rotation</param>
+            <returns>Returns 1 on success, 0 on failure.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getControllerButtons">
+            <summary>
+            Get a list of controller button states reported by trackd.
+            </summary>
+            <returns>The list of states. 1 is button down.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getControllerValuators">
+            <summary>
+            Get a list of controller valuator states (e.g. joystick axes) reported by trackd.
+            </summary>
+            <returns>A list of float values. Values typically range -1 to 1.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.GetScale">
+            <summary>
+            Get the scale value (VR_WORLD_SCALE) from the getReal3D configuration (or last value set) for this Unity instance.
+            </summary>
+            <returns>The VR_WORLD_SCALE value.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.SetScale(System.Single)">
+            <summary>
+            Override the scale value (VR_WORLD_SCALE) from the getReal3D configuration for this Unity instance.
+            </summary>
+            <param name="scale">The override value.</param>
+        </member>
+        <member name="M:getReal3D.Plugin.GetEyeSeparation">
+            <summary>
+            Get the stereo eye-separation from the getReal3D configuration (or last value set) for this Unity instance.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Plugin.SetEyeSeparation(System.Single)">
+            <summary>
+            Change the stereo eye-separation.
+            </summary>
+            <param name="separation">The override value.</param>
+        </member>
+        <member name="M:getReal3D.Plugin.isDistrib">
+            <summary>
+            Is the Unity game running in a cluster.
+            </summary>
+            <returns>True if clustered</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getHostName">
+            <summary>
+            Get the hostname of the machine this Unity instance is running on.
+            </summary>
+            <returns>A string containing the hostname</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getServerHostName">
+            <summary>
+            Get the hostname of the machine running the master instance of the Unity cluster.
+            </summary>
+            <returns>Returns the server hostname if running in a cluster, or this hostname if not.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.stopDistrib">
+            <summary>
+            This Unity instance leaves the cluster, causing all other Unity instances to exit.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Plugin.getApplicationConfig">
+            <summary>
+            Get the Unity-specific portion of the getReal3D configuration for this session.
+            </summary>
+            <returns>A string containing the &lt;unity&gt; element of the config.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getApplicationConfigXml">
+            <summary>
+            Get XML content of the Unity-specific portion of the getReal3D configuration for this session.
+            </summary>
+            <returns>A string containing the &lt;unity&gt; element of the config.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getNodeUsesCompositor">
+            <summary>
+            Check if compositor is running on this node.
+            </summary>
+            <returns>True if a compositor is running on this node.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getClusterID">
+            <summary>
+            A unique Id of this Unity instance within the cluster.
+            </summary>
+            <returns>The Id</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.sendBytes(System.IO.MemoryStream)">
+            <summary>
+            Sends bytestream from this instance to all other instances. Used in Mechdyne Cluster.
+            </summary>
+            <param name="stream">The bytestream</param>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.recvBytes(System.IO.MemoryStream,System.Boolean)">
+            <summary>
+            Receives bytestream from the sender, if any. Used in Mechdyne Cluster.
+            </summary>
+            <param name="stream">The bytestream</param>
+            <param name="waitForData">If True, blocks until data is received.</param>
+            <returns>True if no errors.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getNodeCount">
+            <summary>
+            The number of machines used in the cluster.
+            </summary>
+            <returns>The node count</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getConfigCount">
+            <summary>
+            The number of Unity instances in the cluster.
+            </summary>
+            <returns>The instance count</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getNodeConfigCount(System.Int32)">
+            <summary>
+            The number of Unity instances on the given node
+            </summary>
+            <param name="nodeId">The node Id</param>
+            <returns>The instance count</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getScreenCount(System.Int32,System.Int32)">
+            <summary>
+            Get the number of screens (cameras) in the configuration of each Unity instance.
+            </summary>
+            <param name="nodeId">The node (machine) Id.</param>
+            <param name="displayId">The display (instance) Id.</param>
+            <returns>The number of screens.</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getScreenCoordinates(System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Get the coordinates of a given screen.
+            </summary>
+            <param name="nodeId">The node (machine) Id.</param>
+            <param name="displayId">The display (instance) Id.</param>
+            <param name="screenId">The screen (camera) Id.</param>
+            <returns>The 4 corners of the screen (in the same space as head/wand/sensor cooridnates).</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.Log(getReal3D.LogLevel,System.String)">
+            <summary>
+            Write messages to the getReal3D log file.
+            </summary>
+            <param name="logLevel">The level of this message.</param>
+            <param name="msg">The message.</param>
+        </member>
+        <member name="M:getReal3D.Plugin.Log(getReal3D.LogLevel,System.String,System.IntPtr)">
+            <summary>
+            Write messages to the getReal3D log file.
+            </summary>
+            <param name="logLevel">The level of this message.</param>
+            <param name="msg">The message.</param>
+            <param name="logger">The optional logger.</param>
+        </member>
+        <member name="M:getReal3D.Plugin.debug(System.String)">
+            <summary>
+            A convenience function for debug logging.
+            </summary>
+            <param name="msg">The log message</param>
+        </member>
+        <member name="M:getReal3D.Plugin.debug(System.String,System.IntPtr)">
+            <summary>
+            A convenience function for debug logging.
+            </summary>
+            <param name="msg">The log message</param>
+            <param name="logger">The optional logger.</param>
+        </member>
+        <member name="M:getReal3D.Plugin.info(System.String)">
+            <summary>
+            A convenience function for info logging.
+            </summary>
+            <param name="msg">The log message</param>
+        </member>
+        <member name="M:getReal3D.Plugin.info(System.String,System.IntPtr)">
+            <summary>
+            A convenience function for info logging.
+            </summary>
+            <param name="msg">The log message</param>
+            <param name="logger">The optional logger.</param>
+        </member>
+        <member name="M:getReal3D.Plugin.warning(System.String)">
+            <summary>
+            A convenience function for warning logging.
+            </summary>
+            <param name="msg">The log message</param>
+        </member>
+        <member name="M:getReal3D.Plugin.warning(System.String,System.IntPtr)">
+            <summary>
+            A convenience function for warning logging.
+            </summary>
+            <param name="msg">The log message</param>
+            <param name="logger">The optional logger.</param>
+        </member>
+        <member name="M:getReal3D.Plugin.error(System.String)">
+            <summary>
+            A convenience function for error logging.
+            </summary>
+            <param name="msg">The log message</param>
+        </member>
+        <member name="M:getReal3D.Plugin.error(System.String,System.IntPtr)">
+            <summary>
+            A convenience function for error logging.
+            </summary>
+            <param name="msg">The log message</param>
+            <param name="logger">The optional logger.</param>
+        </member>
+        <member name="M:getReal3D.Plugin.getHeadIndex">
+            <summary>
+            The sensor index of the Head as set in the getReal3D configuration.
+            </summary>
+            <returns>The Head index</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getWandIndex">
+            <summary>
+            The sensor index of the Wand as set in the getReal3D configuration.
+            </summary>
+            <returns>The Wand index</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getFrameCount">
+            <summary>
+            The getReal3D frame count on the master node in the cluster. This may not be the same as UnityEngine.Time.frameCount
+            </summary>
+            <returns>The frame count</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.isAudioPlayer">
+            <summary>
+            Is this Unity instance configured to provide audio playback.
+            </summary>
+            <returns>True if this instance should provide sound</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getAudioUser">
+            <summary>
+            Return the user which should produce audio playback
+            </summary>
+            <returns>User ID</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getCameraEventCallback">
+            <summary>
+            Return the camera event callback from the getReal3D plugin
+            </summary>
+        </member>
+        <member name="M:getReal3D.Plugin.getCameraProfilingCallback">
+            <summary>
+            Return the camera event callback from the getReal3D plugin
+            </summary>
+        </member>
+        <member name="M:getReal3D.Plugin.getUserCount">
+            <summary>
+            Return the number of user(s)
+            </summary>
+            <returns>Number of users</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getUserName(System.UInt32)">
+            <summary>
+            Return user name
+            </summary>
+            <param name="userId">The user ID</param>
+            <returns>Name of user</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getUserFromCamera(System.UInt32)">
+            <summary>
+            Return the user associated to a camera
+            </summary>
+            <param name="cameraId">The camera ID</param>
+            <returns>User ID</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getWandIndexForUser(System.UInt32)">
+            <summary>
+            Return the wand index for the given user
+            </summary>
+            <param name="userId">The user ID</param>
+            <returns>Wand index</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getHeadIndexForUser(System.UInt32)">
+            <summary>
+            Return the head index for the given user
+            </summary>
+            <param name="userId">The user ID</param>
+            <returns>Head index</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.setTextureFromUnity(System.Int32,System.IntPtr)">
+            <summary>
+            Sets the texture used to render a given source.
+            </summary>
+            <param name="id">Source ID</param>
+            <param name="texture">Low level texture pointer.</param>
+        </member>
+        <member name="M:getReal3D.Plugin.getScreenCoordinatesByName(System.String)">
+            <summary>
+            Return the coordinates of a screen.
+            </summary>
+            <param name="name">Name of the screen</param>
+            <returns>LL, LR, UR and UL corners</returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getConfigScreenSpace(System.Int32)">
+            <summary>
+            Return the screen space of the given screen.
+            </summary>
+            <param name="screenId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:getReal3D.Plugin.getConfigScreenCount">
+            <summary>
+            Return the number of screens in the configuration.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Plugin.getScreenName(System.Int32)">
+            <summary>
+            Return the name of a screen.
+            </summary>
+        </member>
+        <member name="T:getReal3D.ReadBuffer">
+            <summary>
+            A buffer that can be read from.
+            </summary>
+        </member>
+        <member name="P:getReal3D.ReadBuffer.buffer">
+            <summary>
+            The buffer used. When replaced, the read position is reset and the available
+            data size is set to the full buffer.
+            </summary>
+        </member>
+        <member name="P:getReal3D.ReadBuffer.availableBytes">
+            <summary>
+            Number of bytes available to read.
+            </summary>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.#ctor">
+            <summary>
+            Creates a ReadBuffer.
+            </summary>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Resize(System.Int32)">
+            <summary>
+            Resize the internal buffer. The read position is reset.
+            </summary>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(System.Byte@)">
+            <summary>
+            Read a byte from the buffer.
+            </summary>
+            <param name="b"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Reset">
+            <summary>
+            Reset the read position.
+            </summary>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(System.Boolean@)">
+            <summary>
+            Read a bool from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(System.Char@)">
+            <summary>
+            Read a char from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(System.Single@)">
+            <summary>
+            Read a float from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(System.Double@)">
+            <summary>
+            Read a double from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(System.Int32@)">
+            <summary>
+            Read an integer from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(System.UInt32@)">
+            <summary>
+            Read an unsigned integer from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(System.Int64@)">
+            <summary>
+            Read a long from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(System.UInt64@)">
+            <summary>
+            Read an unsigned long from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(System.Int16@)">
+            <summary>
+            Read a short from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(System.UInt16@)">
+            <summary>
+            Read an unsigned short from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(UnityEngine.Vector3@)">
+            <summary>
+            Read a Vector3 from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(UnityEngine.Vector2@)">
+            <summary>
+            Read a Vector2 from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(UnityEngine.Quaternion@)">
+            <summary>
+            Read a Quaternion from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(UnityEngine.Color@)">
+            <summary>
+            Read a Color from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(UnityEngine.Color32@)">
+            <summary>
+            Read a Color32 from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.ReadBuffer.Read(System.String@)">
+            <summary>
+            Read a string from the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="T:getReal3D.RpcManager">
+            <summary>
+            The getReal3D.RpcManager takes care of sending RPC calls.
+            </summary>
+        </member>
+        <member name="M:getReal3D.RpcManager.call(System.String,System.Object[])">
+            <summary>
+            Add an RPC to the call list.
+            </summary>
+        </member>
+        <member name="T:getReal3D.RPC">
+            <summary>
+            Attribute for a callable RPC method.
+            </summary>
+        </member>
+        <member name="T:getReal3D.MonoBehaviourWithRpc">
+            <summary>
+            MonoBehaviour with automatic registration of RPC methods.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MonoBehaviourWithRpc.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MonoBehaviourWithRpc.#ctor(System.Boolean)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="autoRegister">If true, then the RPC will be automatically
+            registered when the OnEnable event is called.</param>
+        </member>
+        <member name="M:getReal3D.MonoBehaviourWithRpc.OnDisable">
+            <summary>
+            Calls deregisterRpc when this object gets disabled.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MonoBehaviourWithRpc.OnEnable">
+            <summary>
+            Calls registerRpc when this object gets enabled.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MonoBehaviourWithRpc.CallRpc(System.String,System.Object[])">
+            <summary>
+            Call an RPC on this object.
+            </summary>
+            <param name="methodName">The method to call</param>
+            <param name="arguments">Arguments</param>
+        </member>
+        <member name="M:getReal3D.MonoBehaviourWithRpc.registerRpc">
+            <summary>
+            Register all RPC methods found in that object.
+            </summary>
+        </member>
+        <member name="M:getReal3D.MonoBehaviourWithRpc.deregisterRpc">
+            <summary>
+            Deregister all RPC methods found in that object.
+            </summary>
+        </member>
+        <member name="T:getReal3D.Scale">
+            <summary>
+            A utility class for converting units, and dealing with scaling Unity worlds.
+            For VR applications, it is best to define Unity worlds in meters, and this is the default assumption for most of getReal3D (eye separation defaults to inches).
+            However, Unity does not require any particular unit; existing games may be in any unit, and due to source material scale is may be convenient to use other units.
+            </summary>
+        </member>
+        <member name="T:getReal3D.Scale.Units">
+            <summary>
+            Supported Units for scale conversion.
+            </summary>
+        </member>
+        <member name="F:getReal3D.Scale.Units.meters">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:getReal3D.Scale.Units.centimeters">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:getReal3D.Scale.Units.millimeters">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:getReal3D.Scale.Units.inches">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:getReal3D.Scale.Units.feet">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:getReal3D.Scale.eyeSeparationUnits">
+            <summary>
+            The current Units for eye separation. While most of getReal3D defaults to meters, eye separation defaults to inches.
+            </summary>
+        </member>
+        <member name="P:getReal3D.Scale.eyeSeparationUnitString">
+            <summary>
+            The current Units for eye separation as a (short) string
+            </summary>
+        </member>
+        <member name="P:getReal3D.Scale.eyeSeparation">
+            <summary>
+            The current eye separation value
+            </summary>
+        </member>
+        <member name="P:getReal3D.Scale.worldScale">
+            <summary>
+            The current world scale (Unity units)
+            </summary>
+        </member>
+        <member name="P:getReal3D.Scale.referenceUnits">
+            <summary>
+            The Units of the reference object
+            </summary>
+        </member>
+        <member name="P:getReal3D.Scale.referenceUnitScale">
+            <summary>
+            The scale factor for the reference Unit
+            </summary>
+        </member>
+        <member name="P:getReal3D.Scale.referenceUnitString">
+            <summary>
+            The short string for the reference Unit
+            </summary>
+        </member>
+        <member name="P:getReal3D.Scale.referenceScale">
+            <summary>
+            The scale of the reference object
+            </summary>
+        </member>
+        <member name="P:getReal3D.Scale.userScale">
+            <summary>
+            The user conrolled scale factor
+            </summary>
+        </member>
+        <member name="M:getReal3D.Scale.GetUnitScale(getReal3D.Scale.Units)">
+            <summary>
+            Get the scale factor for a Unit
+            </summary>
+            <param name="u">The Unit</param>
+            <returns>The scale factor</returns>
+        </member>
+        <member name="M:getReal3D.Scale.GetUnitString(getReal3D.Scale.Units)">
+            <summary>
+            Get the short string for a Unit
+            </summary>
+            <param name="u">The Unit</param>
+            <returns>The short string</returns>
+        </member>
+        <member name="T:getReal3D.Settings">
+            <summary>
+            getReal3D game build time settings.
+            </summary>
+        </member>
+        <member name="F:getReal3D.Settings.autoInitVR">
+            <summary>
+            If getReal3D.Plugin.InitVR is called automatically at game startup.
+            </summary>
+        </member>
+        <member name="F:getReal3D.Settings.logLevel">
+            <summary>
+            The log level of getReal3D for console redirection.
+            </summary>
+        </member>
+        <member name="F:getReal3D.Settings.rpcLogLevel">
+            <summary>
+            The log level of getReal3D RPCs.
+            </summary>
+        </member>
+        <member name="F:getReal3D.Settings.ignoredErrors">
+            <summary>
+            Ignored errors.
+            </summary>
+        </member>
+        <member name="F:getReal3D.Settings.config">
+            <summary>
+            Return all available configuration for editor
+            </summary>
+        </member>
+        <member name="M:getReal3D.Settings.Reset">
+            <summary>
+            Reset the setting to the default values.
+            </summary>
+        </member>
+        <member name="M:getReal3D.Settings.#ctor">
+            <summary>
+            Constructor.
+            Calls Reset().
+            </summary>
+        </member>
+        <member name="T:getReal3D.Version">
+            <summary>
+            getReal3D version.
+            </summary>
+        </member>
+        <member name="P:getReal3D.Version.major">
+            <summary>
+            getReal3D major version.
+            </summary>
+        </member>
+        <member name="P:getReal3D.Version.minor">
+            <summary>
+            getReal3D minor version.
+            </summary>
+        </member>
+        <member name="P:getReal3D.Version.release">
+            <summary>
+            getReal3D release version.
+            </summary>
+        </member>
+        <member name="P:getReal3D.Version.build">
+            <summary>
+            getReal3D build version.
+            </summary>
+        </member>
+        <member name="T:getReal3D.VirtualKeyCode">
+            <summary>
+            Virtual key codes
+            </summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.None">
+            <summary>No key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_LBUTTON">
+            <summary>Left mouse button</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_RBUTTON">
+            <summary>Right mouse button</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_CANCEL">
+            <summary>Control-break processing</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_MBUTTON">
+            <summary>Middle mouse button (three-button mouse)</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_XBUTTON1">
+            <summary>X1 mouse button</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_XBUTTON2">
+            <summary>X2 mouse button</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_BACK">
+            <summary>BACKSPACE key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_TAB">
+            <summary>TAB key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_CLEAR">
+            <summary>CLEAR key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_RETURN">
+            <summary>ENTER key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_SHIFT">
+            <summary>SHIFT key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_CONTROL">
+            <summary>CTRL key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_MENU">
+            <summary>ALT key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_PAUSE">
+            <summary>PAUSE key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_CAPITAL">
+            <summary>CAPS LOCK key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_KANA">
+            <summary>IME Kana mode</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_HANGUEL">
+            <summary>IME Hanguel mode (maintained for compatibility; use VK_HANGUL)</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_HANGUL">
+            <summary>IME Hangul mode</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_JUNJA">
+            <summary>IME Junja mode</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_FINAL">
+            <summary>IME final mode</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_HANJA">
+            <summary>IME Hanja mode</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_KANJI">
+            <summary>IME Kanji mode</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_ESCAPE">
+            <summary>ESC key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_CONVERT">
+            <summary>IME convert</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_NONCONVERT">
+            <summary>IME nonconvert</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_ACCEPT">
+            <summary>IME accept</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_MODECHANGE">
+            <summary>IME mode change request</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_SPACE">
+            <summary>SPACEBAR</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_PRIOR">
+            <summary>PAGE UP key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_NEXT">
+            <summary>PAGE DOWN key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_END">
+            <summary>END key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_HOME">
+            <summary>HOME key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_LEFT">
+            <summary>LEFT ARROW key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_UP">
+            <summary>UP ARROW key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_RIGHT">
+            <summary>RIGHT ARROW key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_DOWN">
+            <summary>DOWN ARROW key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_SELECT">
+            <summary>SELECT key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_PRINT">
+            <summary>PRINT key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_EXECUTE">
+            <summary>EXECUTE key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_SNAPSHOT">
+            <summary>PRINT SCREEN key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_INSERT">
+            <summary>INS key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_DELETE">
+            <summary>DEL key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_HELP">
+            <summary>HELP key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_0">
+            <summary>0 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_1">
+            <summary>1 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_2">
+            <summary>2 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_3">
+            <summary>3 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_4">
+            <summary>4 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_5">
+            <summary>5 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_6">
+            <summary>6 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_7">
+            <summary>7 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_8">
+            <summary>8 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_9">
+            <summary>9 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_A">
+            <summary>A key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_B">
+            <summary>B key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_C">
+            <summary>C key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_D">
+            <summary>D key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_E">
+            <summary>E key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F">
+            <summary>F key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_G">
+            <summary>G key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_H">
+            <summary>H key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_I">
+            <summary>I key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_J">
+            <summary>J key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_K">
+            <summary>K key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_L">
+            <summary>L key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_M">
+            <summary>M key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_N">
+            <summary>N key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_O">
+            <summary>O key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_P">
+            <summary>P key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_Q">
+            <summary>Q key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_R">
+            <summary>R key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_S">
+            <summary>S key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_T">
+            <summary>T key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_U">
+            <summary>U key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_V">
+            <summary>V key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_W">
+            <summary>W key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_X">
+            <summary>X key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_Y">
+            <summary>Y key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_Z">
+            <summary>Z key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_LWIN">
+            <summary>Left Windows key (Natural keyboard)</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_RWIN">
+            <summary>Right Windows key (Natural keyboard)</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_APPS">
+            <summary>Applications key (Natural keyboard)</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_SLEEP">
+            <summary>Computer Sleep key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_NUMPAD0">
+            <summary>Numeric keypad 0 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_NUMPAD1">
+            <summary>Numeric keypad 1 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_NUMPAD2">
+            <summary>Numeric keypad 2 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_NUMPAD3">
+            <summary>Numeric keypad 3 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_NUMPAD4">
+            <summary>Numeric keypad 4 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_NUMPAD5">
+            <summary>Numeric keypad 5 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_NUMPAD6">
+            <summary>Numeric keypad 6 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_NUMPAD7">
+            <summary>Numeric keypad 7 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_NUMPAD8">
+            <summary>Numeric keypad 8 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_NUMPAD9">
+            <summary>Numeric keypad 9 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_MULTIPLY">
+            <summary>Multiply key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_ADD">
+            <summary>Add key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_SEPARATOR">
+            <summary>Separator key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_SUBTRACT">
+            <summary>Subtract key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_DECIMAL">
+            <summary>Decimal key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_DIVIDE">
+            <summary>Divide key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F1">
+            <summary>F1 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F2">
+            <summary>F2 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F3">
+            <summary>F3 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F4">
+            <summary>F4 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F5">
+            <summary>F5 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F6">
+            <summary>F6 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F7">
+            <summary>F7 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F8">
+            <summary>F8 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F9">
+            <summary>F9 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F10">
+            <summary>F10 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F11">
+            <summary>F11 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F12">
+            <summary>F12 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F13">
+            <summary>F13 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F14">
+            <summary>F14 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F15">
+            <summary>F15 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F16">
+            <summary>F16 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F17">
+            <summary>F17 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F18">
+            <summary>F18 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F19">
+            <summary>F19 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F20">
+            <summary>F20 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F21">
+            <summary>F21 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F22">
+            <summary>F22 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F23">
+            <summary>F23 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_F24">
+            <summary>F24 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_NUMLOCK">
+            <summary>NUM LOCK key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_SCROLL">
+            <summary>SCROLL LOCK key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_LSHIFT">
+            <summary>Left SHIFT key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_RSHIFT">
+            <summary>Right SHIFT key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_LCONTROL">
+            <summary>Left CONTROL key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_RCONTROL">
+            <summary>Right CONTROL key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_LMENU">
+            <summary>Left MENU key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_RMENU">
+            <summary>Right MENU key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_BROWSER_BACK">
+            <summary>Browser Back key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_BROWSER_FORWARD">
+            <summary>Browser Forward key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_BROWSER_REFRESH">
+            <summary>Browser Refresh key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_BROWSER_STOP">
+            <summary>Browser Stop key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_BROWSER_SEARCH">
+            <summary>Browser Search key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_BROWSER_FAVORITES">
+            <summary>Browser Favorites key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_BROWSER_HOME">
+            <summary>Browser Start and Home key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_VOLUME_MUTE">
+            <summary>Volume Mute key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_VOLUME_DOWN">
+            <summary>Volume Down key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_VOLUME_UP">
+            <summary>Volume Up key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_MEDIA_NEXT_TRACK">
+            <summary>Next Track key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_MEDIA_PREV_TRACK">
+            <summary>Previous Track key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_MEDIA_STOP">
+            <summary>Stop Media key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_MEDIA_PLAY_PAUSE">
+            <summary>Play/Pause Media key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_LAUNCH_MAIL">
+            <summary>Start Mail key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_LAUNCH_MEDIA_SELECT">
+            <summary>Select Media key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_LAUNCH_APP1">
+            <summary>Start Application 1 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_LAUNCH_APP2">
+            <summary>Start Application 2 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_OEM_1">
+            <summary>Used for miscellaneous characters; it can vary by keyboard. For the US standard keyboard, the ';:' key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_OEM_PLUS">
+            <summary>For any country/region, the '+' key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_OEM_COMMA">
+            <summary>For any country/region, the ',' key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_OEM_MINUS">
+            <summary>For any country/region, the '-' key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_OEM_PERIOD">
+            <summary>For any country/region, the '.' key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_OEM_2">
+            <summary>Used for miscellaneous characters; it can vary by keyboard. For the US standard keyboard, the '/?' key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_OEM_3">
+            <summary>Used for miscellaneous characters; it can vary by keyboard. For the US standard keyboard, the '`~' key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_OEM_4">
+            <summary>Used for miscellaneous characters; it can vary by keyboard. For the US standard keyboard, the '[{' key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_OEM_5">
+            <summary>Used for miscellaneous characters; it can vary by keyboard. For the US standard keyboard, the '\\|' key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_OEM_6">
+            <summary>Used for miscellaneous characters; it can vary by keyboard. For the US standard keyboard, the ']}' key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_OEM_7">
+            <summary>Used for miscellaneous characters; it can vary by keyboard. For the US standard keyboard, the 'single-quote/double-quote' key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_OEM_8">
+            <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_OEM_102">
+            <summary>Either the angle bracket key or the backslash key on the RT 102-key keyboard</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_PROCESSKEY">
+            <summary>IME PROCESS key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_PACKET">
+            <summary>Used to pass Unicode characters as if they were keystrokes. The VK_PACKET key is the low word of a 32-bit Virtual Key value used for non-keyboard input methods. For more information, see Remark in KEYBDINPUT, SendInput, WM_KEYDOWN, and WM_KEYUP</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_ATTN">
+            <summary>Attn key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_CRSEL">
+            <summary>CrSel key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_EXSEL">
+            <summary>ExSel key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_EREOF">
+            <summary>Erase EOF key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_PLAY">
+            <summary>Play key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_ZOOM">
+            <summary>Zoom key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_PA1">
+            <summary>PA1 key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.VK_OEM_CLEAR">
+            <summary>Clear key</summary>
+        </member>
+        <member name="F:getReal3D.VirtualKeyCode.Count">
+            <summary>Number of keys</summary>
+        </member>
+        <member name="T:getReal3D.ButtonCode">
+            <summary>
+            Joystick button codes
+            </summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_DPAD_UP">
+            <summary>JOYSTICK_DPAD_UP</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_DPAD_DOWN">
+            <summary>JOYSTICK_DPAD_DOWN</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_DPAD_LEFT">
+            <summary>JOYSTICK_DPAD_LEFT</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_DPAD_RIGHT">
+            <summary>JOYSTICK_DPAD_RIGHT</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_START">
+            <summary>JOYSTICK_START</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_BACK">
+            <summary>JOYSTICK_BACK</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_LEFT_THUMB">
+            <summary>JOYSTICK_LEFT_THUMB</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_RIGHT_THUMB">
+            <summary>JOYSTICK_RIGHT_THUMB</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_LEFT_SHOULDER">
+            <summary>JOYSTICK_LEFT_SHOULDER</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_RIGHT_SHOULDER">
+            <summary>JOYSTICK_RIGHT_SHOULDER</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_UNUSED_1">
+            <summary>JOYSTICK_UNUSED_1</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_UNUSED_2">
+            <summary>JOYSTICK_UNUSED_2</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_A">
+            <summary>JOYSTICK_A</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B">
+            <summary>JOYSTICK_B</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_X">
+            <summary>JOYSTICK_X</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_Y">
+            <summary>JOYSTICK_Y</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B1">
+            <summary>JOYSTICK_B1</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B2">
+            <summary>JOYSTICK_B2</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B3">
+            <summary>JOYSTICK_B3</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B4">
+            <summary>JOYSTICK_B4</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B5">
+            <summary>JOYSTICK_B5</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B6">
+            <summary>JOYSTICK_B6</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B7">
+            <summary>JOYSTICK_B7</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B8">
+            <summary>JOYSTICK_B8</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B9">
+            <summary>JOYSTICK_B9</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B10">
+            <summary>JOYSTICK_B10</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B11">
+            <summary>JOYSTICK_B11</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B12">
+            <summary>JOYSTICK_B12</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B13">
+            <summary>JOYSTICK_B13</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B14">
+            <summary>JOYSTICK_B14</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B15">
+            <summary>JOYSTICK_B15</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B16">
+            <summary>JOYSTICK_B16</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B17">
+            <summary>JOYSTICK_B17</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B18">
+            <summary>JOYSTICK_B18</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B19">
+            <summary>JOYSTICK_B19</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B20">
+            <summary>JOYSTICK_B20</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B21">
+            <summary>JOYSTICK_B21</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B22">
+            <summary>JOYSTICK_B22</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B23">
+            <summary>JOYSTICK_B23</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B24">
+            <summary>JOYSTICK_B24</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B25">
+            <summary>JOYSTICK_B25</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B26">
+            <summary>JOYSTICK_B26</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B27">
+            <summary>JOYSTICK_B27</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B28">
+            <summary>JOYSTICK_B28</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B29">
+            <summary>JOYSTICK_B29</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B30">
+            <summary>JOYSTICK_B30</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B31">
+            <summary>JOYSTICK_B31</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK_B32">
+            <summary>JOYSTICK_B32</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_DPAD_UP">
+            <summary>JOYSTICK1_DPAD_UP</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_DPAD_DOWN">
+            <summary>JOYSTICK1_DPAD_DOWN</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_DPAD_LEFT">
+            <summary>JOYSTICK1_DPAD_LEFT</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_DPAD_RIGHT">
+            <summary>JOYSTICK1_DPAD_RIGHT</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_START">
+            <summary>JOYSTICK1_START</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_BACK">
+            <summary>JOYSTICK1_BACK</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_LEFT_THUMB">
+            <summary>JOYSTICK1_LEFT_THUMB</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_RIGHT_THUMB">
+            <summary>JOYSTICK1_RIGHT_THUMB</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_LEFT_SHOULDER">
+            <summary>JOYSTICK1_LEFT_SHOULDER</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_RIGHT_SHOULDER">
+            <summary>JOYSTICK1_RIGHT_SHOULDER</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_UNUSED_1">
+            <summary>JOYSTICK1_UNUSED_1</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_UNUSED_2">
+            <summary>JOYSTICK1_UNUSED_2</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_A">
+            <summary>JOYSTICK1_A</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B">
+            <summary>JOYSTICK1_B</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_X">
+            <summary>JOYSTICK1_X</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_Y">
+            <summary>JOYSTICK1_Y</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B1">
+            <summary>JOYSTICK1_B1</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B2">
+            <summary>JOYSTICK1_B2</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B3">
+            <summary>JOYSTICK1_B3</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B4">
+            <summary>JOYSTICK1_B4</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B5">
+            <summary>JOYSTICK1_B5</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B6">
+            <summary>JOYSTICK1_B6</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B7">
+            <summary>JOYSTICK1_B7</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B8">
+            <summary>JOYSTICK1_B8</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B9">
+            <summary>JOYSTICK1_B9</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B10">
+            <summary>JOYSTICK1_B10</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B11">
+            <summary>JOYSTICK1_B11</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B12">
+            <summary>JOYSTICK1_B12</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B13">
+            <summary>JOYSTICK1_B13</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B14">
+            <summary>JOYSTICK1_B14</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B15">
+            <summary>JOYSTICK1_B15</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B16">
+            <summary>JOYSTICK1_B16</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B17">
+            <summary>JOYSTICK1_B17</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B18">
+            <summary>JOYSTICK1_B18</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B19">
+            <summary>JOYSTICK1_B19</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B20">
+            <summary>JOYSTICK1_B20</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B21">
+            <summary>JOYSTICK1_B21</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B22">
+            <summary>JOYSTICK1_B22</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B23">
+            <summary>JOYSTICK1_B23</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B24">
+            <summary>JOYSTICK1_B24</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B25">
+            <summary>JOYSTICK1_B25</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B26">
+            <summary>JOYSTICK1_B26</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B27">
+            <summary>JOYSTICK1_B27</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B28">
+            <summary>JOYSTICK1_B28</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B29">
+            <summary>JOYSTICK1_B29</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B30">
+            <summary>JOYSTICK1_B30</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B31">
+            <summary>JOYSTICK1_B31</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK1_B32">
+            <summary>JOYSTICK1_B32</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_DPAD_UP">
+            <summary>JOYSTICK2_DPAD_UP</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_DPAD_DOWN">
+            <summary>JOYSTICK2_DPAD_DOWN</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_DPAD_LEFT">
+            <summary>JOYSTICK2_DPAD_LEFT</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_DPAD_RIGHT">
+            <summary>JOYSTICK2_DPAD_RIGHT</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_START">
+            <summary>JOYSTICK2_START</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_BACK">
+            <summary>JOYSTICK2_BACK</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_LEFT_THUMB">
+            <summary>JOYSTICK2_LEFT_THUMB</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_RIGHT_THUMB">
+            <summary>JOYSTICK2_RIGHT_THUMB</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_LEFT_SHOULDER">
+            <summary>JOYSTICK2_LEFT_SHOULDER</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_RIGHT_SHOULDER">
+            <summary>JOYSTICK2_RIGHT_SHOULDER</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_UNUSED_1">
+            <summary>JOYSTICK2_UNUSED_1</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_UNUSED_2">
+            <summary>JOYSTICK2_UNUSED_2</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_A">
+            <summary>JOYSTICK2_A</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B">
+            <summary>JOYSTICK2_B</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_X">
+            <summary>JOYSTICK2_X</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_Y">
+            <summary>JOYSTICK2_Y</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B1">
+            <summary>JOYSTICK2_B1</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B2">
+            <summary>JOYSTICK2_B2</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B3">
+            <summary>JOYSTICK2_B3</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B4">
+            <summary>JOYSTICK2_B4</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B5">
+            <summary>JOYSTICK2_B5</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B6">
+            <summary>JOYSTICK2_B6</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B7">
+            <summary>JOYSTICK2_B7</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B8">
+            <summary>JOYSTICK2_B8</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B9">
+            <summary>JOYSTICK2_B9</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B10">
+            <summary>JOYSTICK2_B10</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B11">
+            <summary>JOYSTICK2_B11</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B12">
+            <summary>JOYSTICK2_B12</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B13">
+            <summary>JOYSTICK2_B13</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B14">
+            <summary>JOYSTICK2_B14</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B15">
+            <summary>JOYSTICK2_B15</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B16">
+            <summary>JOYSTICK2_B16</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B17">
+            <summary>JOYSTICK2_B17</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B18">
+            <summary>JOYSTICK2_B18</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B19">
+            <summary>JOYSTICK2_B19</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B20">
+            <summary>JOYSTICK2_B20</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B21">
+            <summary>JOYSTICK2_B21</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B22">
+            <summary>JOYSTICK2_B22</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B23">
+            <summary>JOYSTICK2_B23</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B24">
+            <summary>JOYSTICK2_B24</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B25">
+            <summary>JOYSTICK2_B25</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B26">
+            <summary>JOYSTICK2_B26</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B27">
+            <summary>JOYSTICK2_B27</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B28">
+            <summary>JOYSTICK2_B28</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B29">
+            <summary>JOYSTICK2_B29</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B30">
+            <summary>JOYSTICK2_B30</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B31">
+            <summary>JOYSTICK2_B31</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK2_B32">
+            <summary>JOYSTICK2_B32</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_DPAD_UP">
+            <summary>JOYSTICK3_DPAD_UP</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_DPAD_DOWN">
+            <summary>JOYSTICK3_DPAD_DOWN</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_DPAD_LEFT">
+            <summary>JOYSTICK3_DPAD_LEFT</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_DPAD_RIGHT">
+            <summary>JOYSTICK3_DPAD_RIGHT</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_START">
+            <summary>JOYSTICK3_START</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_BACK">
+            <summary>JOYSTICK3_BACK</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_LEFT_THUMB">
+            <summary>JOYSTICK3_LEFT_THUMB</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_RIGHT_THUMB">
+            <summary>JOYSTICK3_RIGHT_THUMB</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_LEFT_SHOULDER">
+            <summary>JOYSTICK3_LEFT_SHOULDER</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_RIGHT_SHOULDER">
+            <summary>JOYSTICK3_RIGHT_SHOULDER</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_UNUSED_1">
+            <summary>JOYSTICK3_UNUSED_1</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_UNUSED_2">
+            <summary>JOYSTICK3_UNUSED_2</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_A">
+            <summary>JOYSTICK3_A</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B">
+            <summary>JOYSTICK3_B</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_X">
+            <summary>JOYSTICK3_X</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_Y">
+            <summary>JOYSTICK3_Y</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B1">
+            <summary>JOYSTICK3_B1</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B2">
+            <summary>JOYSTICK3_B2</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B3">
+            <summary>JOYSTICK3_B3</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B4">
+            <summary>JOYSTICK3_B4</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B5">
+            <summary>JOYSTICK3_B5</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B6">
+            <summary>JOYSTICK3_B6</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B7">
+            <summary>JOYSTICK3_B7</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B8">
+            <summary>JOYSTICK3_B8</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B9">
+            <summary>JOYSTICK3_B9</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B10">
+            <summary>JOYSTICK3_B10</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B11">
+            <summary>JOYSTICK3_B11</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B12">
+            <summary>JOYSTICK3_B12</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B13">
+            <summary>JOYSTICK3_B13</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B14">
+            <summary>JOYSTICK3_B14</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B15">
+            <summary>JOYSTICK3_B15</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B16">
+            <summary>JOYSTICK3_B16</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B17">
+            <summary>JOYSTICK3_B17</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B18">
+            <summary>JOYSTICK3_B18</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B19">
+            <summary>JOYSTICK3_B19</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B20">
+            <summary>JOYSTICK3_B20</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B21">
+            <summary>JOYSTICK3_B21</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B22">
+            <summary>JOYSTICK3_B22</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B23">
+            <summary>JOYSTICK3_B23</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B24">
+            <summary>JOYSTICK3_B24</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B25">
+            <summary>JOYSTICK3_B25</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B26">
+            <summary>JOYSTICK3_B26</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B27">
+            <summary>JOYSTICK3_B27</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B28">
+            <summary>JOYSTICK3_B28</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B29">
+            <summary>JOYSTICK3_B29</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B30">
+            <summary>JOYSTICK3_B30</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B31">
+            <summary>JOYSTICK3_B31</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK3_B32">
+            <summary>JOYSTICK3_B32</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_DPAD_UP">
+            <summary>JOYSTICK4_DPAD_UP</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_DPAD_DOWN">
+            <summary>JOYSTICK4_DPAD_DOWN</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_DPAD_LEFT">
+            <summary>JOYSTICK4_DPAD_LEFT</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_DPAD_RIGHT">
+            <summary>JOYSTICK4_DPAD_RIGHT</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_START">
+            <summary>JOYSTICK4_START</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_BACK">
+            <summary>JOYSTICK4_BACK</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_LEFT_THUMB">
+            <summary>JOYSTICK4_LEFT_THUMB</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_RIGHT_THUMB">
+            <summary>JOYSTICK4_RIGHT_THUMB</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_LEFT_SHOULDER">
+            <summary>JOYSTICK4_LEFT_SHOULDER</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_RIGHT_SHOULDER">
+            <summary>JOYSTICK4_RIGHT_SHOULDER</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_UNUSED_1">
+            <summary>JOYSTICK4_UNUSED_1</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_UNUSED_2">
+            <summary>JOYSTICK4_UNUSED_2</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_A">
+            <summary>JOYSTICK4_A</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B">
+            <summary>JOYSTICK4_B</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_X">
+            <summary>JOYSTICK4_X</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_Y">
+            <summary>JOYSTICK4_Y</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B1">
+            <summary>JOYSTICK4_B1</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B2">
+            <summary>JOYSTICK4_B2</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B3">
+            <summary>JOYSTICK4_B3</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B4">
+            <summary>JOYSTICK4_B4</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B5">
+            <summary>JOYSTICK4_B5</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B6">
+            <summary>JOYSTICK4_B6</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B7">
+            <summary>JOYSTICK4_B7</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B8">
+            <summary>JOYSTICK4_B8</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B9">
+            <summary>JOYSTICK4_B9</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B10">
+            <summary>JOYSTICK4_B10</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B11">
+            <summary>JOYSTICK4_B11</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B12">
+            <summary>JOYSTICK4_B12</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B13">
+            <summary>JOYSTICK4_B13</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B14">
+            <summary>JOYSTICK4_B14</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B15">
+            <summary>JOYSTICK4_B15</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B16">
+            <summary>JOYSTICK4_B16</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B17">
+            <summary>JOYSTICK4_B17</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B18">
+            <summary>JOYSTICK4_B18</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B19">
+            <summary>JOYSTICK4_B19</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B20">
+            <summary>JOYSTICK4_B20</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B21">
+            <summary>JOYSTICK4_B21</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B22">
+            <summary>JOYSTICK4_B22</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B23">
+            <summary>JOYSTICK4_B23</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B24">
+            <summary>JOYSTICK4_B24</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B25">
+            <summary>JOYSTICK4_B25</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B26">
+            <summary>JOYSTICK4_B26</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B27">
+            <summary>JOYSTICK4_B27</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B28">
+            <summary>JOYSTICK4_B28</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B29">
+            <summary>JOYSTICK4_B29</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B30">
+            <summary>JOYSTICK4_B30</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B31">
+            <summary>JOYSTICK4_B31</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.JOYSTICK4_B32">
+            <summary>JOYSTICK4_B32</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.Count">
+            <summary>Number of buttons</summary>
+        </member>
+        <member name="F:getReal3D.ButtonCode.None">
+            <summary>No button</summary>
+        </member>
+        <member name="T:getReal3D.AxisCode">
+            <summary>
+            Axis codes
+            </summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK_THUMB_LX">
+            <summary>JOYSTICK_THUMB_LX</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK_THUMB_LY">
+            <summary>JOYSTICK_THUMB_LY</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK_THUMB_RX">
+            <summary>JOYSTICK_THUMB_RX</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK_THUMB_RY">
+            <summary>JOYSTICK_THUMB_RY</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK_TRIGGER_L">
+            <summary>JOYSTICK_TRIGGER_L</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK_TRIGGER_R">
+            <summary>JOYSTICK_TRIGGER_R</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK1_THUMB_LX">
+            <summary>JOYSTICK1_THUMB_LX</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK1_THUMB_LY">
+            <summary>JOYSTICK1_THUMB_LY</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK1_THUMB_RX">
+            <summary>JOYSTICK1_THUMB_RX</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK1_THUMB_RY">
+            <summary>JOYSTICK1_THUMB_RY</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK1_TRIGGER_L">
+            <summary>JOYSTICK1_TRIGGER_L</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK1_TRIGGER_R">
+            <summary>JOYSTICK1_TRIGGER_R</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK2_THUMB_LX">
+            <summary>JOYSTICK2_THUMB_LX</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK2_THUMB_LY">
+            <summary>JOYSTICK2_THUMB_LY</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK2_THUMB_RX">
+            <summary>JOYSTICK2_THUMB_RX</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK2_THUMB_RY">
+            <summary>JOYSTICK2_THUMB_RY</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK2_TRIGGER_L">
+            <summary>JOYSTICK2_TRIGGER_L</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK2_TRIGGER_R">
+            <summary>JOYSTICK2_TRIGGER_R</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK3_THUMB_LX">
+            <summary>JOYSTICK3_THUMB_LX</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK3_THUMB_LY">
+            <summary>JOYSTICK3_THUMB_LY</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK3_THUMB_RX">
+            <summary>JOYSTICK3_THUMB_RX</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK3_THUMB_RY">
+            <summary>JOYSTICK3_THUMB_RY</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK3_TRIGGER_L">
+            <summary>JOYSTICK3_TRIGGER_L</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK3_TRIGGER_R">
+            <summary>JOYSTICK3_TRIGGER_R</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK4_THUMB_LX">
+            <summary>JOYSTICK4_THUMB_LX</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK4_THUMB_LY">
+            <summary>JOYSTICK4_THUMB_LY</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK4_THUMB_RX">
+            <summary>JOYSTICK4_THUMB_RX</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK4_THUMB_RY">
+            <summary>JOYSTICK4_THUMB_RY</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK4_TRIGGER_L">
+            <summary>JOYSTICK4_TRIGGER_L</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.JOYSTICK4_TRIGGER_R">
+            <summary>JOYSTICK4_TRIGGER_R</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.MOUSE_X">
+            <summary>X mouse position</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.MOUSE_Y">
+            <summary>Y mouse position</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.MOUSE_WHEEL">
+            <summary>Mouse wheel</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.Count">
+            <summary>Axis count</summary>
+        </member>
+        <member name="F:getReal3D.AxisCode.None">
+            <summary>No axis</summary>
+        </member>
+        <member name="T:getReal3D.WriteBuffer">
+            <summary>
+            A buffer that can be written into.
+            </summary>
+        </member>
+        <member name="P:getReal3D.WriteBuffer.size">
+            <summary>
+            Return the size of the written data.
+            </summary>
+        </member>
+        <member name="P:getReal3D.WriteBuffer.buffer">
+            <summary>
+            Return the data. Do not attempt to modify!
+            </summary>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.#ctor">
+            <summary>
+            Create a WriteBuffer.
+            </summary>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.Reset">
+            <summary>
+            Reset the WriteBuffer.
+            </summary>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteByte(System.Byte)">
+            <summary>
+            Write a byte to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteBool(System.Boolean)">
+            <summary>
+            Write a bool to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteInteger(System.Int32)">
+            <summary>
+            Write an integer to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteFloat(System.Single)">
+            <summary>
+            Write a float to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteChar(System.Char)">
+            <summary>
+            Write a char to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteDouble(System.Double)">
+            <summary>
+            Write a double to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteShort(System.Int16)">
+            <summary>
+            Write a short to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteUInteger(System.UInt32)">
+            <summary>
+            Write an unsigned integer to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteLong(System.Int64)">
+            <summary>
+            Write a long to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteULong(System.UInt64)">
+            <summary>
+            Write an unsigned long to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteUShort(System.UInt16)">
+            <summary>
+            Write an unsigned short  to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteString(System.String)">
+            <summary>
+            Write a string to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteVector2(UnityEngine.Vector2)">
+            <summary>
+            Write a Vector2 to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteVector3(UnityEngine.Vector3)">
+            <summary>
+            Write a Vector3 to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteQuaternion(UnityEngine.Quaternion)">
+            <summary>
+            Write a quaternion to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteColor32(UnityEngine.Color32)">
+            <summary>
+            Write a Color32 to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:getReal3D.WriteBuffer.WriteColor(UnityEngine.Color)">
+            <summary>
+            Write a Color to the buffer.
+            </summary>
+            <param name="v"></param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 6aebc42a318181047bb12fdb4b28b5c8
+timeCreated: 1502823238
+licenseType: Pro
+PluginImporter:
+  serializedVersion: 1
+  iconMap: {}
+  executionOrder:
+    getReal3D.MultiCluster.NetworkIdentity: -31700
+    getReal3D.MultiCluster.NetworkManager: -31800
+  isPreloaded: 0
+  isOverridable: 0
+  platformData:
+    Any:
+      enabled: 1
+      settings: {}
+    Editor:
+      enabled: 0
+      settings:
+        DefaultValueInitialized: true
+    WindowsStoreApps:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

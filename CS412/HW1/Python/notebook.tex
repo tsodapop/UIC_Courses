@@ -1,0 +1,644 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{untitled}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{1 Getting Started}\label{getting-started}
+
+    \section{2 Drawing your first graph}\label{drawing-your-first-graph}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}205}]:} \PY{c+c1}{\PYZsh{}From the console, run the following}
+          \PY{c+c1}{\PYZsh{}pip install numpy}
+          \PY{c+c1}{\PYZsh{}pip install scipy}
+          \PY{c+c1}{\PYZsh{}pip install scikit\PYZhy{}learn}
+          \PY{c+c1}{\PYZsh{}pip install matplotlib}
+          
+          \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{neighbors} \PY{k}{import} \PY{n}{KNeighborsClassifier}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{neighbors} \PY{k}{import} \PY{n}{DistanceMetric}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{preprocessing} \PY{k}{import} \PY{n}{Normalizer}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{KFold}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{cross\PYZus{}val\PYZus{}score}
+          \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{mp}
+          \PY{k+kn}{from} \PY{n+nn}{pylab} \PY{k}{import} \PY{n}{show}
+          
+          \PY{n}{data} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{}shuffle the data and select training and test data}
+          \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{seed}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{)}
+          \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{shuffle}\PY{p}{(}\PY{n}{data}\PY{p}{)}
+          
+          \PY{n}{features} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{digits} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          
+          
+          \PY{k}{for} \PY{n}{row} \PY{o+ow}{in} \PY{n}{data}\PY{p}{:}
+              \PY{k}{if}\PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{==}\PY{l+m+mi}{1} \PY{o+ow}{or} \PY{n}{row}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{==}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{features}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{}add in remaining values past the first (this is a matrix)}
+                  \PY{n}{digits}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{str}\PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{}add the 1 or the 5 to digits}
+          
+          \PY{c+c1}{\PYZsh{}select the proportion of data to use for training}
+          \PY{n}{numTrain} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{features}\PY{p}{)}\PY{o}{*}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{)} \PY{c+c1}{\PYZsh{}we are training on 20\PYZpc{} of the data}
+          
+          \PY{n}{trainFeatures} \PY{o}{=} \PY{n}{features}\PY{p}{[}\PY{p}{:}\PY{n}{numTrain}\PY{p}{]} \PY{c+c1}{\PYZsh{}we train on the first 20\PYZpc{} of the data}
+          \PY{n}{testFeatures} \PY{o}{=} \PY{n}{features}\PY{p}{[}\PY{n}{numTrain}\PY{p}{:}\PY{p}{]}  \PY{c+c1}{\PYZsh{}we test on the remaining 80\PYZpc{}}
+          \PY{n}{trainDigits} \PY{o}{=} \PY{n}{digits}\PY{p}{[}\PY{p}{:}\PY{n}{numTrain}\PY{p}{]}     \PY{c+c1}{\PYZsh{}we train on the first 20\PYZpc{} of the data}
+          \PY{n}{testDigits} \PY{o}{=} \PY{n}{digits}\PY{p}{[}\PY{n}{numTrain}\PY{p}{:}\PY{p}{]}      \PY{c+c1}{\PYZsh{}we test on the remaining 80\PYZpc{}}
+          
+          \PY{c+c1}{\PYZsh{}create the model}
+          \PY{c+c1}{\PYZsh{}https://scikit\PYZhy{}learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html}
+          
+          \PY{n}{X} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{Y} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{simpleTrain} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{colors} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{index} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+              \PY{n}{X}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{(}\PY{n+nb}{sum}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{256}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{c+c1}{\PYZsh{}mean intensity squared}
+              \PY{n}{Y}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{sum}\PY{p}{(}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{128}\PY{p}{]}\PY{o}{\PYZhy{}} \PY{n}{trainFeatures}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{128}\PY{p}{:}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{256}\PY{p}{)} \PY{c+c1}{\PYZsh{}horiz symmetry}
+              \PY{n}{simpleTrain}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{p}{(}\PY{n+nb}{sum}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{256}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{,}\PY{n+nb}{sum}\PY{p}{(}\PY{p}{(}\PY{n}{trainFeatures}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{128}\PY{p}{]}\PY{o}{\PYZhy{}} \PY{n}{trainFeatures}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{128}\PY{p}{:}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{256}\PY{p}{]}\PY{p}{)}
+              \PY{k}{if}\PY{p}{(}\PY{n}{trainDigits}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:} \PY{c+c1}{\PYZsh{}if the digit is 1, it is blue. else, it is red (only 1\PYZsq{}s and 5\PYZsq{}s)}
+                  \PY{n}{colors}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+              \PY{k}{else}\PY{p}{:}
+                  \PY{n}{colors}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{c+c1}{\PYZsh{}normalization of X and Y}
+          \PY{n}{normX} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{2}\PY{o}{*}\PY{p}{(}\PY{p}{(}\PY{n}{i} \PY{o}{\PYZhy{}} \PY{n+nb}{min}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n+nb}{max}\PY{p}{(}\PY{n}{X}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n+nb}{min}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{X}\PY{p}{]}
+          \PY{n}{normY} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{2}\PY{o}{*}\PY{p}{(}\PY{p}{(}\PY{n}{i} \PY{o}{\PYZhy{}} \PY{n+nb}{min}\PY{p}{(}\PY{n}{Y}\PY{p}{)}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n+nb}{max}\PY{p}{(}\PY{n}{Y}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n+nb}{min}\PY{p}{(}\PY{n}{Y}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{Y}\PY{p}{]}
+          
+          \PY{c+c1}{\PYZsh{}https://matplotlib.org/api/\PYZus{}as\PYZus{}gen/matplotlib.pyplot.scatter.html}
+          \PY{c+c1}{\PYZsh{}this just shows the points}
+          
+          \PY{n}{mp}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{normX}\PY{p}{,}\PY{n}{normY}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{)}
+          \PY{n}{mp}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Figure 1.1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{mp}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Horizontal Symmetry}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{mp}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Squared Mean Intensity}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_2_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \section{3 1-Nearest Neighbor}\label{nearest-neighbor}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}206}]:} \PY{n}{model} \PY{o}{=} \PY{n}{KNeighborsClassifier}\PY{p}{(}\PY{n}{n\PYZus{}neighbors}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+          \PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{simpleTrain}\PY{p}{,}\PY{n}{trainDigits}\PY{p}{)}
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{mp}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{mp}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Figure 1.2}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{mp}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Horizontal Symmetry}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{mp}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Squared Mean Intensity}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_4_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    3a: I believe this model suffers from overfitting. This is because when
+looking at Horizontal Symmetry, within the range of .00 through .75,
+there is an area of fit that curves through with red, indicating that it
+is trying to accomodate the data more accurately than necessary.
+
+    3b: I believe that a 256 dimension model will have greater error. This
+was tested by running a K-Fold validation test on the SimpleTrain, which
+is 2 dimension, and trainFeatures, which is 256 dimension. The result
+was that trainFeatures had a higher error than SimpleTrain, which is
+likely due to the data being more overfitted, giving us more error.
+
+    3a: 10-Fold Cross Validation (Euclidean, 2 Dimensions)
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}207}]:} \PY{n}{k\PYZus{}size} \PY{o}{=} \PY{l+m+mi}{10}
+          \PY{n}{kf} \PY{o}{=} \PY{n}{KFold}\PY{p}{(}\PY{n}{n\PYZus{}splits}\PY{o}{=}\PY{n}{k\PYZus{}size}\PY{p}{)}
+          
+          \PY{n}{model} \PY{o}{=} \PY{n}{KNeighborsClassifier}\PY{p}{(}\PY{n}{n\PYZus{}neighbors}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{metric} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{euclidean}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{error} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{model}\PY{p}{,} \PY{n}{simpleTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{n}{k\PYZus{}size}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZpc{} E}\PY{l+s+s2}{rror:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{error}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\% Error: 0.9684139784946089
+
+    \end{Verbatim}
+
+    3b: 10-Fold Cross Validation (Manhattan, 2 Dimensions)
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}208}]:} \PY{n}{k\PYZus{}size} \PY{o}{=} \PY{l+m+mi}{10}
+          \PY{n}{kf} \PY{o}{=} \PY{n}{KFold}\PY{p}{(}\PY{n}{n\PYZus{}splits}\PY{o}{=}\PY{n}{k\PYZus{}size}\PY{p}{)}
+          
+          \PY{n}{model} \PY{o}{=} \PY{n}{KNeighborsClassifier}\PY{p}{(}\PY{n}{n\PYZus{}neighbors}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{metric} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{manhattan}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{error} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{model}\PY{p}{,} \PY{n}{simpleTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{n}{k\PYZus{}size}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZpc{} E}\PY{l+s+s2}{rror:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{error}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\% Error: 0.9684139784946089
+
+    \end{Verbatim}
+
+    3c: 10-Fold Cross Validation (Chebyshev, 2 Dimensions)
+
+In here, we see that the percent error is the same as when we are
+comparing the euclidean or manhattan, given k\_size = 10. This may be
+due to the fact that we have specified our dimensions rather than using
+the given dimensions.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}209}]:} \PY{n}{k\PYZus{}size} \PY{o}{=} \PY{l+m+mi}{10}
+          \PY{n}{kf} \PY{o}{=} \PY{n}{KFold}\PY{p}{(}\PY{n}{n\PYZus{}splits}\PY{o}{=}\PY{n}{k\PYZus{}size}\PY{p}{)}
+          
+          \PY{n}{model} \PY{o}{=} \PY{n}{KNeighborsClassifier}\PY{p}{(}\PY{n}{n\PYZus{}neighbors}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{metric} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{chebyshev}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{error} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{model}\PY{p}{,} \PY{n}{simpleTrain}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{n}{k\PYZus{}size}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZpc{} E}\PY{l+s+s2}{rror:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{error}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\% Error: 0.9684139784946089
+
+    \end{Verbatim}
+
+    3d: 10-Fold Cross Validation (Euclidean, 256 Dimensions)
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}210}]:} \PY{n}{k\PYZus{}size} \PY{o}{=} \PY{l+m+mi}{10}
+          \PY{n}{kf} \PY{o}{=} \PY{n}{KFold}\PY{p}{(}\PY{n}{n\PYZus{}splits}\PY{o}{=}\PY{n}{k\PYZus{}size}\PY{p}{)}
+          
+          \PY{n}{model} \PY{o}{=} \PY{n}{KNeighborsClassifier}\PY{p}{(}\PY{n}{n\PYZus{}neighbors}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{metric} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{euclidean}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{error} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{n}{k\PYZus{}size}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZpc{} E}\PY{l+s+s2}{rror:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{error}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\% Error: 0.33333333333332993
+
+    \end{Verbatim}
+
+    3e: 10-Fold Cross Validation (Manhattan, 256 Dimensions)
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}211}]:} \PY{n}{k\PYZus{}size} \PY{o}{=} \PY{l+m+mi}{10}
+          \PY{n}{kf} \PY{o}{=} \PY{n}{KFold}\PY{p}{(}\PY{n}{n\PYZus{}splits}\PY{o}{=}\PY{n}{k\PYZus{}size}\PY{p}{)}
+          
+          \PY{n}{model} \PY{o}{=} \PY{n}{KNeighborsClassifier}\PY{p}{(}\PY{n}{n\PYZus{}neighbors}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{metric} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{manhattan}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{error} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{n}{k\PYZus{}size}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZpc{} E}\PY{l+s+s2}{rror:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{error}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\% Error: 0.6559139784946155
+
+    \end{Verbatim}
+
+    3f: 10-Fold Cross Validation (Chebyshev, 256 Dimensions)
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}212}]:} \PY{n}{k\PYZus{}size} \PY{o}{=} \PY{l+m+mi}{10}
+          \PY{n}{kf} \PY{o}{=} \PY{n}{KFold}\PY{p}{(}\PY{n}{n\PYZus{}splits}\PY{o}{=}\PY{n}{k\PYZus{}size}\PY{p}{)}
+          
+          \PY{n}{model} \PY{o}{=} \PY{n}{KNeighborsClassifier}\PY{p}{(}\PY{n}{n\PYZus{}neighbors}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{metric} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{chebyshev}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{error} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{n}{k\PYZus{}size}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZpc{} E}\PY{l+s+s2}{rror:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{error}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\% Error: 9.932123655913971
+
+    \end{Verbatim}
+
+    \section{4 k-Nearest Neighbor}\label{k-nearest-neighbor}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}273}]:} \PY{n}{xAxis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yAxis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yErr} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          
+          \PY{k}{for} \PY{n}{k\PYZus{}neighborsize} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{50}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{:} 
+              \PY{n}{model} \PY{o}{=} \PY{n}{KNeighborsClassifier}\PY{p}{(}\PY{n}{n\PYZus{}neighbors}\PY{o}{=}\PY{n}{k\PYZus{}neighborsize}\PY{p}{,} \PY{n}{metric} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{euclidean}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+              \PY{n}{accuracy} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{n}{accuracy} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{model}\PY{p}{,} \PY{n}{trainFeatures}\PY{p}{,} \PY{n}{trainDigits}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+              \PY{n}{xAxis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{k\PYZus{}neighborsize}\PY{p}{)}
+              \PY{n}{yAxis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{accuracy}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{n}{yErr}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{accuracy}\PY{o}{.}\PY{n}{std}\PY{p}{(}\PY{p}{)}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+              
+          \PY{n}{mp}\PY{o}{.}\PY{n}{errorbar}\PY{p}{(}\PY{n}{xAxis}\PY{p}{,} \PY{n}{yAxis}\PY{p}{,} \PY{n}{xerr}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{yerr} \PY{o}{=} \PY{n}{yErr}\PY{p}{)}
+          \PY{n}{mp}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Figure 1.3}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{mp}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Number of k\PYZhy{}Neighbors}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{mp}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ErrorCV}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{mp}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_20_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    4a: I believe the 1 nearest neighbor provides the best result. Not only
+does it have the lowest amount of visible error, through analysis of the
+standard deviation, it also has the lowest variance with respect to
+standard deviation. It can be argued that you can have similar results
+up to k \textasciitilde{} 6, but since we achieve the same result with k
+= 1, it is simpler to just use 1 neighbor.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}277}]:} \PY{n}{model} \PY{o}{=} \PY{n}{KNeighborsClassifier}\PY{p}{(}\PY{n}{n\PYZus{}neighbors}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{metric} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{euclidean}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{simpleTrain}\PY{p}{,}\PY{n}{trainDigits}\PY{p}{)}
+          
+          \PY{n}{xPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{yPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{cPred} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{xP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+              \PY{n}{xP} \PY{o}{=} \PY{n}{xP}\PY{o}{/}\PY{l+m+mf}{100.0}
+              \PY{k}{for} \PY{n}{yP} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{yP} \PY{o}{=} \PY{n}{yP}\PY{o}{/}\PY{l+m+mf}{100.0}
+                  \PY{n}{xPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{xP}\PY{p}{)}
+                  \PY{n}{yPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{yP}\PY{p}{)}
+                  \PY{k}{if}\PY{p}{(}\PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{xP}\PY{p}{,}\PY{n}{yP}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{k}{else}\PY{p}{:}
+                      \PY{n}{cPred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{n}{mp}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{xPred}\PY{p}{,}\PY{n}{yPred}\PY{p}{,}\PY{n}{s}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{n}{cPred}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{)}
+          \PY{n}{mp}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Figure 1.4}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{mp}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Horizontal Symmetry}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{mp}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Squared Mean Intensity}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_22_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    4b: Because we have found our optimal k value to be 1, Figure 1.4
+reflects what is presented in Figure 1.2. This is overfitted, as we are
+trying to match what is closest to each data point, thus small clusters
+of data will have higher relevancy when creating the region chart. The
+overfitting is also shown apparent through the fact that there is the
+least amount of error, meaning that it is trying its best to fit all of
+the data points.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}288}]:} \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Error with 95}\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{ Confidence Interval}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{yErr}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+              \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{k\PYZhy{}Neighbor:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{xAxis}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{   Error:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{yAxis}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{+/\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{yErr}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+          \PY{c+c1}{\PYZsh{}     print(yErr[i])}
+          \PY{c+c1}{\PYZsh{}     print(\PYZdq{}hi\PYZdq{})}
+          \PY{c+c1}{\PYZsh{} len(yErr)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Error with 95\% Confidence Interval
+k-Neighbor: 1    Error: 0.33333333333332993 +/- 0.019999999999999997
+k-Neighbor: 3    Error: 0.33333333333332993 +/- 0.019999999999999997
+k-Neighbor: 5    Error: 0.33333333333332993 +/- 0.019999999999999997
+k-Neighbor: 7    Error: 0.6458333333333344 +/- 0.025850128948743497
+k-Neighbor: 9    Error: 0.6458333333333344 +/- 0.025850128948743497
+k-Neighbor: 11    Error: 0.9684139784946089 +/- 0.029600207456665348
+k-Neighbor: 13    Error: 0.9684139784946089 +/- 0.029600207456665348
+k-Neighbor: 15    Error: 0.9684139784946089 +/- 0.029600207456665348
+k-Neighbor: 17    Error: 1.2909946236559167 +/- 0.031636510208656834
+k-Neighbor: 19    Error: 1.2909946236559167 +/- 0.031636510208656834
+k-Neighbor: 21    Error: 1.2909946236559167 +/- 0.031636510208656834
+k-Neighbor: 23    Error: 1.2909946236559167 +/- 0.031636510208656834
+k-Neighbor: 25    Error: 1.6243279569892466 +/- 0.04410773666939198
+k-Neighbor: 27    Error: 2.269489247311829 +/- 0.05104477195067443
+k-Neighbor: 29    Error: 2.269489247311829 +/- 0.05104477195067443
+k-Neighbor: 31    Error: 2.269489247311829 +/- 0.05104477195067443
+k-Neighbor: 33    Error: 2.269489247311829 +/- 0.05104477195067443
+k-Neighbor: 35    Error: 2.5920698924731034 +/- 0.04893366816933325
+k-Neighbor: 37    Error: 2.5920698924731034 +/- 0.04893366816933325
+k-Neighbor: 39    Error: 2.5920698924731034 +/- 0.04893366816933325
+k-Neighbor: 41    Error: 2.5920698924731034 +/- 0.04893366816933325
+k-Neighbor: 43    Error: 2.904569892473108 +/- 0.04580446383692465
+k-Neighbor: 45    Error: 3.2271505376344045 +/- 0.05055253154949939
+k-Neighbor: 47    Error: 3.2271505376344045 +/- 0.05055253154949939
+k-Neighbor: 49    Error: 3.2271505376344045 +/- 0.05055253154949939
+
+    \end{Verbatim}
+
+    4c: From the information above, we extrapolate that the least variance
+is where 1\textless{}=k\textless{}7. Thus, similarly in Figure 1.4, we
+choose where k=1. Because this is also where we have the least error, we
+reason that this is an overfit model since the data closely matches the
+expected results, and the variance is small due to how closely fit the
+prediction model is to the expected.
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

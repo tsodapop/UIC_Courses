@@ -1,0 +1,12 @@
+README FILE
+
+#running the code will enable you to find the number of subsets and minimum subsets for a value T.
+#the code is run via:
+#	num_of_subsets(data, T)
+#where the data is already pre-set based on the projdata1.txt file, and the T is manually input value
+
+#the output will be based on if it can find a possible subset
+#if it is not feasible, it will print "not feasible"
+#else, it will print out that it did find subsets, the total num of subsets, 
+#the smallest subset size, and the num min subsets	
+
