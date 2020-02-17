@@ -10,7 +10,7 @@ public class LocationUpdate : CAVE2Interactable
 
     Vector3 default_pos = new Vector3(129, 13, 243);
 
-    Vector3 jukebox = new Vector3(100,9,250);
+    Vector3 jukebox = new Vector3(97,8,254);
     Vector3 benches = new Vector3(125, 9, 255);
 
 
