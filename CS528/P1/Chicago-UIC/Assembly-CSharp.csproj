@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ClickForSound.cs" />
+    <Compile Include="Assets\ClickForSoundAndPausePlay.cs" />
+    <Compile Include="Assets\ClickForSoundCanPause.cs" />
     <Compile Include="Assets\ClickToJump.cs" />
     <Compile Include="Assets\Food_CoffeeShop\Scripts\BewerageMaker.cs" />
     <Compile Include="Assets\Food_CoffeeShop\Scripts\CookableProduct.cs" />
@@ -244,73 +246,73 @@
     <None Include="Assets\module-omicron\Shaders\Font (Billboard).shader" />
     <None Include="Assets\module-omicron\CAVE2\Shaders\CAVE2ScreenMaskShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Supyrb.Editor">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Supyrb.Editor.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Supyrb.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="VRTK.Prefabs.Runtime">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/VRTK.Prefabs.Runtime.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/VRTK.Prefabs.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Zinnia.Editor">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Zinnia.Editor.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Zinnia.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Zinnia.Runtime">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Zinnia.Runtime.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Zinnia.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.11f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -490,28 +492,28 @@
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.11f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Malimbe.XmlDocumentationAttribute">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/PackageCache/io.extendreality.malimbe@9.6.5/Runtime/Malimbe.XmlDocumentationAttribute.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/PackageCache/io.extendreality.malimbe@9.6.5/Runtime/Malimbe.XmlDocumentationAttribute.dll</HintPath>
     </Reference>
     <Reference Include="Malimbe.MemberClearanceMethod">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/PackageCache/io.extendreality.malimbe@9.6.5/Runtime/Malimbe.MemberClearanceMethod.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/PackageCache/io.extendreality.malimbe@9.6.5/Runtime/Malimbe.MemberClearanceMethod.dll</HintPath>
     </Reference>
     <Reference Include="Malimbe.BehaviourStateRequirementMethod">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/PackageCache/io.extendreality.malimbe@9.6.5/Runtime/Malimbe.BehaviourStateRequirementMethod.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/PackageCache/io.extendreality.malimbe@9.6.5/Runtime/Malimbe.BehaviourStateRequirementMethod.dll</HintPath>
     </Reference>
     <Reference Include="Malimbe.MemberChangeMethod">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/PackageCache/io.extendreality.malimbe@9.6.5/Runtime/Malimbe.MemberChangeMethod.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/PackageCache/io.extendreality.malimbe@9.6.5/Runtime/Malimbe.MemberChangeMethod.dll</HintPath>
     </Reference>
     <Reference Include="Malimbe.PropertySerializationAttribute">
-      <HintPath>/Users/jonathantso/Desktop/Code/UIC/CS528/P1/Chicago-UIC/Library/PackageCache/io.extendreality.malimbe@9.6.5/Runtime/Malimbe.PropertySerializationAttribute.dll</HintPath>
+      <HintPath>/Users/jonathantso/Desktop/Code/UIC_git/CS528/P1/Chicago-UIC/Library/PackageCache/io.extendreality.malimbe@9.6.5/Runtime/Malimbe.PropertySerializationAttribute.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.11f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

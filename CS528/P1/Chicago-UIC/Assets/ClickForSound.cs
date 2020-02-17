@@ -5,14 +5,14 @@ using UnityEngine;
 public class ClickForSound : CAVE2Interactable
 {
 
-    AudioSource my_Audio;
+    AudioSource my_click_Audio;
 
     [SerializeField]
     CAVE2.Button clickButton = CAVE2.Button.Button3;
 
     private void Start()
     {
-        my_Audio = GetComponent<AudioSource>();
+        my_click_Audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -24,7 +24,7 @@ public class ClickForSound : CAVE2Interactable
     {
         if (evt.button == clickButton)
         {
-                my_Audio.Play();
+            my_click_Audio.Play();
         }
     }
 
