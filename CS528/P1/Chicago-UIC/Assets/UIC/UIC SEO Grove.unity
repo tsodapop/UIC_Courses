@@ -6223,21 +6223,6 @@ MonoBehaviour:
   wandPointing: 0
   wandTouching: 0
   click_and_pause_Button: 2
---- !u!114 &657870049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657870045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8724fb54d3df4ffd9079af32450a0bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wandPointing: 0
-  wandTouching: 0
-  click_and_pause_Button: 2
 --- !u!65 &657870050
 BoxCollider:
   m_ObjectHideFlags: 0
