@@ -1,5 +1,5 @@
 multiprocess==0.70.8
-scipy==1.2.1
+scipy==1.10.0
 scs==1.2.6
 six==1.12.0
 cvxpy==1.0.25
